@@ -1,0 +1,5 @@
+function App() {
+  return <div className="bg-blue-500 sm:bg-green-500 md:bg-red-500">App</div>;
+}
+
+export default App;
