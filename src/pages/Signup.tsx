@@ -20,6 +20,7 @@ function Signup() {
   /** validation이 끝난 뒤 실행 함수 */
   const onValid = (data: IForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
+
     if (data.password !== data.passwordConfirm) {
       setError('passwordConfirm', { message: 'password are not the same' }, { shouldFocus: true });
     }
