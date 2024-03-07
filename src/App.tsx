@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 function App() {
-  return <div className="bg-blue-500 sm:bg-green-500 md:bg-red-500">App</div>;
+  return (
+    <div className="bg-blue-500">
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
