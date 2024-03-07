@@ -1,6 +1,6 @@
 export interface IForm {
-  email: string;
   username: string;
+  name: string;
   password: string;
   passwordConfirm: string;
 }
