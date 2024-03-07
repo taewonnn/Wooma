@@ -8,7 +8,7 @@ import { authenticatedUserRouter, unauthenticatedUserRouter } from './router/rou
 /** 로그인 상태 확인 함수 */
 const isLoggedIn = () => {
   // 테스트 위해 user 지정
-  const user = false;
+  const user = 1;
   if (user) {
     return true;
   }
