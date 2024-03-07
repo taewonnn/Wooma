@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 function PublicApp() {
   return (
-    <div className="bg-red-500">
-      <p>Login Please</p>
+    <div>
+      <p className="bg-red-500">Login Please</p>
       <Outlet />
     </div>
   );
