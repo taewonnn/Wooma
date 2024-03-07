@@ -34,7 +34,7 @@ function Signup() {
           <label htmlFor="username">username :</label>
           <input
             {...register('username', {
-              required: '필수 : 이메일',
+              required: '필수: 이메일',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: '이메일 형식에 맞춰 입력해주세요',
@@ -52,7 +52,7 @@ function Signup() {
           <label htmlFor="name">name :</label>
           <input
             {...register('name', {
-              required: '필수 : 이름',
+              required: '필수: 이름',
               pattern: {
                 value: /^[a-zA-Z가-힣]{3,20}$/,
                 message: '3 ~ 10 글자 이내로 입력해주세요',
@@ -70,7 +70,7 @@ function Signup() {
           <label htmlFor="password">password :</label>
           <input
             {...register('password', {
-              required: '필수 : 비밀번호',
+              required: '필수: 비밀번호',
               pattern: {
                 value: /^[a-zA-Z0-9가-힣]{3,20}$/,
                 message: '3-10글자 이내로 입력해주세요',
@@ -88,7 +88,7 @@ function Signup() {
           <label htmlFor="passwordConfirm">passwordConfirm :</label>
           <input
             {...register('passwordConfirm', {
-              required: '필수 : 비밀번호 확인',
+              required: '필수: 비밀번호 확인',
               validate: (value) => value === password || '불일치!',
             })}
             type="password"
