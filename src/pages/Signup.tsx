@@ -9,9 +9,13 @@ function Signup() {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<IForm>();
-  console.log('Input에 입력한 값 확인 :', watch());
-  console.log('check: ', setError);
+  } = useForm<IForm>({ mode: 'onChange' });
+  // console.log('Input에 입력한 값 확인 :', watch());
+  console.log('form validation : ', errors);
+
+  /** password값 watch 통해 미리 저장 - passwordConfirm과 비교위해 */
+  const password = watch('password');
+  console.log('password 입력값: ', password);
 
   /** validation이 끝난 뒤 실행 함수 */
   const onValid = (data: IForm) => {
@@ -32,7 +36,7 @@ function Signup() {
               required: 'Please Write Email',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Please write valid email format',
+                message: '이메일 형식에 맞춰 입력해주세요',
               },
             })}
             type="text"
@@ -41,7 +45,7 @@ function Signup() {
             id="email"
           />
         </div>
-        <span className="text-red-500">{errors?.email?.message}</span>
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
         <div className="flex justify-start mb-4">
           <label htmlFor="username">username :</label>
@@ -49,9 +53,8 @@ function Signup() {
             {...register('username', {
               required: 'Please Write username',
               pattern: {
-                value: /^[a-zA-Z]{3,20}$/,
-                message:
-                  'Username must be 3-20 characters long and can only include upper and lower case letters',
+                value: /^[a-zA-Z가-힣]{3,20}$/,
+                message: '3 ~ 10 글자 이내로 입력해주세요',
               },
             })}
             type="text"
@@ -60,29 +63,40 @@ function Signup() {
             id="username"
           />
         </div>
-        <span className="text-red-500">{errors?.username?.message}</span>
+        {errors.username && <p className="text-red-500">{errors.username.message}</p>}
 
         <div className="flex justify-start mb-4">
           <label htmlFor="password">password :</label>
           <input
-            {...register('password', { required: 'Please Write password' })}
+            {...register('password', {
+              required: 'Please Write password',
+              pattern: {
+                value: /^[a-zA-Z0-9가-힣]{3,20}$/,
+                message: '3-10글자 이내로 입력해주세요',
+              },
+            })}
             type="password"
             placeholder="password"
             name="password"
             id="password"
           />
         </div>
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
 
         <div className="flex justify-start mb-4">
           <label htmlFor="passwordConfirm">passwordConfirm :</label>
           <input
-            {...register('passwordConfirm', { required: 'Please Write passwordConfirm' })}
+            {...register('passwordConfirm', {
+              required: 'Please Write passwordConfirm',
+              validate: (value) => value === password || '불일치!',
+            })}
             type="password"
             placeholder="passwordConfirm"
             name="passwordConfirm"
             id="passwordConfirm"
           />
         </div>
+        {errors.passwordConfirm && <p className="text-red-500">{errors.passwordConfirm.message}</p>}
 
         <button>가입</button>
       </form>
