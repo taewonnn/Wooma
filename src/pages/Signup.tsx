@@ -1,14 +1,18 @@
 import { useForm } from 'react-hook-form';
+import { IForm } from '../types/sign';
 
 function Signup() {
   /** hook-form */
-  const { register, watch } = useForm();
+  const { register, watch, handleSubmit, setError } = useForm<IForm>();
   console.log('Input에 입력한 값 확인 :', watch());
+  console.log('check: ', setError);
 
+  /** validation이 끝난 뒤 실행 함수 */
+  const onValid = () => {};
   return (
     <>
       <p>Signup Page</p>
-      <form action="" className="flex flex-col ">
+      <form onSubmit={handleSubmit(onValid)} className="flex flex-col ">
         <div className="flex justify-start mt-4 mb-4">
           <label htmlFor="email">email :</label>
           <input
