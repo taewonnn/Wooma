@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { IForm } from '../types/sign';
+import { ISignupForm } from '../types/sign';
 
 function Signup() {
   /** useForm */
@@ -9,7 +9,7 @@ function Signup() {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<IForm>({ mode: 'onChange' });
+  } = useForm<ISignupForm>({ mode: 'onChange' });
   // console.log('Input에 입력한 값 확인 :', watch());
   console.log('form validation : ', errors);
 
@@ -18,7 +18,7 @@ function Signup() {
   console.log('password 입력값: ', password);
 
   /** validation이 끝난 뒤 실행 함수 */
-  const onValid = (data: IForm) => {
+  const onValid = (data: ISignupForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
 
     if (data.password !== data.passwordConfirm) {
@@ -29,7 +29,7 @@ function Signup() {
   return (
     <>
       <p>Signup Page</p>
-      <form onSubmit={handleSubmit(onValid)} className="flex flex-col ">
+      <form onSubmit={handleSubmit(onValid)} className="flex flex-col">
         <div className="flex justify-start mt-4 mb-4">
           <label htmlFor="username">username :</label>
           <input
