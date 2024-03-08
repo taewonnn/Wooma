@@ -31,10 +31,12 @@ function Calendar() {
   // 받아온 데이터 Fullcalendar event형식에 맞게 파싱
   const events = ftisLoading
     ? []
-    : financialTransactions.map((transaction: ITransactions) => ({
-        title: transaction.amount,
-        date: transaction.date,
+    : financialTransactions.map((data: ITransactions) => ({
+        title: data.amount,
+        date: data.date,
+        type: data.transactionType,
       }));
+  console.log('수입/지출내역 parsing: ', events);
 
   return (
     <>
