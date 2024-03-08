@@ -1,52 +1,109 @@
 [
-  { "date": "2024-03-01", "transactionType": "income", "amount": 2000, "description": "Salary" },
-  { "date": "2024-03-02", "transactionType": "expense", "amount": 50, "description": "Coffee" },
-  { "date": "2024-03-03", "transactionType": "expense", "amount": 30, "description": "Bus fare" },
-  { "date": "2024-03-05", "transactionType": "expense", "amount": 120, "description": "Groceries" },
+  { "date": "2024-03-01", "transactionType": "income", "amount": 200000, "description": "Salary" },
+  { "date": "2024-03-02", "transactionType": "expense", "amount": 500, "description": "Coffee" },
+  { "date": "2024-03-03", "transactionType": "expense", "amount": 3000, "description": "Bus fare" },
+  {
+    "date": "2024-03-05",
+    "transactionType": "expense",
+    "amount": 12000,
+    "description": "Groceries"
+  },
   {
     "date": "2024-03-06",
     "transactionType": "income",
-    "amount": 100,
+    "amount": 100000,
     "description": "Part-time job"
   },
-  { "date": "2024-03-07", "transactionType": "income", "amount": 50, "description": "Yard sale" },
-  { "date": "2024-03-08", "transactionType": "expense", "amount": 50, "description": "Dinner out" },
+  { "date": "2024-03-07", "transactionType": "income", "amount": 5000, "description": "Yard sale" },
+  {
+    "date": "2024-03-08",
+    "transactionType": "expense",
+    "amount": 50000,
+    "description": "Dinner out"
+  },
   {
     "date": "2024-03-09",
     "transactionType": "expense",
-    "amount": 20,
+    "amount": 200000,
     "description": "Movie ticket"
   },
   {
     "date": "2024-03-10",
     "transactionType": "income",
-    "amount": 200,
+    "amount": 20000,
     "description": "Freelance work"
   },
-  { "date": "2024-03-11", "transactionType": "expense", "amount": 100, "description": "Gas" },
+  { "date": "2024-03-11", "transactionType": "expense", "amount": 100000, "description": "Gas" },
   {
     "date": "2024-03-12",
     "transactionType": "expense",
-    "amount": 60,
+    "amount": 60000,
     "description": "Gym membership"
   },
-  { "date": "2024-03-13", "transactionType": "expense", "amount": 30, "description": "Lunch" },
-  { "date": "2024-03-14", "transactionType": "income", "amount": 1000, "description": "Bonus" },
-  { "date": "2024-03-15", "transactionType": "expense", "amount": 400, "description": "Rent" },
-  { "date": "2024-03-16", "transactionType": "expense", "amount": 20, "description": "Breakfast" },
+  { "date": "2024-03-13", "transactionType": "expense", "amount": 3000, "description": "Lunch" },
+  { "date": "2024-03-14", "transactionType": "income", "amount": 100000, "description": "Bonus" },
+  { "date": "2024-03-15", "transactionType": "expense", "amount": 400000, "description": "Rent" },
+  {
+    "date": "2024-03-16",
+    "transactionType": "expense",
+    "amount": 20000,
+    "description": "Breakfast"
+  },
   {
     "date": "2024-03-17",
     "transactionType": "expense",
-    "amount": 200,
+    "amount": 200000,
     "description": "Car repairs"
   },
-  { "date": "2024-03-18", "transactionType": "income", "amount": 500, "description": "Refund" },
-  { "date": "2024-03-19", "transactionType": "expense", "amount": 50, "description": "Gift" },
-  { "date": "2024-03-19", "transactionType": "expense", "amount": 75, "description": "Dinner out" },
+  { "date": "2024-03-18", "transactionType": "income", "amount": 50000, "description": "Refund" },
+  { "date": "2024-03-19", "transactionType": "expense", "amount": 501500, "description": "Gift" },
+  {
+    "date": "2024-03-19",
+    "transactionType": "expense",
+    "amount": 75000,
+    "description": "Dinner out"
+  },
   {
     "date": "2024-03-21",
     "transactionType": "income",
     "amount": 1200,
     "description": "Investment returns"
+  },
+  {
+    "date": "2024-03-19",
+    "transactionType": "income",
+    "amount": 250000,
+    "description": "Freelance work2"
+  },
+  {
+    "date": "2024-03-22",
+    "transactionType": "income",
+    "amount": 300000,
+    "description": "Sold car"
+  },
+  {
+    "date": "2024-03-22",
+    "transactionType": "expense",
+    "amount": 90000,
+    "description": "Laptop purchase"
+  },
+  {
+    "date": "2024-03-23",
+    "transactionType": "expense",
+    "amount": 250000,
+    "description": "House Repairs"
+  },
+  { "date": "2024-03-23", "transactionType": "income", "amount": 1200000, "description": "Bonus" },
+  {
+    "date": "2024-03-24",
+    "transactionType": "income",
+    "amount": 480000,
+    "description": "Sold motorbike"
+  },
+  {
+    "date": "2024-03-24",
+    "transactionType": "expense",
+    "amount": 200000,
+    "description": "Restaurant Purchase"
   }
 ]
