@@ -26,9 +26,10 @@ function Calendar() {
     queryKey: ['financialTransactions'],
     queryFn: getfinancialTransactions,
     cacheTime: 1000 * 60 * 60,
+    // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  console.log('수입/지출내역: ', financialTransactions);
+  // console.log('수입/지출내역: ', financialTransactions);
 
   // 받아온 데이터 Fullcalendar event형식에 맞게 파싱
   const events = ftisLoading
@@ -38,11 +39,13 @@ function Calendar() {
         date: data.date,
         type: data.transactionType,
       }));
-  console.log('수입/지출내역 parsing: ', events);
+  // console.log('수입/지출내역 parsing: ', events);
 
   /** 특정 이벤트 클릭 시 함수 */
   const onClickTrarget = (info: any) => {
-    console.log('info 확인:', info.event);
+    // console.log('info 확인:', info.event._def.extendedProps.type);
+    const type = info.event._def.extendedProps.type;
+    type === 'expense' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
   };
 
   return (
