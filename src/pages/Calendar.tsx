@@ -26,7 +26,7 @@ function Calendar() {
     queryKey: ['financialTransactions'],
     queryFn: getfinancialTransactions,
   });
-  console.log('지출/수입내역: ', ftisLoading, financialTransactions);
+  console.log('수입/지출내역: ', financialTransactions);
 
   // 받아온 데이터 Fullcalendar event형식에 맞게 파싱
   const events = ftisLoading
