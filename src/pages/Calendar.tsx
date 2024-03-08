@@ -1,16 +1,14 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import { useState } from 'react';
 
 function Calendar() {
-  /** 일자 상태 */
-  const [date, SetDate] = useState({});
-
-  /** 일자 클릭 시 이벤트 */
+  /** 일자 확인 함수 */
   const handleDateClick = (arg: any) => {
-    console.log(arg);
-    //console.log(arg.event._def);
-    SetDate('arg');
+    // console.log(arg);
+    const clickedDate = arg.dateStr;
+    console.log('클릭한 일자 :', clickedDate);
   };
 
   return (
@@ -18,9 +16,9 @@ function Calendar() {
       {/* FullCalendar */}
       <div className="w-full h-1/2">
         <FullCalendar
-          plugins={[dayGridPlugin]}
+          plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
-          eventClick={handleDateClick}
+          dateClick={handleDateClick}
           events={[
             { title: '테스트1', date: '2024-03-20' },
             { title: '테스트2', date: '2024-03-15' },
