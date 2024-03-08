@@ -1,15 +1,40 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { useState } from 'react';
+import { useQuery } from 'react-query';
+import { getfinancialTransactions } from '../api';
+import { IDateSelectArg, ITransactions } from '../types/calendar';
+
+/** 
+  • 전체 데이터셋: financialTransactions
+	•	개별 거래: transaction
+	•	날짜: date
+	•	거래 유형: transactionType
+	•	거래 금액: amount
+	•	거래 설명: description
+ */
 
 function Calendar() {
   /** 일자 확인 함수 */
-  const handleDateClick = (arg: any) => {
-    // console.log(arg);
-    const clickedDate = arg.dateStr;
+  const handleDateClick = (date: IDateSelectArg) => {
+    const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
   };
+
+  /** financialTransactions Data(수입/지출 내역) 가져오기 */
+  const { data: financialTransactions, isLoading: ftisLoading } = useQuery({
+    queryKey: ['financialTransactions'],
+    queryFn: getfinancialTransactions,
+  });
+  console.log('지출/수입내역: ', ftisLoading, financialTransactions);
+
+  // 받아온 데이터 Fullcalendar event형식에 맞게 파싱
+  const events = ftisLoading
+    ? []
+    : financialTransactions.map((transaction: ITransactions) => ({
+        title: transaction.amount,
+        date: transaction.date,
+      }));
 
   return (
     <>
@@ -19,10 +44,7 @@ function Calendar() {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
           dateClick={handleDateClick}
-          events={[
-            { title: '테스트1', date: '2024-03-20' },
-            { title: '테스트2', date: '2024-03-15' },
-          ]}
+          events={events}
         />
       </div>
     </>
