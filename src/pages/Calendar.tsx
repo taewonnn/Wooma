@@ -1,10 +1,10 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { EventClickArg } from 'fullcalendar';
 import { useQuery } from 'react-query';
 import { getfinancialTransactions } from '../api';
-import { IDateSelectArg, IInfo, ITransactions } from '../types/calendar';
-
+import { IDateSelectArg, ITransactions } from '../types/calendar';
 /** 
   • 전체 데이터셋: financialTransactions
 	•	개별 거래: transaction
@@ -43,7 +43,7 @@ function Calendar() {
 
   /** 특정 이벤트 클릭 시 함수 */
   // ❗️ IInfo 적용 시 오버로드 에러
-  const onClickTrarget = (info: any) => {
+  const onClickTrarget = (info: EventClickArg) => {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
     const type = info.event._def.extendedProps.type;
