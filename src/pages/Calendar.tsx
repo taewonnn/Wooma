@@ -3,7 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { useQuery } from 'react-query';
 import { getfinancialTransactions } from '../api';
-import { IDateSelectArg, ISelectedTargetParams, ITransactions } from '../types/calendar';
+import { IDateSelectArg, IInfo, ITransactions } from '../types/calendar';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -42,7 +42,8 @@ function Calendar() {
   // console.log('수입/지출내역 parsing: ', events);
 
   /** 특정 이벤트 클릭 시 함수 */
-  const onClickTrarget = (info: ISelectedTargetParams) => {
+  // ❗️ IInfo 적용 시 오버로드 에러
+  const onClickTrarget = (info: any) => {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
     const type = info.event._def.extendedProps.type;

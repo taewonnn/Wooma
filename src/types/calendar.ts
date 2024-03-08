@@ -14,7 +14,7 @@ export interface IDateSelectArg {
   };
 }
 
-export interface ISelectedTargetParams {
+export interface IInfo {
   el: object;
   event: {
     _def: {
