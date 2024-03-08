@@ -25,6 +25,8 @@ function Calendar() {
   const { data: financialTransactions, isLoading: ftisLoading } = useQuery({
     queryKey: ['financialTransactions'],
     queryFn: getfinancialTransactions,
+    cacheTime: 1000 * 60 * 60,
+    refetchOnWindowFocus: false,
   });
   console.log('수입/지출내역: ', financialTransactions);
 
@@ -38,6 +40,11 @@ function Calendar() {
       }));
   console.log('수입/지출내역 parsing: ', events);
 
+  /** 특정 이벤트 클릭 시 함수 */
+  const onClickTrarget = (info: any) => {
+    console.log('info 확인:', info.event);
+  };
+
   return (
     <>
       {/* FullCalendar */}
@@ -47,6 +54,8 @@ function Calendar() {
           initialView="dayGridMonth"
           dateClick={handleDateClick}
           events={events}
+          editable={true}
+          eventClick={onClickTrarget}
         />
       </div>
     </>
