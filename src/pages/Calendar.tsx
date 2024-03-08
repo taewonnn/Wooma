@@ -5,6 +5,8 @@ import { EventClickArg } from 'fullcalendar';
 import { useQuery } from 'react-query';
 import { getfinancialTransactions } from '../api';
 import { IDateSelectArg, ITransactions } from '../types/calendar';
+import Create from '../components/calendar/Create';
+import { useState } from 'react';
 /** 
   • 전체 데이터셋: financialTransactions
 	•	개별 거래: transaction
@@ -15,10 +17,16 @@ import { IDateSelectArg, ITransactions } from '../types/calendar';
  */
 
 function Calendar() {
+  /** 추가 / 선택한 날짜 확인 상태 */
+  const [dateClicked, setDateClicked] = useState(false);
+  const [selectedDate, setSelectedDate] = useState('');
+
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
     const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
+    setDateClicked(true);
+    setSelectedDate(clickedDate);
   };
 
   /** financialTransactions Data(수입/지출 내역) 가져오기 */
@@ -63,6 +71,7 @@ function Calendar() {
           eventClick={handleEventTarget}
         />
       </div>
+      {dateClicked ? <Create /> : null}
     </>
   );
 }
