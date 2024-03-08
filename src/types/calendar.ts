@@ -13,3 +13,18 @@ export interface IDateSelectArg {
     type: string;
   };
 }
+
+export interface ISelectedTargetParams {
+  el: object;
+  event: {
+    _def: {
+      extendedProps: {
+        type: string;
+      };
+      defId: string;
+      title: string;
+    };
+  };
+  jsEvent: object;
+  view: object;
+}
