@@ -71,7 +71,7 @@ function Calendar() {
           eventClick={handleEventTarget}
         />
       </div>
-      {dateClicked ? <Create /> : null}
+      {dateClicked ? <Create selectedDate={selectedDate} /> : null}
     </>
   );
 }
