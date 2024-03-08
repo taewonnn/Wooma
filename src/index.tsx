@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { authenticatedUserRouter, unauthenticatedUserRouter } from './router/router';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const client = new QueryClient();
 
 /** 로그인 상태 확인 함수 */
 const isLoggedIn = () => {
@@ -17,6 +20,8 @@ const isLoggedIn = () => {
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter} />
+    <QueryClientProvider client={client}>
+      <RouterProvider router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
