@@ -43,7 +43,7 @@ function Calendar() {
 
   /** 특정 이벤트 클릭 시 함수 */
   // ❗️ IInfo 적용 시 오버로드 에러
-  const onClickTrarget = (info: EventClickArg) => {
+  const handleEventTarget = (info: EventClickArg) => {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
     const type = info.event._def.extendedProps.type;
@@ -57,10 +57,10 @@ function Calendar() {
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
-          dateClick={handleDateClick}
           events={events}
           editable={true}
-          eventClick={onClickTrarget}
+          dateClick={handleDateClick}
+          eventClick={handleEventTarget}
         />
       </div>
     </>
