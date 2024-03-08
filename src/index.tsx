@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { authenticatedUserRouter, unauthenticatedUserRouter } from './router/router';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools/build/lib/devtools';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 /** react-query */
 const client = new QueryClient();
