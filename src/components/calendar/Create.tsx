@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
 function Create({ selectedDate }: any) {
+  /** 유형 선택 상태 */
   const [transactionType, setTransactionType] = useState('');
 
+  /** 유형 선택 확인 함수 */
   const handleTransactionTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTransactionType(event.target.value);
+    // console.log(event.target.value);
+    const { value } = event.target;
+    setTransactionType(value);
   };
 
   return (
     <>
       create
-      <label htmlFor="category">유형: </label>
       <p>{selectedDate}</p>
+      <label htmlFor="category">유형: </label>
       <select
         name="transactionType"
         id="category"
