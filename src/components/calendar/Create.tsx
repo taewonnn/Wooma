@@ -5,7 +5,7 @@ function Create({ selectedDate }: any) {
   const [transactionType, setTransactionType] = useState('');
 
   /** 유형 선택 확인 함수 */
-  const handleTransactionTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTransactionType = (event: React.ChangeEvent<HTMLSelectElement>) => {
     // console.log(event.target.value);
     const { value } = event.target;
     setTransactionType(value);
@@ -20,7 +20,7 @@ function Create({ selectedDate }: any) {
         name="transactionType"
         id="category"
         value={transactionType}
-        onChange={handleTransactionTypeChange}
+        onChange={handleTransactionType}
       >
         <option value="">--Please choose an option--</option>
         <option value="expenditure">지출</option>
