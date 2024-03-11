@@ -4,98 +4,179 @@
       "date": "2024-03-01",
       "transactionType": "income",
       "amount": 200000,
-      "description": "Salary"
+      "description": "Salary",
+      "UUID": "123e4567-e89b-12d3-a456-426614174000"
     },
-    { "date": "2024-03-02", "transactionType": "expense", "amount": 500, "description": "Coffee" },
+    {
+      "date": "2024-03-02",
+      "transactionType": "expenditure",
+      "amount": 500,
+      "description": "Coffee",
+      "UUID": "123e4567-e89b-12d3-a456-426614174001"
+    },
     {
       "date": "2024-03-03",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 3000,
-      "description": "Bus fare"
+      "description": "Bus fare",
+      "UUID": "123e4567-e89b-12d3-a456-426614174002"
     },
     {
       "date": "2024-03-05",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 12000,
-      "description": "Groceries"
+      "description": "Groceries",
+      "UUID": "123e4567-e89b-12d3-a456-426614174003"
     },
     {
       "date": "2024-03-06",
       "transactionType": "income",
       "amount": 100000,
-      "description": "Part-time job"
+      "description": "Part-time job",
+      "UUID": "123e4567-e89b-12d3-a456-426614174004"
     },
     {
       "date": "2024-03-07",
       "transactionType": "income",
       "amount": 5000,
-      "description": "Yard sale"
+      "description": "Yard sale",
+      "UUID": "123e4567-e89b-12d3-a456-426614174005"
     },
     {
       "date": "2024-03-08",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 50000,
-      "description": "Dinner out"
+      "description": "Dinner out",
+      "UUID": "123e4567-e89b-12d3-a456-426614174006"
     },
     {
       "date": "2024-03-09",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 200000,
-      "description": "Movie ticket"
+      "description": "Movie ticket",
+      "UUID": "123e4567-e89b-12d3-a456-426614174007"
     },
     {
       "date": "2024-03-10",
       "transactionType": "income",
       "amount": 20000,
-      "description": "Freelance work"
+      "description": "Freelance work",
+      "UUID": "123e4567-e89b-12d3-a456-426614174019"
     },
-    { "date": "2024-03-11", "transactionType": "expense", "amount": 100000, "description": "Gas" },
+    {
+      "date": "2024-03-11",
+      "transactionType": "expenditure",
+      "amount": 100000,
+      "description": "Gas",
+      "UUID": "123e4567-e89b-12d3-a456-426614174020"
+    },
     {
       "date": "2024-03-12",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 60000,
-      "description": "Gym membership"
+      "description": "Gym membership",
+      "UUID": "123e4567-e89b-12d3-a456-426614174021"
     },
-    { "date": "2024-03-13", "transactionType": "expense", "amount": 3000, "description": "Lunch" },
-    { "date": "2024-03-14", "transactionType": "income", "amount": 100000, "description": "Bonus" },
-    { "date": "2024-03-15", "transactionType": "expense", "amount": 400000, "description": "Rent" },
+    {
+      "date": "2024-03-13",
+      "transactionType": "expenditure",
+      "amount": 3000,
+      "description": "Lunch",
+      "UUID": "123e4567-e89b-12d3-a456-426614174022"
+    },
+    {
+      "date": "2024-03-14",
+      "transactionType": "income",
+      "amount": 100000,
+      "description": "Bonus",
+      "UUID": "123e4567-e89b-12d3-a456-426614174023"
+    },
+    {
+      "date": "2024-03-15",
+      "transactionType": "expenditure",
+      "amount": 400000,
+      "description": "Rent",
+      "UUID": "123e4567-e89b-12d3-a456-426614174024"
+    },
     {
       "date": "2024-03-16",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 20000,
-      "description": "Breakfast"
+      "description": "Breakfast",
+      "UUID": "123e4567-e89b-12d3-a456-426614174025"
     },
     {
       "date": "2024-03-17",
-      "transactionType": "expense",
+      "transactionType": "expenditure",
       "amount": 200000,
-      "description": "Car repairs"
+      "description": "Car repairs",
+      "UUID": "123e4567-e89b-12d3-a456-426614174026"
     },
-    { "date": "2024-03-18", "transactionType": "income", "amount": 50000, "description": "Refund" },
-    { "date": "2024-03-19", "transactionType": "expense", "amount": 501500, "description": "Gift" },
+    {
+      "date": "2024-03-18",
+      "transactionType": "income",
+      "amount": 50000,
+      "description": "Refund",
+      "UUID": "123e4567-e89b-12d3-a456-426614174027"
+    },
     {
       "date": "2024-03-19",
-      "transactionType": "expense",
-      "amount": 75000,
-      "description": "Dinner out"
+      "transactionType": "expenditure",
+      "amount": 501500,
+      "description": "Gift",
+      "UUID": "123e4567-e89b-12d3-a456-426614174028"
     },
     {
-      "date": "2024-03-21",
-      "transactionType": "income",
-      "amount": 1200,
-      "description": "Investment returns"
+      "date": "2024-03-19",
+      "transactionType": "expenditure",
+      "amount": 75000,
+      "description": "Dinner out",
+      "UUID": "123e4567-e89b-12d3-a456-426614174029"
     },
     {
       "date": "2024-03-19",
       "transactionType": "income",
       "amount": 250000,
-      "description": "Freelance work2"
+      "description": "Freelance work2",
+      "UUID": "123e4567-e89b-12d3-a456-426614174030"
+    },
+    {
+      "date": "2024-03-21",
+      "transactionType": "income",
+      "amount": 1200,
+      "description": "Investment returns",
+      "UUID": "123e4567-e89b-12d3-a456-426614174018"
     },
     {
       "date": "2024-03-22",
       "transactionType": "income",
       "amount": 300000,
-      "description": "Sold car"
+      "description": "Sold car",
+      "UUID": "123e4567-e89b-12d3-a456-426614174022"
+    },
+    {
+      "id": "6c66",
+      "date": "2024-03-31",
+      "transactionType": "expenditure",
+      "amount": 5000,
+      "description": "과자",
+      "UUID": "15cdc3ac-b4ab-4b87-87ec-b7fccc366fba"
+    },
+    {
+      "id": "dc60",
+      "date": "2024-03-31",
+      "transactionType": "expenditure",
+      "amount": 1200,
+      "description": "test",
+      "UUID": "0d8547e5-6f67-4304-9366-e96e207b2333"
+    },
+    {
+      "id": "f305",
+      "date": "2024-03-31",
+      "transactionType": "deposit",
+      "amount": 500000,
+      "description": "용돈",
+      "UUID": "b2d69bab-624a-4eb7-a9b1-00447716f642"
     }
   ]
 }
