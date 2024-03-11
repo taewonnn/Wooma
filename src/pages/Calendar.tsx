@@ -7,6 +7,7 @@ import { getfinancialTransactions } from '../api';
 import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import Create from '../components/calendar/Create';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -103,6 +104,7 @@ function Calendar() {
       {!modalClose && dateClicked ? (
         <Create selectedDate={selectedDate} setModalClose={setModalClose} />
       ) : null}
+      <Outlet />
     </>
   );
 }

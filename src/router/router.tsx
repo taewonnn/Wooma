@@ -7,6 +7,7 @@ import Info from '../pages/Info';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Assets from '../pages/Assets';
+import Charts from '../pages/Charts';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -21,6 +22,12 @@ export const authenticatedUserRouter = createBrowserRouter([
       {
         path: '/calendar',
         element: <Calendar />,
+        children: [
+          {
+            path: '/calendar/chart',
+            element: <Charts />,
+          },
+        ],
       },
       {
         path: '/asset',
