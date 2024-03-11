@@ -3,6 +3,7 @@ import { CreateProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { postFinancialTransactions } from '../../api';
+import { v4 as uuidv4 } from 'uuid';
 
 function Create({ selectedDate, setModalClose }: CreateProps) {
   /** 유형 선택 상태 */
@@ -28,14 +29,23 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
     handleSubmit,
     formState: { errors },
   } = useForm<ICreateForm>({ mode: 'onChange' });
+
   // console.log('입력값 확인: ', watch());
 
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
 
-    // POST
-    mutation.mutate(data);
+    // // amount 숫자로 변경
+    // data.amount = Number(data.amount);
+
+    // // UUID 적용
+    // const dataWithUUID = { ...data, UUID: uuidv4() };
+
+    // // POST
+    // mutation.mutate(dataWithUUID);
+
+    mutation.mutate({ ...data, UUID: uuidv4(), amount: Number(data.amount) });
   };
 
   return (

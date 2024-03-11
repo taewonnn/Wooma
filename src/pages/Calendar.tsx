@@ -44,7 +44,7 @@ function Calendar() {
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  console.log('수입/지출내역: ', financialTransactions);
+  // console.log('수입/지출내역: ', financialTransactions);
 
   /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
   const events = ftisLoading
@@ -54,8 +54,8 @@ function Calendar() {
         date: data.date,
         transactionType: data.transactionType,
         amount: data.amount,
-        backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
-        borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        backgroundColor: data.transactionType === 'expenditure' ? 'red' : 'blue',
+        borderColor: data.transactionType === 'expenditure' ? 'red' : 'blue',
       }));
   // console.log('수입/지출내역 parsing: ', events);
 
@@ -64,7 +64,7 @@ function Calendar() {
     (acc: TotalAmounts, transaction: ITransactions) => {
       if (transaction.transactionType === 'income') {
         acc.totalIncome += transaction.amount;
-      } else if (transaction.transactionType === 'expense') {
+      } else if (transaction.transactionType === 'expenditure') {
         acc.totalExpenses += transaction.amount;
       }
       return acc;
@@ -79,8 +79,8 @@ function Calendar() {
   const handleEventTarget = (info: EventClickArg) => {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
-    const type = info.event._def.extendedProps.type;
-    type === 'expense' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
+    const type = info.event._def.extendedProps.transactionType;
+    type === 'expenditure' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
   };
 
   return (
