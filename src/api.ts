@@ -3,7 +3,12 @@ import { ICreateForm } from './types/calendar';
 /** 입력한 기존 수입/지출내역 가져오기 - 테스트용 json */
 export function getfinancialTransactions() {
   return fetch('http://localhost:3000/transactions')
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Network error');
+      }
+      return res.json();
+    })
     .then((data) => data);
 }
 

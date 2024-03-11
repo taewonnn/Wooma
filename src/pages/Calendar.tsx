@@ -37,14 +37,26 @@ function Calendar() {
   };
 
   /** financialTransactions Data(수입/지출 내역) 가져오기 */
-  const { data: financialTransactions, isLoading: ftisLoading } = useQuery({
+  const {
+    status,
+    data: financialTransactions,
+    isLoading: ftisLoading,
+  } = useQuery({
     queryKey: ['financialTransactions'],
     queryFn: getfinancialTransactions,
-    // cacheTime: 1000 * 60 * 60,
+    cacheTime: 1000 * 60 * 60,
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
-    // refetchOnWindowFocus: false,
+    refetchOnWindowFocus: false,
   });
   // console.log('수입/지출내역: ', financialTransactions);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'error') {
+    return <div>Error!!!!!</div>;
+  }
 
   /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
   const events = ftisLoading
