@@ -43,7 +43,7 @@ function Calendar() {
   });
   // console.log('수입/지출내역: ', financialTransactions);
 
-  // 받아온 데이터 Fullcalendar event형식에 맞게 파싱
+  /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
   const events = ftisLoading
     ? []
     : financialTransactions.map((data: ITransactions) => ({
@@ -53,7 +53,11 @@ function Calendar() {
         backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
         borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
       }));
-  // console.log('수입/지출내역 parsing: ', events);
+  console.log('수입/지출내역 parsing: ', events);
+
+  /** 총 지출 / 수입 데이터  */
+  const totalIncome = '';
+  const totalExpenses = '';
 
   /** 특정 이벤트 클릭 시 함수 */
   const handleEventTarget = (info: EventClickArg) => {
@@ -65,6 +69,11 @@ function Calendar() {
 
   return (
     <>
+      {/* 이번 달  지출 / 수입 */}
+      <p>총 지출 : {totalExpenses}</p>
+      <p>총 수입 : {totalIncome}</p>
+      <hr />
+
       {/* FullCalendar */}
       <div className="w-full h-1/2">
         <FullCalendar
