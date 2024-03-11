@@ -7,7 +7,6 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
 
   /** 유형 선택 확인 함수 */
   const handleTransactionType = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // console.log(event.target.value);
     const { value } = event.target;
     setTransactionType(value);
   };
