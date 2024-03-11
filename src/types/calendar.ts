@@ -14,6 +14,11 @@ export interface IDateSelectArg {
   };
 }
 
+export interface TotalAmounts {
+  totalIncome: number;
+  totalExpenses: number;
+}
+
 /** Create.tsx */
 export interface CreateProps {
   selectedDate: string;

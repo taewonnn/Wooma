@@ -4,7 +4,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
 import { useQuery } from 'react-query';
 import { getfinancialTransactions } from '../api';
-import { IDateSelectArg, ITransactions } from '../types/calendar';
+import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import Create from '../components/calendar/Create';
 import { useState } from 'react';
 /** 
@@ -41,7 +41,7 @@ function Calendar() {
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  // console.log('수입/지출내역: ', financialTransactions);
+  console.log('수입/지출내역: ', financialTransactions);
 
   /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
   const events = ftisLoading
@@ -49,15 +49,28 @@ function Calendar() {
     : financialTransactions.map((data: ITransactions) => ({
         title: data.amount,
         date: data.date,
-        type: data.transactionType,
+        transactionType: data.transactionType,
+        amount: data.amount,
         backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
         borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
       }));
-  console.log('수입/지출내역 parsing: ', events);
+  // console.log('수입/지출내역 parsing: ', events);
 
   /** 총 지출 / 수입 데이터  */
-  const totalIncome = '';
-  const totalExpenses = '';
+  const { totalIncome, totalExpenses } = events.reduce(
+    (acc: TotalAmounts, transaction: ITransactions) => {
+      if (transaction.transactionType === 'income') {
+        acc.totalIncome += transaction.amount;
+      } else if (transaction.transactionType === 'expense') {
+        acc.totalExpenses += transaction.amount;
+      }
+      return acc;
+    },
+    { totalIncome: 0, totalExpenses: 0 }
+  );
+
+  // console.log('총 수입: ', totalIncome);
+  // console.log('총 지출: ', totalExpenses);
 
   /** 특정 이벤트 클릭 시 함수 */
   const handleEventTarget = (info: EventClickArg) => {
