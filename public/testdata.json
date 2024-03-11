@@ -5,154 +5,176 @@
       "transactionType": "income",
       "amount": 200000,
       "description": "Salary",
-      "UUID": "123e4567-e89b-12d3-a456-426614174000"
+      "UUID": "123e4567-e89b-12d3-a456-426614174000",
+      "id": "e5fa"
     },
     {
       "date": "2024-03-02",
       "transactionType": "expenditure",
       "amount": 500,
       "description": "Coffee",
-      "UUID": "123e4567-e89b-12d3-a456-426614174001"
+      "UUID": "123e4567-e89b-12d3-a456-426614174001",
+      "id": "aea5"
     },
     {
       "date": "2024-03-03",
       "transactionType": "expenditure",
       "amount": 3000,
       "description": "Bus fare",
-      "UUID": "123e4567-e89b-12d3-a456-426614174002"
+      "UUID": "123e4567-e89b-12d3-a456-426614174002",
+      "id": "6bcc"
     },
     {
       "date": "2024-03-05",
       "transactionType": "expenditure",
       "amount": 12000,
       "description": "Groceries",
-      "UUID": "123e4567-e89b-12d3-a456-426614174003"
+      "UUID": "123e4567-e89b-12d3-a456-426614174003",
+      "id": "cdf5"
     },
     {
       "date": "2024-03-06",
       "transactionType": "income",
       "amount": 100000,
       "description": "Part-time job",
-      "UUID": "123e4567-e89b-12d3-a456-426614174004"
+      "UUID": "123e4567-e89b-12d3-a456-426614174004",
+      "id": "ddaa"
     },
     {
       "date": "2024-03-07",
       "transactionType": "income",
       "amount": 5000,
       "description": "Yard sale",
-      "UUID": "123e4567-e89b-12d3-a456-426614174005"
+      "UUID": "123e4567-e89b-12d3-a456-426614174005",
+      "id": "c600"
     },
     {
       "date": "2024-03-08",
       "transactionType": "expenditure",
       "amount": 50000,
       "description": "Dinner out",
-      "UUID": "123e4567-e89b-12d3-a456-426614174006"
+      "UUID": "123e4567-e89b-12d3-a456-426614174006",
+      "id": "383a"
     },
     {
       "date": "2024-03-09",
       "transactionType": "expenditure",
       "amount": 200000,
       "description": "Movie ticket",
-      "UUID": "123e4567-e89b-12d3-a456-426614174007"
+      "UUID": "123e4567-e89b-12d3-a456-426614174007",
+      "id": "1595"
     },
     {
       "date": "2024-03-10",
       "transactionType": "income",
       "amount": 20000,
       "description": "Freelance work",
-      "UUID": "123e4567-e89b-12d3-a456-426614174019"
+      "UUID": "123e4567-e89b-12d3-a456-426614174019",
+      "id": "73da"
     },
     {
       "date": "2024-03-11",
       "transactionType": "expenditure",
       "amount": 100000,
       "description": "Gas",
-      "UUID": "123e4567-e89b-12d3-a456-426614174020"
+      "UUID": "123e4567-e89b-12d3-a456-426614174020",
+      "id": "f4ef"
     },
     {
       "date": "2024-03-12",
       "transactionType": "expenditure",
       "amount": 60000,
       "description": "Gym membership",
-      "UUID": "123e4567-e89b-12d3-a456-426614174021"
+      "UUID": "123e4567-e89b-12d3-a456-426614174021",
+      "id": "66e8"
     },
     {
       "date": "2024-03-13",
       "transactionType": "expenditure",
       "amount": 3000,
       "description": "Lunch",
-      "UUID": "123e4567-e89b-12d3-a456-426614174022"
+      "UUID": "123e4567-e89b-12d3-a456-426614174022",
+      "id": "2b0d"
     },
     {
       "date": "2024-03-14",
       "transactionType": "income",
       "amount": 100000,
       "description": "Bonus",
-      "UUID": "123e4567-e89b-12d3-a456-426614174023"
+      "UUID": "123e4567-e89b-12d3-a456-426614174023",
+      "id": "6afe"
     },
     {
       "date": "2024-03-15",
       "transactionType": "expenditure",
       "amount": 400000,
       "description": "Rent",
-      "UUID": "123e4567-e89b-12d3-a456-426614174024"
+      "UUID": "123e4567-e89b-12d3-a456-426614174024",
+      "id": "4079"
     },
     {
       "date": "2024-03-16",
       "transactionType": "expenditure",
       "amount": 20000,
       "description": "Breakfast",
-      "UUID": "123e4567-e89b-12d3-a456-426614174025"
+      "UUID": "123e4567-e89b-12d3-a456-426614174025",
+      "id": "7ea8"
     },
     {
       "date": "2024-03-17",
       "transactionType": "expenditure",
       "amount": 200000,
       "description": "Car repairs",
-      "UUID": "123e4567-e89b-12d3-a456-426614174026"
+      "UUID": "123e4567-e89b-12d3-a456-426614174026",
+      "id": "47c9"
     },
     {
       "date": "2024-03-18",
       "transactionType": "income",
       "amount": 50000,
       "description": "Refund",
-      "UUID": "123e4567-e89b-12d3-a456-426614174027"
+      "UUID": "123e4567-e89b-12d3-a456-426614174027",
+      "id": "e0d9"
     },
     {
       "date": "2024-03-19",
       "transactionType": "expenditure",
       "amount": 501500,
       "description": "Gift",
-      "UUID": "123e4567-e89b-12d3-a456-426614174028"
+      "UUID": "123e4567-e89b-12d3-a456-426614174028",
+      "id": "365d"
     },
     {
       "date": "2024-03-19",
       "transactionType": "expenditure",
       "amount": 75000,
       "description": "Dinner out",
-      "UUID": "123e4567-e89b-12d3-a456-426614174029"
+      "UUID": "123e4567-e89b-12d3-a456-426614174029",
+      "id": "d211"
     },
     {
       "date": "2024-03-19",
       "transactionType": "income",
       "amount": 250000,
       "description": "Freelance work2",
-      "UUID": "123e4567-e89b-12d3-a456-426614174030"
+      "UUID": "123e4567-e89b-12d3-a456-426614174030",
+      "id": "6fee"
     },
     {
       "date": "2024-03-21",
       "transactionType": "income",
       "amount": 1200,
       "description": "Investment returns",
-      "UUID": "123e4567-e89b-12d3-a456-426614174018"
+      "UUID": "123e4567-e89b-12d3-a456-426614174018",
+      "id": "4def"
     },
     {
       "date": "2024-03-22",
       "transactionType": "income",
       "amount": 300000,
       "description": "Sold car",
-      "UUID": "123e4567-e89b-12d3-a456-426614174022"
+      "UUID": "123e4567-e89b-12d3-a456-426614174022",
+      "id": "f952"
     },
     {
       "id": "6c66",
@@ -177,6 +199,14 @@
       "amount": 500000,
       "description": "용돈",
       "UUID": "b2d69bab-624a-4eb7-a9b1-00447716f642"
+    },
+    {
+      "id": "0a12",
+      "date": "2024-04-01",
+      "transactionType": "expenditure",
+      "amount": 111,
+      "description": "111",
+      "UUID": "8327249e-eff1-487c-bfba-01f22cef3859"
     }
   ]
 }

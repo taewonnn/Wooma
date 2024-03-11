@@ -2,7 +2,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getfinancialTransactions } from '../api';
 import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import Create from '../components/calendar/Create';
@@ -40,9 +40,9 @@ function Calendar() {
   const { data: financialTransactions, isLoading: ftisLoading } = useQuery({
     queryKey: ['financialTransactions'],
     queryFn: getfinancialTransactions,
-    cacheTime: 1000 * 60 * 60,
+    // cacheTime: 1000 * 60 * 60,
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
-    refetchOnWindowFocus: false,
+    // refetchOnWindowFocus: false,
   });
   // console.log('수입/지출내역: ', financialTransactions);
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CreateProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { postFinancialTransactions } from '../../api';
 import { v4 as uuidv4 } from 'uuid';
 
