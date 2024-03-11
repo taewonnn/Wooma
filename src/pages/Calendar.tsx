@@ -50,6 +50,8 @@ function Calendar() {
         title: data.amount,
         date: data.date,
         type: data.transactionType,
+        backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
       }));
   // console.log('수입/지출내역 parsing: ', events);
 
