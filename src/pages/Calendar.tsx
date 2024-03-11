@@ -29,6 +29,7 @@ function Calendar() {
   const handleDateClick = (date: IDateSelectArg) => {
     const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
+    // 날짜 클릭 상태 변경하여 create 모달 띄우기
     setDateClicked(true);
     setSelectedDate(clickedDate);
     setModalClose(false);
