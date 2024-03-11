@@ -1,13 +1,15 @@
+import { ICreateForm } from './types/calendar';
+
 /** 입력한 기존 수입/지출내역 가져오기 - 테스트용 json */
 export function getfinancialTransactions() {
-  return fetch('/testdata.json')
+  return fetch('http://localhost:3000/transactions')
     .then((res) => res.json())
-    .then((data) => data.transactions);
+    .then((data) => data);
 }
 
 /** 내역 추가하기 - 테스트용 json */
-export function postFinancialTransactions(newData: any) {
-  return fetch('/testdata.json', {
+export function postFinancialTransactions(newData: ICreateForm) {
+  return fetch('http://localhost:3000/transactions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -15,7 +17,7 @@ export function postFinancialTransactions(newData: any) {
     body: JSON.stringify(newData),
   }).then((res) => {
     if (!res.ok) {
-      throw new Error('newtwork erro');
+      throw new Error('Network error');
     }
     return res.json();
   });

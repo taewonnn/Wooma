@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { CreateProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
-import { error } from 'console';
+import { useMutation } from 'react-query';
+import { postFinancialTransactions } from '../../api';
 
 function Create({ selectedDate, setModalClose }: CreateProps) {
   /** 유형 선택 상태 */
@@ -18,6 +19,9 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
     setModalClose(true);
   };
 
+  /** POST */
+  const mutation = useMutation(postFinancialTransactions);
+
   /** hook-form 입력값 */
   const {
     register,
@@ -29,6 +33,9 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
+
+    // POST
+    mutation.mutate(data);
   };
 
   return (
@@ -38,7 +45,10 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
         <input type="hidden" {...register('date')} value={selectedDate} />
         <label htmlFor="transactionType">유형: </label>
         <select
-          {...register('transactionType', { required: '필수: 타입' })}
+          {...register('transactionType', {
+            required: '필수: 타입',
+            validate: (value) => value !== 'select' || '유형을 선택해주세요.',
+          })}
           name="transactionType"
           id="transactionType"
           value={transactionType}
@@ -48,6 +58,9 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           <option value="expenditure">지출</option>
           <option value="deposit">수입</option>ㅙㅐ
         </select>
+        {errors?.transactionType && (
+          <p className="text-red-500">{errors.transactionType.message}</p>
+        )}
 
         <label htmlFor="amount">금액:</label>
         <input
@@ -77,6 +90,7 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           name="description"
           id="description"
         />
+        {errors?.description && <p className="text-red-500">{errors.description.message}</p>}
 
         <button type="submit">입력</button>
         <hr />
