@@ -54,7 +54,6 @@ function Calendar() {
   // console.log('수입/지출내역 parsing: ', events);
 
   /** 특정 이벤트 클릭 시 함수 */
-  // ❗️ IInfo 적용 시 오버로드 에러
   const handleEventTarget = (info: EventClickArg) => {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
