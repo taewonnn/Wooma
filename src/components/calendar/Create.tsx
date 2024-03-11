@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { CreateProps } from '../../types/calendar';
 
-function Create({ selectedDate, setModalClose }: any) {
+function Create({ selectedDate, setModalClose }: CreateProps) {
   /** 유형 선택 상태 */
   const [transactionType, setTransactionType] = useState('');
 

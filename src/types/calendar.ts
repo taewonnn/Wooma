@@ -13,3 +13,9 @@ export interface IDateSelectArg {
     type: string;
   };
 }
+
+/** Create.tsx */
+export interface CreateProps {
+  selectedDate: string;
+  setModalClose: (value: boolean) => void;
+}
