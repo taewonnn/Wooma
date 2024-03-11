@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CreateProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
+import { error } from 'console';
 
 function Create({ selectedDate, setModalClose }: CreateProps) {
   /** 유형 선택 상태 */
@@ -18,9 +19,12 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
   };
 
   /** hook-form 입력값 */
-  const { register, watch, handleSubmit } = useForm<ICreateForm>({ mode: 'onChange' });
-  // 입력깂
-  console.log('입력값 확인: ', watch());
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ICreateForm>({ mode: 'onChange' });
+  // console.log('입력값 확인: ', watch());
 
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateForm) => {
@@ -44,6 +48,7 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           <option value="expenditure">지출</option>
           <option value="deposit">수입</option>ㅙㅐ
         </select>
+
         <label htmlFor="amount">금액:</label>
         <input
           {...register('amount', {
@@ -57,6 +62,8 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           name="amount"
           id="amount"
         />
+        {errors?.amount && <p className="text-red-500">{errors.amount.message}</p>}
+
         <label htmlFor="description">내용:</label>
         <input
           {...register('description', {
@@ -70,9 +77,12 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           name="description"
           id="description"
         />
-        <button>입력</button>
+
+        <button type="submit">입력</button>
         <hr />
-        <button onClick={handleModal}>닫기</button>
+        <button type="button" onClick={handleModal}>
+          닫기
+        </button>
       </form>
     </>
   );
