@@ -21,12 +21,16 @@ function Calendar() {
   const [dateClicked, setDateClicked] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
+  /** Create - modal 상태 */
+  const [modalClose, setModalClose] = useState(false);
+
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
     const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
     setDateClicked(true);
     setSelectedDate(clickedDate);
+    setModalClose(false);
   };
 
   /** financialTransactions Data(수입/지출 내역) 가져오기 */
@@ -71,7 +75,9 @@ function Calendar() {
           eventClick={handleEventTarget}
         />
       </div>
-      {dateClicked ? <Create selectedDate={selectedDate} /> : null}
+      {!modalClose && dateClicked ? (
+        <Create selectedDate={selectedDate} setModalClose={setModalClose} />
+      ) : null}
     </>
   );
 }
