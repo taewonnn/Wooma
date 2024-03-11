@@ -24,3 +24,10 @@ export interface CreateProps {
   selectedDate: string;
   setModalClose: (value: boolean) => void;
 }
+
+export interface ICreateForm {
+  date: string;
+  transactionType: string;
+  amount: number;
+  description: string;
+}

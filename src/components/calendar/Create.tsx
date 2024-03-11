@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CreateProps } from '../../types/calendar';
+import { CreateProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 
 function Create({ selectedDate, setModalClose }: CreateProps) {
@@ -18,19 +18,23 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
   };
 
   /** hook-form 입력값 */
-  const { register, watch, handleSubmit } = useForm({ mode: 'onChange' });
+  const { register, watch, handleSubmit } = useForm<ICreateForm>({ mode: 'onChange' });
   // 입력깂
   console.log('입력값 확인: ', watch());
 
   /** validation 끝난 이후 실행함수 */
-  const onValid = () => {};
+  const onValid = (data: ICreateForm) => {
+    console.log('제출한 데이터 묶음 확인:', data);
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit(onValid)}>
-        <p>{selectedDate}</p>
+        <p>일자: {selectedDate}</p>
+        <input type="hidden" {...register('date')} value={selectedDate} />
         <label htmlFor="transactionType">유형: </label>
         <select
+          {...register('transactionType', { required: '필수: 타입' })}
           name="transactionType"
           id="transactionType"
           value={transactionType}
@@ -38,18 +42,30 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
         >
           <option value="select">--Please choose an option--</option>
           <option value="expenditure">지출</option>
-          <option value="deposit">수입</option>
+          <option value="deposit">수입</option>ㅙㅐ
         </select>
         <label htmlFor="amount">금액:</label>
         <input
-          {...register('amount', { required: '필수: 금액' })}
+          {...register('amount', {
+            required: '필수: 금액',
+            pattern: {
+              value: /^[0-9]+$/,
+              message: '금액은 숫자만 입력 가능합니다.',
+            },
+          })}
           type="text"
           name="amount"
           id="amount"
         />
         <label htmlFor="description">내용:</label>
         <input
-          {...register('description', { required: '필수: 내용' })}
+          {...register('description', {
+            required: '필수: 내용',
+            maxLength: {
+              value: 15,
+              message: '내용은 최대 15글자까지 입력 가능합니다.',
+            },
+          })}
           type="text"
           name="description"
           id="description"
