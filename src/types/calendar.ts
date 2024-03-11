@@ -30,4 +30,5 @@ export interface ICreateForm {
   transactionType: string;
   amount: number;
   description: string;
+  UUID: string;
 }
