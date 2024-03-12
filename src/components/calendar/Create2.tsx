@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Diary from './Diary';
+import Expense from './Expense';
 
 function Create2() {
   /** toggle 상태 */
@@ -22,7 +24,7 @@ function Create2() {
         </div>
       </div>
 
-      <div>{isSelected ? <p>일기 내용 화면</p> : <p>지출 내용 화면</p>}</div>
+      <div>{isSelected ? <Diary /> : <Expense />}</div>
     </>
   );
 }
