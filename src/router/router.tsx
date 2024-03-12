@@ -3,11 +3,13 @@ import App from '../App';
 import PublicApp from '../PublicApp';
 import Home from '../pages/Home';
 import Calendar from '../pages/Calendar';
-import Info from '../pages/Info';
+import Info from '../pages/Settings';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Assets from '../pages/Assets';
 import Charts from '../pages/Charts';
+import Settings from '../pages/Settings';
+import Create2 from '../components/calendar/Create2';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -24,8 +26,8 @@ export const authenticatedUserRouter = createBrowserRouter([
         element: <Calendar />,
         children: [
           {
-            path: '/calendar/chart',
-            element: <Charts />,
+            path: '/calendar/create2',
+            element: <Create2 />,
           },
         ],
       },
@@ -34,8 +36,8 @@ export const authenticatedUserRouter = createBrowserRouter([
         element: <Assets />,
       },
       {
-        path: '/info',
-        element: <Info />,
+        path: '/settings',
+        element: <Settings />,
       },
     ],
   },
