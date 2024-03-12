@@ -5,10 +5,11 @@ import { EventClickArg } from 'fullcalendar';
 import { useQuery } from '@tanstack/react-query';
 import { getTransactions } from '../api';
 import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
-import Create from '../components/calendar/Create';
+// import Create from '../components/calendar/Create';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { idToColor } from '../utils/colorUtils';
+import Create2 from '../components/calendar/Create2';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -31,7 +32,7 @@ function Calendar() {
   const handleDateClick = (date: IDateSelectArg) => {
     const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
-    // 날짜 클릭 상태 변경하여 create 모달 띄우기
+    // 날짜 클릭 상태 변경 -> create2
     setDateClicked(true);
     setSelectedDate(clickedDate);
     // setModalClose(false);
@@ -90,7 +91,7 @@ function Calendar() {
       {/* 이번 달  지출 */}
       <p>총 지출 : {totalExpenses}</p>
       <p>목표 : 1000000</p>
-      <p>남은 금액 : 1000000 - {totalExpenses}</p>
+      <p>남은 금액 :{10000000 - totalExpenses}</p>
       <hr />
 
       {/* FullCalendar */}
@@ -112,6 +113,7 @@ function Calendar() {
       {/* 기존 Create End */}
 
       {/* 신규 Create2 Start */}
+      {dateClicked ? <Create2 selectedDate={selectedDate} /> : null}
       {/* 신규 Create2 End */}
 
       <Outlet />

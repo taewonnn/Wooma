@@ -24,12 +24,6 @@ export const authenticatedUserRouter = createBrowserRouter([
       {
         path: '/calendar',
         element: <Calendar />,
-        children: [
-          {
-            path: '/calendar/create2',
-            element: <Create2 />,
-          },
-        ],
       },
       {
         path: '/asset',

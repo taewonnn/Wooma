@@ -16,12 +16,12 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
   };
 
   /** 모달 창 관리 */
-  const handleModal = () => {
-    setModalClose(true);
-  };
+  // const handleModal = () => {
+  //   setModalClose(true);
+  // };
 
   /** POST */
-  const mutation = useMutation(postFinancialTransactions);
+  // const mutation = useMutation(postFinancialTransactions);
 
   /** hook-form 입력값 */
   const {
@@ -45,7 +45,7 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
     // // POST
     // mutation.mutate(dataWithUUID);
 
-    mutation.mutate({ ...data, UUID: uuidv4(), amount: Number(data.amount) });
+    //mutation.mutate({ ...data, UUID: uuidv4(), amount: Number(data.amount) });
   };
 
   return (
@@ -65,7 +65,7 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           onChange={handleTransactionType}
         >
           <option value="select">--Please choose an option--</option>
-          <option value="expense">지출</option>
+          <option value="expenditure">지출</option>
           <option value="deposit">수입</option>ㅙㅐ
         </select>
         {errors?.transactionType && (
@@ -104,9 +104,9 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
 
         <button type="submit">입력</button>
         <hr />
-        <button type="button" onClick={handleModal}>
+        {/* <button type="button" onClick={handleModal}>
           닫기
-        </button>
+        </button> */}
       </form>
     </>
   );

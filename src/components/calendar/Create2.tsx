@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Diary from './Diary';
 import Expense from './Expense';
+import { CreateProps } from '../../types/calendar';
 
-function Create2() {
+function Create2({ selectedDate }: CreateProps) {
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
 
@@ -13,7 +14,6 @@ function Create2() {
 
   return (
     <>
-      <p>create test</p>
       <div className="h-8 w-32 rounded-full p-1 flex cursor-pointer" onClick={toggleSelection}>
         <div
           className={`h-full w-1/4 rounded-full transition-transform duration-200 ${
@@ -24,7 +24,7 @@ function Create2() {
         </div>
       </div>
 
-      <div>{isSelected ? <Diary /> : <Expense />}</div>
+      <div>{isSelected ? <Diary /> : <Expense selectedDate={selectedDate} />}</div>
     </>
   );
 }
