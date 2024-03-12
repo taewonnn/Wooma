@@ -1,8 +1,11 @@
 export interface ITransactions {
   date: string;
-  transactionType: string;
+  memberGroupId: string;
+  memberId: string;
   amount: number;
   description: string;
+  UUID: string;
+  id: string;
 }
 
 export interface IDateSelectArg {
@@ -15,7 +18,6 @@ export interface IDateSelectArg {
 }
 
 export interface TotalAmounts {
-  totalIncome: number;
   totalExpenses: number;
 }
 

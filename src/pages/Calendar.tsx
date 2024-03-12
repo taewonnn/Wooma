@@ -3,7 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
 import { useQuery } from '@tanstack/react-query';
-import { getfinancialTransactions } from '../api';
+import { getTransactions } from '../api';
 import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import Create from '../components/calendar/Create';
 import { useState } from 'react';
@@ -36,20 +36,21 @@ function Calendar() {
     setModalClose(false);
   };
 
-  /** financialTransactions Data(수입/지출 내역) 가져오기 */
+  /** transactions Data(수입/지출 내역) 가져오기 */
   const {
     status,
-    data: financialTransactions,
-    isLoading: ftisLoading,
+    data: transactions,
+    isLoading: transactionsLoading,
   } = useQuery({
-    queryKey: ['financialTransactions'],
-    queryFn: getfinancialTransactions,
+    queryKey: ['transactions'],
+    queryFn: getTransactions,
     cacheTime: 1000 * 60 * 60,
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  // console.log('수입/지출내역: ', financialTransactions);
+  console.log('지출내역: ', transactions);
 
+  /** 상태 별 화면 */
   if (status === 'loading') {
     return <div>Loading...</div>;
   }
@@ -59,47 +60,41 @@ function Calendar() {
   }
 
   /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
-  const events = ftisLoading
+  const events = transactionsLoading
     ? []
-    : financialTransactions.map((data: ITransactions) => ({
+    : transactions.map((data: ITransactions) => ({
         title: data.amount,
         date: data.date,
-        transactionType: data.transactionType,
+        memberId: data.memberId,
         amount: data.amount,
-        backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
-        borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        // backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        // borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
       }));
-  // console.log('수입/지출내역 parsing: ', events);
+  console.log('지출내역 parsing: ', events);
 
-  /** 총 지출 / 수입 데이터  */
-  const { totalIncome, totalExpenses } = events.reduce(
-    (acc: TotalAmounts, transaction: ITransactions) => {
-      if (transaction.transactionType === 'income') {
-        acc.totalIncome += transaction.amount;
-      } else if (transaction.transactionType === 'expense') {
-        acc.totalExpenses += transaction.amount;
-      }
-      return acc;
-    },
-    { totalIncome: 0, totalExpenses: 0 }
-  );
-
-  // console.log('총 수입: ', totalIncome);
-  // console.log('총 지출: ', totalExpenses);
+  /** 총 지출 데이터  */
+  // const { totalExpenses } = events.reduce(
+  //   (acc: TotalAmounts, transaction: ITransactions) => {
+  //     return (acc.totalExpenses += amount);
+  //   },
+  //   { totalIncome: 0, totalExpenses: 0 }
+  // );
+  const totalExpenses = events.reduce((acc: number, data: ITransactions) => {
+    return (acc += data.amount);
+  }, 0);
+  console.log('총 지출: ', totalExpenses);
 
   /** 특정 이벤트 클릭 시 함수 */
   const handleEventTarget = (info: EventClickArg) => {
-    console.log('info 확인:', info);
-    // console.log('info 확인:', info.event._def.extendedProps.type);
-    const type = info.event._def.extendedProps.transactionType;
-    type === 'expense' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
+    // console.log('info 확인:', info);
+    console.log('info 확인:', info.event._def.extendedProps);
   };
 
   return (
     <>
-      {/* 이번 달  지출 / 수입 */}
+      {/* 이번 달  지출 */}
       <p>총 지출 : {totalExpenses}</p>
-      <p>총 수입 : {totalIncome}</p>
+      <p>목표 : 1000000</p>
       <hr />
 
       {/* FullCalendar */}
@@ -113,9 +108,13 @@ function Calendar() {
           eventClick={handleEventTarget}
         />
       </div>
-      {!modalClose && dateClicked ? (
+
+      {/* 기존 Create Start */}
+      {/* {!modalClose && dateClicked ? (
         <Create selectedDate={selectedDate} setModalClose={setModalClose} />
-      ) : null}
+      ) : null} */}
+      {/* 기존 Create End */}
+
       <Outlet />
     </>
   );
