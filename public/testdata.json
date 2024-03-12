@@ -10,7 +10,7 @@
     },
     {
       "date": "2024-03-02",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 500,
       "description": "Coffee",
       "UUID": "123e4567-e89b-12d3-a456-426614174001",
@@ -18,7 +18,7 @@
     },
     {
       "date": "2024-03-03",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 3000,
       "description": "Bus fare",
       "UUID": "123e4567-e89b-12d3-a456-426614174002",
@@ -26,7 +26,7 @@
     },
     {
       "date": "2024-03-05",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 12000,
       "description": "Groceries",
       "UUID": "123e4567-e89b-12d3-a456-426614174003",
@@ -50,7 +50,7 @@
     },
     {
       "date": "2024-03-08",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 50000,
       "description": "Dinner out",
       "UUID": "123e4567-e89b-12d3-a456-426614174006",
@@ -58,7 +58,7 @@
     },
     {
       "date": "2024-03-09",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 200000,
       "description": "Movie ticket",
       "UUID": "123e4567-e89b-12d3-a456-426614174007",
@@ -74,7 +74,7 @@
     },
     {
       "date": "2024-03-11",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 100000,
       "description": "Gas",
       "UUID": "123e4567-e89b-12d3-a456-426614174020",
@@ -82,7 +82,7 @@
     },
     {
       "date": "2024-03-12",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 60000,
       "description": "Gym membership",
       "UUID": "123e4567-e89b-12d3-a456-426614174021",
@@ -90,7 +90,7 @@
     },
     {
       "date": "2024-03-13",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 3000,
       "description": "Lunch",
       "UUID": "123e4567-e89b-12d3-a456-426614174022",
@@ -106,7 +106,7 @@
     },
     {
       "date": "2024-03-15",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 400000,
       "description": "Rent",
       "UUID": "123e4567-e89b-12d3-a456-426614174024",
@@ -114,7 +114,7 @@
     },
     {
       "date": "2024-03-16",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 20000,
       "description": "Breakfast",
       "UUID": "123e4567-e89b-12d3-a456-426614174025",
@@ -122,7 +122,7 @@
     },
     {
       "date": "2024-03-17",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 200000,
       "description": "Car repairs",
       "UUID": "123e4567-e89b-12d3-a456-426614174026",
@@ -138,7 +138,7 @@
     },
     {
       "date": "2024-03-19",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 501500,
       "description": "Gift",
       "UUID": "123e4567-e89b-12d3-a456-426614174028",
@@ -146,7 +146,7 @@
     },
     {
       "date": "2024-03-19",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 75000,
       "description": "Dinner out",
       "UUID": "123e4567-e89b-12d3-a456-426614174029",
@@ -179,7 +179,7 @@
     {
       "id": "6c66",
       "date": "2024-03-31",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 5000,
       "description": "과자",
       "UUID": "15cdc3ac-b4ab-4b87-87ec-b7fccc366fba"
@@ -187,7 +187,7 @@
     {
       "id": "dc60",
       "date": "2024-03-31",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 1200,
       "description": "test",
       "UUID": "0d8547e5-6f67-4304-9366-e96e207b2333"
@@ -203,7 +203,7 @@
     {
       "id": "0a12",
       "date": "2024-04-01",
-      "transactionType": "expenditure",
+      "transactionType": "expense",
       "amount": 111,
       "description": "111",
       "UUID": "8327249e-eff1-487c-bfba-01f22cef3859"
