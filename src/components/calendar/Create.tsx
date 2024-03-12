@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { postFinancialTransactions } from '../../api';
 import { v4 as uuidv4 } from 'uuid';
 
-function Create({ selectedDate, setModalClose }: CreateProps) {
+function Create({ selectedDate }: CreateProps) {
   /** 유형 선택 상태 */
   const [transactionType, setTransactionType] = useState('');
 
