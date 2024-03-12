@@ -31,7 +31,7 @@
       "date": "2024-03-02",
       "memberGroupId": "test",
       "memberId": "taewon",
-      "amount": 54120,
+      "amount": 54150,
       "description": "Movie Night",
       "UUID": "6f818ab4-55d2-466a-b3c2-36c03550072e",
       "id": "a795"
@@ -112,7 +112,7 @@
       "date": "2024-03-13",
       "memberGroupId": "test",
       "memberId": "taewon",
-      "amount": 135962,
+      "amount": 135900,
       "description": "Movie Night",
       "UUID": "fbf7b814-661f-40af-99f2-3c8c2e8a84df",
       "id": "d4e8"
@@ -148,7 +148,7 @@
       "date": "2024-03-17",
       "memberGroupId": "test",
       "memberId": "taewon",
-      "amount": 233152,
+      "amount": 233100,
       "description": "Weekend Getaway",
       "UUID": "01f5f8f1-45ff-498c-9225-3d4f8b6a8d1e",
       "id": "a1b2"
@@ -184,7 +184,7 @@
       "date": "2024-03-20",
       "memberGroupId": "test",
       "memberId": "taewon",
-      "amount": 477147,
+      "amount": 477400,
       "description": "Home Cooking",
       "UUID": "2d6f0e65-9c31-4b5a-985f-ac48c4d5c9e2",
       "id": "e3b4"
