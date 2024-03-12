@@ -72,18 +72,18 @@ function Calendar() {
         backgroundColor: idToColor(data.memberId),
         borderColor: idToColor(data.memberId),
       }));
-  console.log('지출내역 parsing: ', events);
+  // console.log('지출내역 parsing: ', events);
 
   /** 총 지출 데이터  */
   const totalExpenses = events.reduce((acc: number, data: ITransactions) => {
     return (acc += data.amount);
   }, 0);
-  console.log('총 지출: ', totalExpenses);
+  // console.log('총 지출: ', totalExpenses);
 
   /** 특정 이벤트 클릭 시 함수 */
   const handleEventTarget = (info: EventClickArg) => {
     // console.log('info 확인:', info);
-    console.log('info 확인:', info.event._def.extendedProps);
+    console.log('memberId 확인:', info.event._def.extendedProps.memberId);
   };
 
   return (
