@@ -8,6 +8,7 @@ import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import Create from '../components/calendar/Create';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { idToColor } from '../utils/colorUtils';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -24,7 +25,7 @@ function Calendar() {
   const [selectedDate, setSelectedDate] = useState('');
 
   /** Create - modal 상태 */
-  const [modalClose, setModalClose] = useState(false);
+  // const [modalClose, setModalClose] = useState(false);
 
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
@@ -33,7 +34,7 @@ function Calendar() {
     // 날짜 클릭 상태 변경하여 create 모달 띄우기
     setDateClicked(true);
     setSelectedDate(clickedDate);
-    setModalClose(false);
+    // setModalClose(false);
   };
 
   /** transactions Data(수입/지출 내역) 가져오기 */
@@ -48,7 +49,7 @@ function Calendar() {
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  console.log('지출내역: ', transactions);
+  // console.log('지출내역: ', transactions);
 
   /** 상태 별 화면 */
   if (status === 'loading') {
@@ -67,18 +68,12 @@ function Calendar() {
         date: data.date,
         memberId: data.memberId,
         amount: data.amount,
-        // backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
-        // borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        backgroundColor: idToColor(data.memberId),
+        borderColor: idToColor(data.memberId),
       }));
   console.log('지출내역 parsing: ', events);
 
   /** 총 지출 데이터  */
-  // const { totalExpenses } = events.reduce(
-  //   (acc: TotalAmounts, transaction: ITransactions) => {
-  //     return (acc.totalExpenses += amount);
-  //   },
-  //   { totalIncome: 0, totalExpenses: 0 }
-  // );
   const totalExpenses = events.reduce((acc: number, data: ITransactions) => {
     return (acc += data.amount);
   }, 0);
@@ -95,6 +90,7 @@ function Calendar() {
       {/* 이번 달  지출 */}
       <p>총 지출 : {totalExpenses}</p>
       <p>목표 : 1000000</p>
+      <p>남은 금액 : 1000000 - {totalExpenses}</p>
       <hr />
 
       {/* FullCalendar */}
@@ -114,6 +110,9 @@ function Calendar() {
         <Create selectedDate={selectedDate} setModalClose={setModalClose} />
       ) : null} */}
       {/* 기존 Create End */}
+
+      {/* 신규 Create2 Start */}
+      {/* 신규 Create2 End */}
 
       <Outlet />
     </>
