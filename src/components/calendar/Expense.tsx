@@ -1,32 +1,26 @@
-import { useState } from 'react';
-import { CreateProps, ICreateForm } from '../../types/calendar';
+import { ExpenseProps, ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import { postFinancialTransactions } from '../../api';
-import { v4 as uuidv4 } from 'uuid';
 
-function Expense({ selectedDate }: CreateProps) {
+function Expense({ selectedDate }: ExpenseProps) {
   /** hook-form 입력값 */
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<ICreateForm>({ mode: 'onChange' });
-
-  // console.log('입력값 확인: ', watch());
+  console.log('입력값 확인: ', watch());
 
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
-
-    // mutation.mutate({ ...data, UUID: uuidv4(), amount: Number(data.amount) });
   };
 
   return (
     <>
       <form onSubmit={handleSubmit(onValid)}>
         <p>일자: {selectedDate}</p>
-        {/* <input type="hidden" {...register('date')} value={selectedDate} /> */}
+        <input type="hidden" {...register('date')} value={selectedDate} />
 
         <label htmlFor="amount">금액:</label>
         <input

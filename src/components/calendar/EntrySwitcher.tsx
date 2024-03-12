@@ -3,7 +3,7 @@ import Diary from './Diary';
 import Expense from './Expense';
 import { CreateProps } from '../../types/calendar';
 
-function Create2({ selectedDate }: CreateProps) {
+function EntrySwitcher({ selectedDate }: CreateProps) {
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
 
@@ -29,4 +29,4 @@ function Create2({ selectedDate }: CreateProps) {
   );
 }
 
-export default Create2;
+export default EntrySwitcher;

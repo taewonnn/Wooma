@@ -9,7 +9,6 @@ import Signup from '../pages/Signup';
 import Assets from '../pages/Assets';
 import Charts from '../pages/Charts';
 import Settings from '../pages/Settings';
-import Create2 from '../components/calendar/Create2';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([

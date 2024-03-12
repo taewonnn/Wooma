@@ -24,7 +24,11 @@ export interface TotalAmounts {
 /** Create.tsx */
 export interface CreateProps {
   selectedDate: string;
-  setModalClose?: (value: boolean) => void;
+}
+
+/** Expense.tsx */
+export interface ExpenseProps {
+  selectedDate: string;
 }
 
 export interface ICreateForm {

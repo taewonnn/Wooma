@@ -9,7 +9,8 @@ import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { idToColor } from '../utils/colorUtils';
-import Create2 from '../components/calendar/Create2';
+import Create2 from '../components/calendar/EntrySwitcher';
+import EntrySwitcher from '../components/calendar/EntrySwitcher';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -26,16 +27,16 @@ function Calendar() {
   const [selectedDate, setSelectedDate] = useState('');
 
   /** Create - modal 상태 */
-  // const [modalClose, setModalClose] = useState(false);
+  const [modalClose, setModalClose] = useState(false);
 
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
     const clickedDate = date.dateStr;
     console.log('클릭한 일자 :', clickedDate);
-    // 날짜 클릭 상태 변경 -> create2
+    // 날짜 클릭 상태 변경 -> Expense
     setDateClicked(true);
     setSelectedDate(clickedDate);
-    // setModalClose(false);
+    setModalClose(false);
   };
 
   /** transactions Data(수입/지출 내역) 가져오기 */
@@ -106,14 +107,8 @@ function Calendar() {
         />
       </div>
 
-      {/* 기존 Create Start */}
-      {/* {!modalClose && dateClicked ? (
-        <Create selectedDate={selectedDate} setModalClose={setModalClose} />
-      ) : null} */}
-      {/* 기존 Create End */}
-
       {/* 신규 Create2 Start */}
-      {dateClicked ? <Create2 selectedDate={selectedDate} /> : null}
+      {dateClicked ? <EntrySwitcher selectedDate={selectedDate} /> : null}
       {/* 신규 Create2 End */}
 
       <Outlet />
