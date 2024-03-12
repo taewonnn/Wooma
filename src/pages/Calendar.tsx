@@ -66,8 +66,8 @@ function Calendar() {
         date: data.date,
         transactionType: data.transactionType,
         amount: data.amount,
-        backgroundColor: data.transactionType === 'expenditure' ? 'red' : 'blue',
-        borderColor: data.transactionType === 'expenditure' ? 'red' : 'blue',
+        backgroundColor: data.transactionType === 'expense' ? 'red' : 'blue',
+        borderColor: data.transactionType === 'expense' ? 'red' : 'blue',
       }));
   // console.log('수입/지출내역 parsing: ', events);
 
@@ -76,7 +76,7 @@ function Calendar() {
     (acc: TotalAmounts, transaction: ITransactions) => {
       if (transaction.transactionType === 'income') {
         acc.totalIncome += transaction.amount;
-      } else if (transaction.transactionType === 'expenditure') {
+      } else if (transaction.transactionType === 'expense') {
         acc.totalExpenses += transaction.amount;
       }
       return acc;
@@ -92,7 +92,7 @@ function Calendar() {
     console.log('info 확인:', info);
     // console.log('info 확인:', info.event._def.extendedProps.type);
     const type = info.event._def.extendedProps.transactionType;
-    type === 'expenditure' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
+    type === 'expense' ? console.log('지출!!!') : type === 'income' && console.log('수입!!');
   };
 
   return (

@@ -65,7 +65,7 @@ function Create({ selectedDate, setModalClose }: CreateProps) {
           onChange={handleTransactionType}
         >
           <option value="select">--Please choose an option--</option>
-          <option value="expenditure">지출</option>
+          <option value="expense">지출</option>
           <option value="deposit">수입</option>ㅙㅐ
         </select>
         {errors?.transactionType && (
