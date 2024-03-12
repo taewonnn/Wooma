@@ -1,10 +1,28 @@
+import { useState } from 'react';
+
 function Create2() {
+  /** toggle 상태 */
+  const [isSelected, SetIsSelected] = useState(false);
+
+  /** toggle 상태 변경 함수 */
+  const toggleSelection = () => {
+    SetIsSelected(!isSelected);
+  };
+
   return (
     <>
       <p>create test</p>
-      <div>
-        <div></div>
+      <div className="h-8 w-32 rounded-full p-1 flex cursor-pointer" onClick={toggleSelection}>
+        <div
+          className={`h-full w-1/4 rounded-full transition-transform duration-200 ${
+            isSelected ? 'bg-blue-500 transform translate-x-full' : 'bg-green-500'
+          }`}
+        >
+          {isSelected ? '일기' : '지출'}
+        </div>
       </div>
+
+      <div>{isSelected ? <p>일기 내용 화면</p> : <p>지출 내용 화면</p>}</div>
     </>
   );
 }
