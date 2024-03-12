@@ -5,6 +5,7 @@ import './App.css';
 import { authenticatedUserRouter, unauthenticatedUserRouter } from './router/router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RecoilRoot } from 'recoil';
 
 /** react-query */
 const client = new QueryClient();
@@ -22,9 +23,13 @@ const isLoggedIn = () => {
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={client}>
-      <ReactQueryDevtools initialIsOpen={true} />
-      <RouterProvider router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter} />
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={client}>
+        <ReactQueryDevtools initialIsOpen={true} />
+        <RouterProvider
+          router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter}
+        />
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
