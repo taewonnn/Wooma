@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import Diary from './Diary';
 import Expense from './Expense';
-import { CreateProps } from '../../types/calendar';
-import { useRecoilState } from 'recoil';
-import { dateClickedState } from '../../atoms';
 
 function EntrySwitcher() {
   /** toggle 상태 */
@@ -13,8 +10,6 @@ function EntrySwitcher() {
   const toggleSelection = () => {
     SetIsSelected(!isSelected);
   };
-
-  const [dateClicked, setDateClicked] = useRecoilState(dateClickedState);
 
   return (
     <>

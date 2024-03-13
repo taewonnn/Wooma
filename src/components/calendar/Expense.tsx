@@ -1,5 +1,5 @@
-import { useRecoilState } from 'recoil';
-import { ExpenseProps, ICreateForm } from '../../types/calendar';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { ICreateForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 import { dateClickedState, selectedDateState } from '../../atoms';
 
@@ -18,9 +18,12 @@ function Expense() {
     console.log('제출한 데이터 묶음 확인:', data);
   };
 
-  const [selectedDate, setSelectedData] = useRecoilState(selectedDateState);
+  /** 선택한 일자 */
+  const selectedDate = useRecoilValue(selectedDateState);
 
-  const [dateClicked, setDateClicked] = useRecoilState(dateClickedState);
+  /** 일자 클릭 상태 변경 -> 모달 닫기 */
+  const setDateClicked = useSetRecoilState(dateClickedState);
+
   return (
     <>
       <form onSubmit={handleSubmit(onValid)}>
