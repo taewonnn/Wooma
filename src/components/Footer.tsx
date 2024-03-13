@@ -12,10 +12,10 @@ function Footer() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 flex justify-around p-4 bg-gray-200">
-      <button onClick={onClickPage}>Home</button>
-      <button onClick={onClickPage}>Calendar</button>
-      <button onClick={onClickPage}>Asset</button>
-      <button onClick={onClickPage}>Info</button>
+      <button onClick={onClickPage}>home</button>
+      <button onClick={onClickPage}>calendar</button>
+      <button onClick={onClickPage}>asset</button>
+      <button onClick={onClickPage}>settings</button>
     </div>
   );
 }
