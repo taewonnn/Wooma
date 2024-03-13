@@ -3,6 +3,8 @@ import { ICreateExpenseForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 import { dateClickedState, selectedDateState } from '../../atoms';
 import { v4 as uuidv4 } from 'uuid';
+import { postTransaction } from '../../api';
+import { useMutation } from '@tanstack/react-query';
 
 function Expense() {
   /** 선택한 일자 */
@@ -19,6 +21,9 @@ function Expense() {
   } = useForm<ICreateExpenseForm>({ mode: 'onChange' });
   // console.log('입력값 확인: ', watch());
 
+  /** POST 소비금액 */
+  const mutation = useMutation(postTransaction);
+
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateExpenseForm) => {
     // console.log('제출한 데이터 묶음 확인:', data);
@@ -26,11 +31,12 @@ function Expense() {
     // amount -> Number
     data.amount = Number(data.amount);
 
-    // UUID 적용
-    const formData = { ...data, UUID: uuidv4() };
+    // UUID 적용 + id 전달(test용이라 'taewon' 직접 전달)
+    const formData = { ...data, UUID: uuidv4(), memberGroupId: 'test', memberId: 'taewon' };
     console.log('UUID 포함 데이터: ', formData);
 
     // POST - Mutaion
+    mutation.mutate(formData);
   };
 
   return (
