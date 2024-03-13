@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Diary from './Diary';
 import Expense from './Expense';
 import { CreateProps } from '../../types/calendar';
+import { useRecoilState } from 'recoil';
+import { dateClickedState } from '../../atoms';
 
-function EntrySwitcher({ selectedDate }: CreateProps) {
+function EntrySwitcher() {
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
 
@@ -11,6 +13,8 @@ function EntrySwitcher({ selectedDate }: CreateProps) {
   const toggleSelection = () => {
     SetIsSelected(!isSelected);
   };
+
+  const [dateClicked, setDateClicked] = useRecoilState(dateClickedState);
 
   return (
     <>
@@ -24,7 +28,7 @@ function EntrySwitcher({ selectedDate }: CreateProps) {
         </div>
       </div>
 
-      <div>{isSelected ? <Diary /> : <Expense selectedDate={selectedDate} />}</div>
+      <div>{isSelected ? <Diary /> : <Expense />}</div>
     </>
   );
 }

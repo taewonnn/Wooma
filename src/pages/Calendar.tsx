@@ -4,13 +4,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
 import { useQuery } from '@tanstack/react-query';
 import { getTransactions } from '../api';
-import { IDateSelectArg, ITransactions, TotalAmounts } from '../types/calendar';
-// import Create from '../components/calendar/Create';
-import { useState } from 'react';
+import { IDateSelectArg, ITransactions } from '../types/calendar';
 import { Outlet } from 'react-router-dom';
 import { idToColor } from '../utils/colorUtils';
-import Create2 from '../components/calendar/EntrySwitcher';
 import EntrySwitcher from '../components/calendar/EntrySwitcher';
+import { dateClickedState, selectedDateState } from '../atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -22,12 +21,11 @@ import EntrySwitcher from '../components/calendar/EntrySwitcher';
  */
 
 function Calendar() {
-  /** 추가 / 선택한 날짜 확인 상태 */
-  const [dateClicked, setDateClicked] = useState(false);
-  const [selectedDate, setSelectedDate] = useState('');
+  /** 날짜 클릭한 상태 */
+  const [dateClicked, setDateClicked] = useRecoilState(dateClickedState);
 
-  /** Create - modal 상태 */
-  const [modalClose, setModalClose] = useState(false);
+  /** 클릭한 일자 확인 상태 변경함수만 가져오기 */
+  const setSelectedDate = useSetRecoilState(selectedDateState);
 
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
@@ -36,7 +34,6 @@ function Calendar() {
     // 날짜 클릭 상태 변경 -> Expense
     setDateClicked(true);
     setSelectedDate(clickedDate);
-    setModalClose(false);
   };
 
   /** transactions Data(수입/지출 내역) 가져오기 */
@@ -108,7 +105,7 @@ function Calendar() {
       </div>
 
       {/* 신규 Create2 Start */}
-      {dateClicked ? <EntrySwitcher selectedDate={selectedDate} /> : null}
+      {dateClicked ? <EntrySwitcher /> : null}
       {/* 신규 Create2 End */}
 
       <Outlet />
