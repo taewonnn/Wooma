@@ -3,11 +3,9 @@ import App from '../App';
 import PublicApp from '../PublicApp';
 import Home from '../pages/Home';
 import Calendar from '../pages/Calendar';
-import Info from '../pages/Settings';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Assets from '../pages/Assets';
-import Charts from '../pages/Charts';
 import Settings from '../pages/Settings';
 
 /** 로그인 유저 전용 라우터 */
