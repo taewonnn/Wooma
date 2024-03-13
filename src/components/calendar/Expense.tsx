@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { ICreateForm } from '../../types/calendar';
+import { ICreateExpenseForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 import { dateClickedState, selectedDateState } from '../../atoms';
 
@@ -10,12 +10,16 @@ function Expense() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<ICreateForm>({ mode: 'onChange' });
+  } = useForm<ICreateExpenseForm>({ mode: 'onChange' });
   console.log('입력값 확인: ', watch());
 
   /** validation 끝난 이후 실행함수 */
-  const onValid = (data: ICreateForm) => {
+  const onValid = (data: ICreateExpenseForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
+
+    // UUID 적용
+
+    // POST - Mutaion
   };
 
   /** 선택한 일자 */

@@ -1,4 +1,4 @@
-import { ICreateForm } from './types/calendar';
+import { ICreateExpenseForm } from './types/calendar';
 
 /** 입력한 기존 수입/지출내역 가져오기 - 테스트용 json */
 /** json -server X : /testdata.json */
@@ -28,7 +28,7 @@ export function getTransactions() {
 // }
 
 /** 내역 추가하기 - 테스트용 json */
-export function postFinancialTransactions(newData: ICreateForm) {
+export function postFinancialTransactions(newData: ICreateExpenseForm) {
   return fetch('http://localhost:3000/transactions', {
     method: 'POST',
     headers: {

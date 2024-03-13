@@ -22,16 +22,8 @@ export interface TotalAmounts {
 }
 
 /** Create.tsx */
-export interface CreateProps {
-  selectedDate: string;
-}
 
-/** Expense.tsx */
-export interface ExpenseProps {
-  selectedDate: string;
-}
-
-export interface ICreateForm {
+export interface ICreateExpenseForm {
   date: string;
   transactionType: string;
   amount: number;
