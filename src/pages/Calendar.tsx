@@ -10,6 +10,7 @@ import { idToColor } from '../utils/colorUtils';
 import EntrySwitcher from '../components/calendar/EntrySwitcher';
 import { dateClickedState, selectedDateState } from '../atoms';
 import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useTransactions } from '../components/hooks/useTransactions';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -36,7 +37,7 @@ function Calendar() {
     setSelectedDate(clickedDate);
   };
 
-  /** transactions Data(수입/지출 내역) 가져오기 */
+  /** transactions Data(지출 내역) 가져오기 */
   const {
     status,
     data: transactions,
@@ -48,7 +49,12 @@ function Calendar() {
     // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
     refetchOnWindowFocus: false,
   });
-  // console.log('지출내역: ', transactions);
+  // // console.log('지출내역: ', transactions);
+
+  /** Hook */
+  // const { status, data: transactionsData, isLoading: transactionsLoading } = useTransactions();
+
+  console.log('❗️', transactions);
 
   /** 상태 별 화면 */
   if (status === 'loading') {
