@@ -2,8 +2,6 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
-import { useQuery } from '@tanstack/react-query';
-import { getTransactions } from '../api';
 import { IDateSelectArg, ITransactions } from '../types/calendar';
 import { Outlet } from 'react-router-dom';
 import { idToColor } from '../utils/colorUtils';
@@ -37,24 +35,9 @@ function Calendar() {
     setSelectedDate(clickedDate);
   };
 
-  /** transactions Data(지출 내역) 가져오기 */
-  // const {
-  //   status,
-  //   data: transactions,
-  //   isLoading: transactionsLoading,
-  // } = useQuery({
-  //   queryKey: ['transactions'],
-  //   queryFn: getTransactions,
-  //   cacheTime: 1000 * 60 * 60,
-  //   // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
-  //   refetchOnWindowFocus: false,
-  // });
-  // // console.log('지출내역: ', transactions);
-
-  /** Hook */
+  /** transactions Data(지출 내역) 가져오기  - hooks */
   const { status, data: transactionsData, isLoading: transactionsLoading } = useTransactions();
-
-  console.log('❗️', transactionsData);
+  // console.log('❗️', transactionsData);
 
   /** 상태 별 화면 */
   if (status === 'loading') {
