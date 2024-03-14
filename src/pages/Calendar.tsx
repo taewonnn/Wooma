@@ -38,23 +38,23 @@ function Calendar() {
   };
 
   /** transactions Data(지출 내역) 가져오기 */
-  const {
-    status,
-    data: transactions,
-    isLoading: transactionsLoading,
-  } = useQuery({
-    queryKey: ['transactions'],
-    queryFn: getTransactions,
-    cacheTime: 1000 * 60 * 60,
-    // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
-    refetchOnWindowFocus: false,
-  });
+  // const {
+  //   status,
+  //   data: transactions,
+  //   isLoading: transactionsLoading,
+  // } = useQuery({
+  //   queryKey: ['transactions'],
+  //   queryFn: getTransactions,
+  //   cacheTime: 1000 * 60 * 60,
+  //   // 테스트용 Json 정적데이터 ->  새로고침 시 새로운 요청X
+  //   refetchOnWindowFocus: false,
+  // });
   // // console.log('지출내역: ', transactions);
 
   /** Hook */
-  // const { status, data: transactionsData, isLoading: transactionsLoading } = useTransactions();
+  const { status, data: transactionsData, isLoading: transactionsLoading } = useTransactions();
 
-  console.log('❗️', transactions);
+  console.log('❗️', transactionsData);
 
   /** 상태 별 화면 */
   if (status === 'loading') {
@@ -68,7 +68,7 @@ function Calendar() {
   /** 받아온 데이터 Fullcalendar event형식에 맞게 파싱 */
   const events = transactionsLoading
     ? []
-    : transactions.map((data: ITransactions) => ({
+    : transactionsData.map((data: ITransactions) => ({
         title: data.amount,
         date: data.date,
         memberId: data.memberId,

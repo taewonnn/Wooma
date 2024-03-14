@@ -6,7 +6,7 @@ const fetchTransactions = async () => {
     throw new Error('Network error');
   }
 
-  return response.json();
+  return response.json().then((data) => data.transactions);
 };
 
 export const useTransactions = () => {
