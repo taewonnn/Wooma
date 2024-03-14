@@ -19,7 +19,7 @@ function Diary() {
   };
 
   return (
-    <>
+    <div className="pb-20">
       <form>
         <label htmlFor=""></label>
         <input type="text" />
@@ -28,10 +28,13 @@ function Diary() {
         <input type="text" />
 
         <label htmlFor=""></label>
-        <input className="w - 500 h-200" type="textarea" />
+        <input
+          className="w-100 h-100 border border-gray-200 flex items-center justify-center"
+          type="textarea"
+        />
 
         <div className="w-64 h-64 border border-gray-200 flex items-center justify-center">
-          {image ? <img src={image} alt="preview" className="max-w-full max-h-full" /> : 'No Image'}
+          {image ? <img src={image} alt="preview" className="max-w-full max-h-full" /> : ''}
         </div>
         <label htmlFor="fileInput">이미지:</label>
         <input onChange={handleImageChange} id="fileInput" type="file" />
@@ -39,7 +42,7 @@ function Diary() {
         <hr />
         <button>닫기</button>
       </form>
-    </>
+    </div>
   );
 }
 
