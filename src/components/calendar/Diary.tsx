@@ -21,19 +21,13 @@ function Diary() {
   return (
     <div className="pb-20">
       <form>
-        <label htmlFor=""></label>
-        <input type="text" />
+        <label htmlFor="title">타이틀 : </label>
+        <input type="text" id="title" />
 
-        <label htmlFor=""></label>
-        <input type="text" />
+        <label htmlFor="content">내용: </label>
+        <input className="w-full h-64 border border-gray-200" type="textarea" id="content" />
 
-        <label htmlFor=""></label>
-        <input
-          className="w-100 h-100 border border-gray-200 flex items-center justify-center"
-          type="textarea"
-        />
-
-        <div className="w-64 h-64 border border-gray-200 flex items-center justify-center">
+        <div className="w-full h-64 border border-gray-200 flex items-center justify-center">
           {image ? <img src={image} alt="preview" className="max-w-full max-h-full" /> : ''}
         </div>
         <label htmlFor="fileInput">이미지:</label>
