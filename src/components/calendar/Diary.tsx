@@ -28,15 +28,13 @@ function Diary() {
         <input type="text" />
 
         <label htmlFor=""></label>
-        <input type="textarea" />
+        <input className="w - 500 h-200" type="textarea" />
 
-        <label htmlFor=""></label>
-        <div className="display-none">이미지 영역</div>
-
-        <label htmlFor=""></label>
-        <input type="file" />
-
-        <button>입력</button>
+        <div className="w-64 h-64 border border-gray-200 flex items-center justify-center">
+          {image ? <img src={image} alt="preview" className="max-w-full max-h-full" /> : 'No Image'}
+        </div>
+        <label htmlFor="fileInput">이미지:</label>
+        <input onChange={handleImageChange} id="fileInput" type="file" />
 
         <hr />
         <button>닫기</button>
