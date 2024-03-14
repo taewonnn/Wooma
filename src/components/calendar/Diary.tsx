@@ -1,4 +1,23 @@
+import React, { useState } from 'react';
+
 function Diary() {
+  /** 이미지 노출 상태 */
+  const [image, setImage] = useState('');
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const img = event.target.files;
+    if (!img) return;
+
+    const file = img[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImage(reader.result as string);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
   return (
     <>
       <form>
