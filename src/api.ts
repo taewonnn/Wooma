@@ -1,6 +1,6 @@
 import { ICreateExpenseForm } from './types/calendar';
 
-/** get */
+/** GET */
 export function get(url: string) {
   return fetch(url).then((res) => {
     if (!res.ok) {
@@ -25,6 +25,20 @@ export function get(url: string) {
 // }
 
 /** POST */
+export function post(url: string, data: any) {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((res) => {
+    if (!res.ok) {
+      throw new Error('Network error');
+    }
+    return res.json();
+  });
+}
 
 /** 내역 추가하기 - 테스트용 json */
 export function postTransaction(newData: ICreateExpenseForm) {
