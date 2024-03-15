@@ -1,18 +1,5 @@
 import { ICreateExpenseForm } from './types/calendar';
 
-/** 입력한 기존 수입/지출내역 가져오기 - 테스트용 json */
-/** json -server X : /expenseData.json */
-export function getTransactions() {
-  return fetch('/expenseData.json')
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Network error');
-      }
-      return res.json();
-    })
-    .then((data) => data.transactions);
-}
-
 /** get */
 export function get(url: string) {
   return fetch(url).then((res) => {
@@ -36,6 +23,8 @@ export function get(url: string) {
 //     })
 //     .then((data) => data);
 // }
+
+/** POST */
 
 /** 내역 추가하기 - 테스트용 json */
 export function postTransaction(newData: ICreateExpenseForm) {
