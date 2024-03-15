@@ -8,7 +8,7 @@ import { idToColor } from '../utils/colorUtils';
 import EntrySwitcher from '../components/calendar/EntrySwitcher';
 import { dateClickedState, selectedDateState } from '../atoms';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { useTransactions } from '../components/hooks/useTransactions';
+import { useTransactions } from '../components/hooks/TransactionsQuery';
 
 /** 
   • 전체 데이터셋: financialTransactions
