@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 function Diary() {
   /** 이미지 노출 상태 */
   const [image, setImage] = useState('');
-  const [imageURL, setImageURL] = useState('');
 
   /** 이미지 보여주기 함수 */
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +15,7 @@ function Diary() {
 
     reader.onloadend = () => {
       const url = reader.result as string;
-      setImageURL(url);
+      setImage(url);
       setValue('imageURL', url);
     };
 
@@ -44,10 +43,10 @@ function Diary() {
           id="content"
         />
 
+        <label htmlFor="imageURL">이미지:</label>
         <div className="w-full h-64 border border-gray-200 flex items-center justify-center">
           {image ? <img src={image} alt="preview" className="max-w-full max-h-full" /> : ''}
         </div>
-        <label htmlFor="imageURL">이미지:</label>
         <input {...register('imageURL')} onChange={handleImageChange} id="imageURL" type="file" />
 
         <hr />
