@@ -3,7 +3,7 @@ import { ICreateExpenseForm } from '../../types/calendar';
 import { useForm } from 'react-hook-form';
 import { dateClickedState, selectedDateState } from '../../atoms';
 import { v4 as uuidv4 } from 'uuid';
-import { postTransaction } from '../../api';
+import { postTransaction } from '../../utils/api';
 import { useMutation } from '@tanstack/react-query';
 
 function Expense() {

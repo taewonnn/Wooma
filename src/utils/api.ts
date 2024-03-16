@@ -1,4 +1,4 @@
-import { ICreateExpenseForm } from './types/calendar';
+import { ICreateExpenseForm } from '../types/calendar';
 
 /** GET */
 export function get(url: string) {
