@@ -1,14 +1,16 @@
 import { useDiary } from '../components/hooks/DiaryQuery';
+import { IDiaryData } from '../types/diary';
 
 function Home() {
   const { isLoading, data: diaryList } = useDiary();
   console.log(diaryList);
   return (
-    <>
+    <div className="pb-20">
       <p>Home Page - diary</p>
 
-      {diaryList &&
-        diaryList.map((diary: any) => (
+      {!isLoading &&
+        diaryList &&
+        diaryList.map((diary: IDiaryData) => (
           <div key={diary.id}>
             <h3>{diary.title}</h3>
             <div>
@@ -18,7 +20,7 @@ function Home() {
             </div>
           </div>
         ))}
-    </>
+    </div>
   );
 }
 
