@@ -4,7 +4,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { EventClickArg } from 'fullcalendar';
 import { IDateSelectArg, ITransactions } from '../types/calendar';
 import { Outlet } from 'react-router-dom';
-import { idToColor } from '../utils/colorUtils';
+import { idToColor } from '../utils/color-utils';
 import EntrySwitcher from '../components/calendar/EntrySwitcher';
 import { dateClickedState, selectedDateState } from '../atoms';
 import { useRecoilState, useSetRecoilState } from 'recoil';

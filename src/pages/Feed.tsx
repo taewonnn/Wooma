@@ -1,7 +1,7 @@
 import { useDiary } from '../components/hooks/DiaryQuery';
 import { IDiaryData } from '../types/diary';
 
-function Home() {
+function Feed() {
   const { isLoading, data: diaryList } = useDiary();
   console.log(diaryList);
   return (
@@ -24,4 +24,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Feed;

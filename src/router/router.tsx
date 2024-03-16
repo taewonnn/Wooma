@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import PublicApp from '../PublicApp';
-import Home from '../pages/Home';
+import Feed from '../pages/Feed';
 import Calendar from '../pages/Calendar';
-import Signin from '../pages/Signin';
-import Signup from '../pages/Signup';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 import Assets from '../pages/Assets';
 import Settings from '../pages/Settings';
 
@@ -15,8 +15,8 @@ export const authenticatedUserRouter = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/home',
-        element: <Home />,
+        path: '/feed',
+        element: <Feed />,
       },
       {
         path: '/calendar',
@@ -41,12 +41,12 @@ export const unauthenticatedUserRouter = createBrowserRouter([
     element: <PublicApp />,
     children: [
       {
-        path: '/signin',
-        element: <Signin />,
+        path: '/signIn',
+        element: <SignIn />,
       },
       {
-        path: '/singup',
-        element: <Signup />,
+        path: '/singUp',
+        element: <SignUp />,
       },
     ],
   },

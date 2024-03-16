@@ -1,5 +1,5 @@
 /** Signup.tsx - Form 타입 */
-export interface ISignupForm {
+export interface ISignUpForm {
   username: string;
   name: string;
   password: string;
@@ -7,7 +7,7 @@ export interface ISignupForm {
 }
 
 /** Signin.tsx - Form 타입 */
-export interface ISigninForm {
+export interface ISignInForm {
   username: string;
   password: string;
 }

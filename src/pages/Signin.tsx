@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { ISigninForm } from '../types/sign';
+import { ISignInForm } from '../types/sign';
 
-function Signin() {
-  const { register, handleSubmit } = useForm<ISigninForm>();
+function SignIn() {
+  const { register, handleSubmit } = useForm<ISignInForm>();
   // console.log(watch());
 
   /** validation 끝난 이후 실행되는 함수 */
-  const onValid = (data: ISigninForm) => {
+  const onValid = (data: ISignInForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
   };
   return (
@@ -40,4 +40,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default SignIn;
