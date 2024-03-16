@@ -10,9 +10,11 @@ function Home() {
       {diaryList &&
         diaryList.map((diary: any) => (
           <div key={diary.id}>
-            <p>{diary.title}</p>
+            <h3>{diary.title}</h3>
             <div>
-              <img src="{diary.imageURL}" alt="" />
+              {diary.imageURL && (
+                <img src={diary.imageURL} alt="" className="w-[100px] h-[100px]" />
+              )}
             </div>
           </div>
         ))}
