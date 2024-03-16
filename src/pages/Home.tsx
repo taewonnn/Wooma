@@ -5,16 +5,17 @@ function Home() {
   console.log(diaryList);
   return (
     <>
-      <p>Home Page</p>
-      <h1>diary</h1>
-      <p>
-        {diaryList &&
-          diaryList.map((diary: any) => (
-            <>
-              <p>{diary.title}</p>
-            </>
-          ))}
-      </p>
+      <p>Home Page - diary</p>
+
+      {diaryList &&
+        diaryList.map((diary: any) => (
+          <div key={diary.id}>
+            <p>{diary.title}</p>
+            <div>
+              <img src="{diary.imageURL}" alt="" />
+            </div>
+          </div>
+        ))}
     </>
   );
 }
