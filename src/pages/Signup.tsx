@@ -106,3 +106,20 @@ function SignUp() {
 }
 
 export default SignUp;
+
+// data
+
+// {
+//   "success": true,
+//   "message": "성공",
+//   "data": {
+//     "username": "도토리",
+//     "token": ""
+//   }
+// }
+
+// {
+//   "success": false,
+//   "message": "이미 존재하는 이메일입니다.",
+//   "data": null
+// }
