@@ -1,4 +1,4 @@
-import { useDiary } from '../components/hooks/DiaryQuery';
+import { useDiary } from '../hooks/DiaryQuery';
 import { IDiaryData } from '../types/diary';
 
 function Feed() {
