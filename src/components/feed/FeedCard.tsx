@@ -19,7 +19,9 @@ function FeedCard({ isLoading, diaryList }: any) {
                 className="w-12 h-12 object-cover rounded-full"
               />
 
-              {diary.imageURL && <img src={diary.imageURL} alt="" className="w-full" />}
+              {diary.imageURL && (
+                <img src={diary.imageURL} alt="" className="w-[300px] h-[300px]" />
+              )}
             </div>
 
             <div className="flex items-center justify-start px-4 py-2 space-x-4">
