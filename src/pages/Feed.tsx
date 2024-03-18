@@ -3,10 +3,11 @@ import { IDiaryData } from '../types/diary';
 
 function Feed() {
   const { isLoading, data: diaryList } = useDiary();
-  console.log(diaryList);
+  console.log('diary data:', diaryList);
+
   return (
     <div className="pb-20">
-      <p>Home Page - diary</p>
+      <p>diary</p>
 
       {!isLoading &&
         diaryList &&
