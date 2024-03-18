@@ -9,6 +9,7 @@ function Feed() {
     <>
       <div className="pb-20">
         <p>diary</p>
+
         <FeedCard isLoading={isLoading} diaryList={diaryList} />
       </div>
     </>
