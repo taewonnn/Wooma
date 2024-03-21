@@ -4,14 +4,19 @@ export const http = {
       ...config,
       method: 'GET',
     });
-
-    return res;
+    const data = await res.json();
+    return data;
   },
   async post(url: string, data: any, config?: any) {
     const res = await fetch(url, {
       ...config,
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     });
-    return res;
+    const result = await res.json();
+    return result;
   },
 };
