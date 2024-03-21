@@ -1,3 +1,4 @@
+/** HTTP */
 export const http = {
   async get(url: string, config?: any) {
     const res = await fetch(url, {
