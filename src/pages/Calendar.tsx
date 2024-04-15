@@ -40,7 +40,7 @@ function Calendar() {
   // console.log('❗️', transactionsData);
 
   /** 상태 별 화면 */
-  if (status === 'loading') {
+  if (status === 'pending') {
     return <div>Loading...</div>;
   }
 
