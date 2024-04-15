@@ -22,7 +22,7 @@ function Expense() {
   // console.log('입력값 확인: ', watch());
 
   /** POST 소비금액 */
-  const mutation = useMutation(postTransaction);
+  const mutation = useMutation({ mutationFn: postTransaction });
 
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateExpenseForm) => {

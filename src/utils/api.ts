@@ -41,8 +41,9 @@ export function post(url: string, data: any) {
 }
 
 /** 내역 추가하기 - 테스트용 json */
-export function postTransaction(newData: ICreateExpenseForm) {
-  return fetch('http://localhost:3000/transactions', {
+export function postTransaction(newData: ICreateExpenseForm): Promise<ICreateExpenseForm> {
+  // json-server --watch public/expenseData.json --port 3001
+  return fetch('http://localhost:3001/transactions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -52,6 +53,7 @@ export function postTransaction(newData: ICreateExpenseForm) {
     if (!res.ok) {
       throw new Error('Network error');
     }
+    console.log('!!', res.json());
     return res.json();
   });
 }
