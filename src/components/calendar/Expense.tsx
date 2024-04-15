@@ -22,7 +22,7 @@ function Expense() {
   // console.log('입력값 확인: ', watch());
 
   /** POST 소비금액 */
-  const mutation = useMutation({ mutationFn: postTransaction });
+  const { mutate } = useMutation({ mutationFn: postTransaction });
 
   /** validation 끝난 이후 실행함수 */
   const onValid = (data: ICreateExpenseForm) => {
@@ -36,7 +36,7 @@ function Expense() {
     console.log('UUID 포함 데이터: ', formData);
 
     // POST - Mutaion
-    mutation.mutate(formData);
+    mutate(formData);
   };
 
   return (
