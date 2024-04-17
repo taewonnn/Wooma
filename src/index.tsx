@@ -8,7 +8,13 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 
 /** react-query */
-const client = new QueryClient();
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 2 * 60 * 1000, // 캐시 데이터 2분간 유지
+    },
+  },
+});
 
 /** 로그인 상태 확인 함수 */
 const isLoggedIn = () => {
