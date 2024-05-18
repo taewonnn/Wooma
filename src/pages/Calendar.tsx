@@ -9,6 +9,8 @@ import EntrySwitcher from '../components/calendar/EntrySwitcher';
 import { dateClickedState, selectedDateState } from '../atoms';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useTransactions } from '../hooks/TransactionsQuery';
+import { CalendarTop } from '../common/data';
+import { useState } from 'react';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -17,7 +19,7 @@ import { useTransactions } from '../hooks/TransactionsQuery';
 	•	거래 유형: transactionType
 	•	거래 금액: amount
 	•	거래 설명: description
- */
+*/
 
 function Calendar() {
   /** 날짜 클릭한 상태 */
@@ -25,6 +27,9 @@ function Calendar() {
 
   /** 클릭한 일자 확인 상태 변경함수만 가져오기 */
   const setSelectedDate = useSetRecoilState(selectedDateState);
+
+  /** 목표금액 설정 */
+  const [targetAmount, setTargetAmount] = useState<string>('10000'); // 초기 목표 금액 설정
 
   /** 일자 확인 함수 */
   const handleDateClick = (date: IDateSelectArg) => {
@@ -73,12 +78,34 @@ function Calendar() {
     console.log('memberId 확인:', info.event._def.extendedProps.memberId);
   };
 
+  /** 지출 데이터 */
+  const remainingAmount = Number(targetAmount) - totalExpenses;
+
+  const dynamicValues = [totalExpenses, targetAmount, remainingAmount];
+
+  const handleTargetAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // 빈 문자열일 경우 숫자로 변환하지 않음
+    if (value === '') {
+      setTargetAmount('');
+    } else if (/^\d*$/.test(value)) {
+      // 숫자만 입력될 수 있도록 체크
+      setTargetAmount(value);
+    }
+  };
+
   return (
     <>
+      {/* 목표 금액 입력 필드 */}
+      <div>
+        <label>목표 금액: </label>
+        <input type="number" value={targetAmount} onChange={handleTargetAmountChange} />
+      </div>
+
       {/* 이번 달  지출 */}
-      <p>총 지출 : {totalExpenses}</p>
-      <p>목표 : 1000000</p>
-      <p>남은 금액 :{10000000 - totalExpenses}</p>
+      {CalendarTop.map((text, index) => (
+        <p key={index}>{`${text} ${dynamicValues[index]}`}</p>
+      ))}
       <hr />
 
       {/* FullCalendar */}
