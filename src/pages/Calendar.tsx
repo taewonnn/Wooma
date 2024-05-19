@@ -99,7 +99,12 @@ function Calendar() {
       {/* 목표 금액 입력 필드 */}
       <div>
         <label>목표 금액: </label>
-        <input type="number" value={targetAmount} onChange={handleTargetAmountChange} />
+        <input
+          className="border border-[2px]"
+          type="number"
+          value={targetAmount}
+          onChange={handleTargetAmountChange}
+        />
       </div>
 
       {/* 이번 달  지출 */}
