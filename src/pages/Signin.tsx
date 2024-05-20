@@ -35,7 +35,9 @@ function SignIn() {
         </div>
 
         <button>로그인</button>
+        <hr />
       </form>
+      <button>카카오 로그인</button>
     </>
   );
 }
