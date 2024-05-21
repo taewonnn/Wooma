@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { ISignInForm } from '../types/sign';
+// @ts-ignore
+import kakaoLogin from '../assets/kakao_login.png';
+import { Link } from 'react-router-dom';
 
 function SignIn() {
   const { register, handleSubmit } = useForm<ISignInForm>();
@@ -37,7 +40,9 @@ function SignIn() {
         <button>로그인</button>
         <hr />
       </form>
-      <button>카카오 로그인</button>
+      <Link to="https://kauth.kakao.com/oauth/authorize">
+        <img src={kakaoLogin} alt="kakao login" />
+      </Link>
     </>
   );
 }
