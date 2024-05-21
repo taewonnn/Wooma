@@ -1,8 +1,8 @@
 import { ICreateExpenseForm } from '../types/calendar';
 
 /** GET */
-export function get(url: string) {
-  return fetch(url).then((res) => {
+export function get(url: string, config?: any) {
+  return fetch(url, config).then((res) => {
     if (!res.ok) {
       throw new Error('Network error');
     }

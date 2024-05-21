@@ -12,6 +12,7 @@ function SignIn() {
   const onValid = (data: ISignInForm) => {
     console.log('제출한 데이터 묶음 확인:', data);
   };
+
   return (
     <>
       <p>Signin Page</p>
@@ -40,7 +41,9 @@ function SignIn() {
         <button>로그인</button>
         <hr />
       </form>
-      <Link to="https://kauth.kakao.com/oauth/authorize">
+      <Link
+        to={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT}&response_type=code`}
+      >
         <img src={kakaoLogin} alt="kakao login" />
       </Link>
     </>
