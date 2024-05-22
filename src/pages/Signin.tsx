@@ -17,7 +17,7 @@ function SignIn() {
     <>
       <p>Signin Page</p>
 
-      <form onSubmit={handleSubmit(onValid)}>
+      <form onSubmit={handleSubmit(onValid)} className="flex justify-center">
         <div className="flex justify-start mt-4 mb-4">
           <label htmlFor="username">username: </label>
           <input
@@ -42,6 +42,7 @@ function SignIn() {
         <hr />
       </form>
       <Link
+        className="flex justify-center"
         to={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT}&response_type=code`}
       >
         <img src={kakaoLogin} alt="kakao login" />
