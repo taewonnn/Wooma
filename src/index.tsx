@@ -17,7 +17,7 @@ const client = new QueryClient({
 });
 
 /** 로그인 상태 확인 함수 */
-const isLoggedIn = () => {
+export const isLoggedIn = () => {
   // 테스트 위해 user 지정
   // const user = 1;
 
