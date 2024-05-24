@@ -50,7 +50,7 @@ export const unauthenticatedUserRouter = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: '/singIn/kakao',
+        path: '/callback',
         element: <Feed />,
       },
     ],
