@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { get } from '../utils/api';
+import { post } from '../utils/api';
 
 const fetchKakaoLogin = async () => {
-  const data = await get('https://kauth.kakao.com/oauth/authorize', {
+  const data = await post('https://kauth.kakao.com/oauth/authorize', {
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_KAKAO_APP_KEY}`,
     },
