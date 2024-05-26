@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import PublicApp from '../PublicApp';
 import Feed from '../pages/Feed';
@@ -7,7 +7,6 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Assets from '../pages/Assets';
 import Settings from '../pages/Settings';
-import { isLoggedIn } from '..';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
