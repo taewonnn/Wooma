@@ -7,7 +7,7 @@ export default function LoginCallback() {
   console.log(authorizeCode);
 
   const { data } = useKakaoLogin(authorizeCode);
-  console.log(data);
+  console.log('확인!!:', data.access_token);
 
   return (
     <>
