@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Assets from '../pages/Assets';
 import Settings from '../pages/Settings';
+import LoginCallback from '../pages/LoginCallback';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -50,7 +51,7 @@ export const unauthenticatedUserRouter = createBrowserRouter([
       },
       {
         path: '/callback',
-        element: <Feed />,
+        element: <LoginCallback />,
       },
     ],
   },
