@@ -5,11 +5,11 @@ import { useEffect } from 'react';
 function PublicApp() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isLoggedIn()) {
-      navigate('/signIn');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!isLoggedIn()) {
+  //     navigate('/signIn');
+  //   }
+  // }, []);
 
   return (
     <div>
