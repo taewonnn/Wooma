@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { getAccessToken, useKakaoLogin } from '../hooks/KakaoLogin';
+import { useKakaoLogin } from '../hooks/KakaoLogin';
 
 export default function LoginCallback() {
   /** 카카오 인가코드 가져오기 */
