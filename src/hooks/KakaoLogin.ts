@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { post } from '../utils/api';
 
-export const getAccessToken = async (authorizeCode: string | null) => {
+const getAccessToken = async (authorizeCode: string | null) => {
   const data = await fetch('https://kauth.kakao.com/oauth/token', {
     method: 'POST',
     headers: {
