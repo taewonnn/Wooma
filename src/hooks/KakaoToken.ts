@@ -7,9 +7,9 @@ const postToken = async (url: string) => {
   const data = await http.post('api주소', {
     token: tempToken,
   });
-  return;
+  return data;
 };
 
 export const useKakaotoken = () => {
-  return useQuery({ queryKey: [], queryFn: postToken });
+  return useQuery({ queryKey: [], queryFn: (url) => postToken });
 };
