@@ -6,7 +6,7 @@ const getAccessToken = async (authorizeCode: string | null) => {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: `client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&code=${authorizeCode}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT}&grant_type=authorization_code`,
+    body: `client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&code=${authorizeCode}&redirect_uri=${import.meta.env.import.meta.env.VITE_KAKAO_REDIRECT}&grant_type=authorization_code`,
   });
 
   return await data.json();

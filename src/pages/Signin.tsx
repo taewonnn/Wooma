@@ -43,7 +43,7 @@ function SignIn() {
       </form>
       <Link
         className="flex justify-center"
-        to={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT}&response_type=code`}
+        to={`https://kauth.kakao.com/oauth/authorize?client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&redirect_uri=${process.env.import.meta.env.VITE_KAKAO_REDIRECT}&response_type=code`}
       >
         <img src={kakaoLogin} alt="kakao login" />
       </Link>
