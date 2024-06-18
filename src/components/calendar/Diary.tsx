@@ -26,7 +26,9 @@ function Diary() {
   const { register, watch, setValue, handleSubmit } = useForm();
 
   /** validation 완료 이후 */
-  const onValid = () => {};
+  const onValid = () => { };
+  
+  /** @todo modal 변경 */
 
   console.log(watch());
   return (
