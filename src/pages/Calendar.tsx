@@ -130,10 +130,6 @@ function Calendar() {
         />
       </div>
 
-      {/* 신규 Create2 Start */}
-      {/* {dateClicked ? <EntrySwitcher /> : null} */}
-      {/* 신규 Create2 End */}
-
       {/* 모달 컴포넌트 */}
       <Modal open={isOpen} closeModal={() => setIsOpen(false)}>
         <EntrySwitcher closeModal={() => setIsOpen(false)} />
