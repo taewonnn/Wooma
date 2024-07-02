@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { postTransaction } from '../../utils/api';
 import { useMutation } from '@tanstack/react-query';
 
-function Expense() {
+function Expense({ closeModal }: { closeModal: () => void }) {
   /** 선택한 일자 */
   const selectedDate = useRecoilValue(selectedDateState);
 
@@ -77,7 +77,7 @@ function Expense() {
 
         <button type="submit">입력</button>
         <hr />
-        <button type="button" onClick={() => setDateClicked(false)}>
+        <button type="button" onClick={closeModal}>
           닫기
         </button>
       </form>

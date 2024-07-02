@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Diary from './Diary';
 import Expense from './Expense';
 
-function EntrySwitcher() {
+function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
 
@@ -23,7 +23,7 @@ function EntrySwitcher() {
         </div>
       </div>
 
-      <div>{isSelected ? <Diary /> : <Expense />}</div>
+      {isSelected ? <Diary closeModal={closeModal} /> : <Expense closeModal={closeModal} />}
     </>
   );
 }

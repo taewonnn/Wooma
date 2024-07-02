@@ -11,6 +11,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useTransactions } from '../hooks/TransactionsQuery';
 import { CalendarTop } from '../common/data';
 import { useState } from 'react';
+import { Modal } from '../components/Modal';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -25,6 +26,9 @@ function Calendar() {
   /** 날짜 클릭한 상태 */
   const [dateClicked, setDateClicked] = useRecoilState(dateClickedState);
 
+  /** 모달 열림 상태 */
+  const [isOpen, setIsOpen] = useState(false);
+
   /** 클릭한 일자 확인 상태 변경함수만 가져오기 */
   const setSelectedDate = useSetRecoilState(selectedDateState);
 
@@ -38,6 +42,7 @@ function Calendar() {
     // 날짜 클릭 상태 변경 -> Expense
     setDateClicked(true);
     setSelectedDate(clickedDate);
+    setIsOpen(true);  // 모달 열기
   };
 
   /** transactions Data(지출 내역) 가져오기  - hooks */
@@ -126,8 +131,13 @@ function Calendar() {
       </div>
 
       {/* 신규 Create2 Start */}
-      {dateClicked ? <EntrySwitcher /> : null}
+      {/* {dateClicked ? <EntrySwitcher /> : null} */}
       {/* 신규 Create2 End */}
+
+      {/* 모달 컴포넌트 */}
+      <Modal open={isOpen} closeModal={() => setIsOpen(false)}>
+        <EntrySwitcher closeModal={() => setIsOpen(false)} />
+      </Modal>
 
       <Outlet />
     </>

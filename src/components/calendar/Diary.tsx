@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-function Diary() {
+function Diary({ closeModal }: { closeModal: () => void }) {
   /** 이미지 노출 상태 */
   const [image, setImage] = useState('');
 
@@ -52,7 +52,7 @@ function Diary() {
         <input {...register('imageURL')} onChange={handleImageChange} id="imageURL" type="file" />
 
         <hr />
-        <button>닫기</button>
+        <button onClick={closeModal}>닫기</button>
       </form>
     </div>
   );
