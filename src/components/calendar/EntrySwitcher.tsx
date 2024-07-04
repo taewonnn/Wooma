@@ -3,7 +3,7 @@ import Diary from './Diary';
 import Expense from './Expense';
 import { Tab } from '@headlessui/react';
 
-function classNames(...classes) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
