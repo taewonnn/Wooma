@@ -42,7 +42,7 @@ function Calendar() {
     // 날짜 클릭 상태 변경 -> Expense
     setDateClicked(true);
     setSelectedDate(clickedDate);
-    setIsOpen(true);  // 모달 열기
+    setIsOpen(true); // 모달 열기
   };
 
   /** transactions Data(지출 내역) 가져오기  - hooks */
@@ -102,15 +102,17 @@ function Calendar() {
   return (
     <>
       {/* 목표 금액 입력 필드 */}
-      <div>
-        <label>목표 금액: </label>
-        <input
-          className="border border-[2px]"
-          type="number"
-          value={targetAmount}
-          onChange={handleTargetAmountChange}
-        />
-      </div>
+      <header>
+        <div>
+          <label>목표 금액: </label>
+          <input
+            className="border border-[2px]"
+            type="number"
+            value={targetAmount}
+            onChange={handleTargetAmountChange}
+          />
+        </div>
+      </header>
 
       {/* 이번 달  지출 */}
       {CalendarTop.map((text, index) => (

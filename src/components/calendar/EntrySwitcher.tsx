@@ -8,40 +8,6 @@ function classNames(...classes: string[]): string {
 }
 
 function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
-  let [categories] = useState({
-    지출: [
-      {
-        id: 1,
-        title: 'Does drinking coffee make you smarter?',
-        date: '5h ago',
-        commentCount: 5,
-        shareCount: 2,
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-      },
-    ],
-    일기: [
-      {
-        id: 1,
-        title: 'Is tech making coffee better or worse?',
-        date: 'Jan 7',
-        commentCount: 29,
-        shareCount: 16,
-      },
-      {
-        id: 2,
-        title: 'The most innovative things happening in coffee',
-        date: 'Mar 19',
-        commentCount: 24,
-        shareCount: 12,
-      },
-    ],
-  });
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
 
@@ -52,18 +18,9 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
 
   return (
     <>
-      <div className="h-8 w-32 rounded-full p-1 flex cursor-pointer" onClick={toggleSelection}>
-        <div
-          className={`h-full w-1/4 rounded-full transition-transform duration-200 ${
-            isSelected ? 'bg-blue-500 transform translate-x-full' : 'bg-green-500'
-          }`}
-        >
-          {isSelected ? '일기' : '지출'}
-        </div>
-      </div>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-          {Object.keys(categories).map(category => (
+          {['지출', '일기'].map(category => (
             <Tab
               key={category}
               className={({ selected }) =>
@@ -80,9 +37,15 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
             </Tab>
           ))}
         </Tab.List>
+        <Tab.Panels>
+          <Tab.Panel>
+            <Expense closeModal={closeModal} />
+          </Tab.Panel>
+          <Tab.Panel>
+            <Diary closeModal={closeModal} />
+          </Tab.Panel>
+        </Tab.Panels>
       </Tab.Group>
-
-      {isSelected ? <Diary closeModal={closeModal} /> : <Expense closeModal={closeModal} />}
     </>
   );
 }
