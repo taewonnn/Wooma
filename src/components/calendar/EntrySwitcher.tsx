@@ -7,6 +7,8 @@ function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
+const categories = ['지출', '일기'];
+
 function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
   /** toggle 상태 */
   const [isSelected, SetIsSelected] = useState(false);
@@ -20,7 +22,7 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
     <>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-          {['지출', '일기'].map(category => (
+          {categories.map(category => (
             <Tab
               key={category}
               className={({ selected }) =>
@@ -38,10 +40,10 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
           ))}
         </Tab.List>
         <Tab.Panels>
-          <Tab.Panel>
+          <Tab.Panel className="w-[700px] h-[700px]">
             <Expense closeModal={closeModal} />
           </Tab.Panel>
-          <Tab.Panel>
+          <Tab.Panel className="w-[700px] h-[700px]">
             <Diary closeModal={closeModal} />
           </Tab.Panel>
         </Tab.Panels>
