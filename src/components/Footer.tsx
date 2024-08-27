@@ -6,7 +6,7 @@ function Footer() {
 
   /** 클릭 시 페이지 이동 */
   const onClickPage = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('클릭한 nav버튼 value: ', event.currentTarget.textContent);
+    // console.log('클릭한 nav버튼 value: ', event.currentTarget.textContent);
     navigate(`/${event.currentTarget.textContent}`);
   };
 
