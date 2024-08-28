@@ -21,6 +21,7 @@ import { Modal } from '../components/Modal';
 	•	거래 금액: amount
 	•	거래 설명: description
 */
+/** @todo tailwindcss  */
 
 function Calendar() {
   /** 날짜 클릭한 상태 */
