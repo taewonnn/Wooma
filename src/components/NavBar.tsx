@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-function Footer() {
+export default function NavBar() {
   /** useNavigate */
   const navigate = useNavigate();
 
@@ -19,5 +19,3 @@ function Footer() {
     </div>
   );
 }
-
-export default Footer;
