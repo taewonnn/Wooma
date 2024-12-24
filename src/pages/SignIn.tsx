@@ -3,6 +3,7 @@ import { ISignInForm } from '../types/sign';
 // @ts-ignore
 import kakaoLogin from '../assets/kakao_login.png';
 import { Link } from 'react-router-dom';
+import { KAKAO_APP_KEY, KAKAO_REDIRECT_URI } from '../constants/envConfig';
 
 function SignIn() {
   const { register, handleSubmit } = useForm<ISignInForm>();
@@ -43,7 +44,7 @@ function SignIn() {
       </form>
       <Link
         className="flex justify-center"
-        to={`https://kauth.kakao.com/oauth/authorize?client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&redirect_uri=${process.env.import.meta.env.VITE_KAKAO_REDIRECT}&response_type=code`}
+        to={`https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_APP_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`}
       >
         <img src={kakaoLogin} alt="kakao login" />
       </Link>
