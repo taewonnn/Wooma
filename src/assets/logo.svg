@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 500 250">
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 500 300">
   <!-- 로고 심볼 -->
-  <circle cx="150" cy="100" r="40" fill="none" stroke="#6C63FF" stroke-width="6"/>
-  <circle cx="190" cy="100" r="40" fill="none" stroke="#7DCEA0" stroke-width="6"/>
-  <path d="M175 85 Q180 75 190 85 Q200 75 205 85 Q210 95 190 110 Q170 95 175 85 Z" fill="#7DCEA0"/>
+  <circle cx="220" cy="120" r="40" fill="none" stroke="#6C63FF" stroke-width="6"/>
+  <circle cx="260" cy="120" r="40" fill="none" stroke="#7DCEA0" stroke-width="6"/>
+  <path d="M245 105 Q250 95 260 105 Q270 95 275 105 Q280 115 260 130 Q240 115 245 105 Z" fill="#7DCEA0"/>
   
   <!-- 텍스트 -->
-  <text x="50%" y="150" dominant-baseline="middle" text-anchor="middle" fill="#6C63FF" font-family="Arial, sans-serif" font-size="36">
+  <text x="50%" y="200" dominant-baseline="middle" text-anchor="middle" fill="#6C63FF" font-family="Arial, sans-serif" font-size="36">
     Wooma
   </text>
-  <text x="50%" y="190" dominant-baseline="middle" text-anchor="middle" fill="#7DCEA0" font-family="Arial, sans-serif" font-size="18">
+  <text x="50%" y="240" dominant-baseline="middle" text-anchor="middle" fill="#7DCEA0" font-family="Arial, sans-serif" font-size="18">
     a couple's budgeting
   </text>
 </svg>
