@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="200 200 200 200">
+  <!-- 로고 심볼 -->
+  <circle cx="250" cy="250" r="50" fill="none" stroke="#6C63FF" stroke-width="8"/>
+  <circle cx="300" cy="250" r="50" fill="none" stroke="#7DCEA0" stroke-width="8"/>
+  <path d="M285 230 Q290 220 300 230 Q310 220 315 230 Q320 240 300 260 Q280 240 285 230 Z" fill="#7DCEA0"/>
+</svg>
