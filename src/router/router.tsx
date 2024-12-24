@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
 import Feed from '../pages/Feed';
 import Calendar from '../pages/Calendar';
@@ -32,6 +32,11 @@ export const authenticatedUserRouter = createBrowserRouter([
         path: '/settings',
         element: <Settings />,
       },
+      // 설정되지 않은 경로일 경우 /feed로 리다이렉트
+      {
+        path: '*',
+        element: <Navigate to="/feed" />,
+      },
     ],
   },
 ]);
@@ -53,6 +58,11 @@ export const unauthenticatedUserRouter = createBrowserRouter([
       {
         path: '/callback',
         element: <LoginCallback />,
+      },
+      // 설정되지 않은 경로일 경우 /signin으로 리다이렉트
+      {
+        path: '*',
+        element: <Navigate to="/signin" />,
       },
     ],
   },
