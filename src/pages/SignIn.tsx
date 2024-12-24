@@ -16,6 +16,9 @@ export default function SignIn() {
     console.log('제출한 데이터 묶음 확인:', data);
   };
 
+  const handleKakaoLogin = () => {};
+
+  const handleNaverLogin = () => {};
   return (
     <>
       <p>Signin Page</p>
@@ -46,10 +49,26 @@ export default function SignIn() {
         <hr />
       </form>
 
-      <Button className="flex items-center justify-center gap-2 rounded-[12px] bg-kakaoYellow px-5 py-3">
-        <Img src="/src/assets/guest/kakao_logo.svg" alt="kakao" className="h-[20px] w-[20px]" />
-        <span className="text-base text-black">카카오로 시작하기</span>
-      </Button>
+      <div className="mb-8 flex w-full max-w-xs flex-col gap-4">
+        {/** 카카오 */}
+        <Button
+          className="flex items-center justify-center gap-2 rounded-[12px] bg-kakaoYellow px-5 py-3"
+          onClick={handleKakaoLogin}
+        >
+          <Img src="/src/assets/guest/kakao_logo.svg" alt="kakao" className="h-[20px] w-[20px]" />
+          <span className="text-base text-black">카카오로 시작하기</span>
+        </Button>
+
+        {/** 네이버 */}
+        <Button
+          onClick={handleNaverLogin}
+          className="flex w-full items-center justify-center gap-2 rounded-[12px] bg-naverGreen px-5 py-3"
+        >
+          <Img src="/src/assets/guest/naver_logo.svg" alt="naver" className="h-[20px] w-[20px]" />
+          <span className="text-base text-white">네이버로 시작하기</span>
+        </Button>
+        {/** 구글 */}
+      </div>
 
       <Link
         className="flex justify-center"
