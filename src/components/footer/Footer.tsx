@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="flex justify-center bg-white p-4">
-      <div className="w-full max-w-screen-lg text-center text-xs text-999">
+      <div className="w-full max-w-screen-lg text-center text-xs text-gray">
         WOOMA | 대표이사 : 대표이사 | 사업자 등록번호 : XXXX-XXX-XXX-XXXX <br />
         <span className="cursor-pointer underline" onClick={handleMapClick}>
           (06167) 서울특별시 강남구
