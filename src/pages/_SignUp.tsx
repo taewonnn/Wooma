@@ -89,7 +89,7 @@ function SignUp() {
           <input
             {...register('passwordConfirm', {
               required: '필수: 비밀번호 확인',
-              validate: (value) => value === password || '불일치!',
+              validate: value => value === password || '불일치!',
             })}
             type="password"
             placeholder="passwordConfirm"
