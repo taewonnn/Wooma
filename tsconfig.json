@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "tailwind.config.js", "vite-env.d.ts"]
+  "include": ["src", "tailwind.config.ts", "vite-env.d.ts"]
 }
