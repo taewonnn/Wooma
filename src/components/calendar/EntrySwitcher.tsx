@@ -19,7 +19,7 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
   };
 
   return (
-    <>
+    <div className='p-5'>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
           {categories.map(category => (
@@ -48,7 +48,7 @@ function EntrySwitcher({ closeModal }: { closeModal: () => void }) {
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
-    </>
+    </div>
   );
 }
 
