@@ -9,8 +9,11 @@ import {
 import Button from '../components/common/button/Button';
 import Img from '../components/common/img/Img';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   /** 카카오 로그인 */
   const handleKakaoLogin = () => {
     const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
@@ -35,55 +38,80 @@ export default function SignIn() {
   };
 
   return (
-    <>
-      <p>Signin Page</p>
-      <Img src="logo.svg" />
+    <div className="mx-auto rounded-lg bg-white p-8  w-full">
+      <div className="mb-10 text-center">
+        <Img src="logo.svg" className="mx-auto" alt="Logo" />
+        <h1 className="mt-4 text-5xl font-semibold text-gray">Wooma</h1>
+        <p className="text-sm text-gray-500">우리사이 마이너스는 없어</p>
+      </div>
 
       <form onSubmit={handleSubmit(onValid)} className="w-full">
-        <div className="flex justify-start mt-4 mb-4">
-          <label htmlFor="username">아이디: </label>
+        <div className="mb-4">
+          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+            아이디
+          </label>
           <input
-            {...register('username', { required: '아이디 입력해주세요' })}
+            {...register('username', { required: '아이디를 입력해주세요' })}
+            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm "
             type="text"
             name="username"
             id="username"
+            placeholder="아이디를 입력하세요"
           />
         </div>
 
-        <div className="flex justify-start mt-4 mb-4">
-          <label htmlFor="password">비밀번호: </label>
+        <div className="mb-6">
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            비밀번호
+          </label>
           <input
-            {...register('password', { required: '비밀번호 입력해주세요' })}
-            type="text"
+            {...register('password', { required: '비밀번호를 입력해주세요' })}
+            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm"
+            type="password"
             name="password"
             id="password"
+            placeholder="비밀번호를 입력하세요"
           />
         </div>
 
-        <button>로그인</button>
-        <hr />
+        <div className="flex flex-col gap-2">
+          <Button
+            type="submit"
+            className="w-full rounded-md bg-main px-4 py-2 text-sm font-medium text-white shadow"
+          >
+            로그인
+          </Button>
+          <Button
+            type="button"
+            className="w-full rounded-md bg-gray px-4 py-2 text-sm font-medium text-white shadow"
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            회원가입
+          </Button>
+        </div>
       </form>
 
-      <div className="mb-8 flex w-full max-w-xs flex-col gap-4">
-        {/** 카카오 */}
+      <hr className="my-6 border-gray" />
+
+      <div className="flex flex-col gap-2">
         <Button
-          className="flex items-center justify-center gap-2 rounded-[12px] bg-kakaoYellow px-5 py-3"
           onClick={handleKakaoLogin}
+          className="flex items-center justify-center gap-2 rounded-md bg-yellow-400 px-4 py-2 shadow"
         >
-          <Img src="guest/kakao_logo.svg" alt="kakao" className="h-[20px] w-[20px]" />
-          <span className="text-base text-black">카카오로 시작하기</span>
+          <Img src="guest/kakao_logo.svg" alt="Kakao" className="h-5 w-5" />
+          <span className="text-sm font-medium text-black">카카오로 시작하기</span>
         </Button>
 
-        {/** 네이버 */}
         <Button
           onClick={handleNaverLogin}
-          className="flex w-full items-center justify-center gap-2 rounded-[12px] bg-naverGreen px-5 py-3"
+          className="flex items-center justify-center gap-2 rounded-md bg-green-500 px-4 py-2 shadow"
         >
-          <Img src="guest/naver_logo.svg" alt="naver" className="h-[20px] w-[20px]" />
-          <span className="text-base text-white">네이버로 시작하기</span>
+          <Img src="guest/naver_logo.svg" alt="Naver" className="h-5 w-5" />
+          <span className="text-sm font-medium text-white">네이버로 시작하기</span>
         </Button>
-        {/** 구글 */}
       </div>
-    </>
+    </div>
   );
 }
