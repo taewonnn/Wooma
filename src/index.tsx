@@ -6,6 +6,8 @@ import { authenticatedUserRouter, unauthenticatedUserRouter } from './router/rou
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GOOGLE_CLIENT_ID } from './constants/envConfig';
 
 /** react-query */
 const client = new QueryClient({
@@ -33,12 +35,14 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <QueryClientProvider client={client}>
-        <ReactQueryDevtools initialIsOpen={true} />
-        <RouterProvider
-          router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter}
-        />
-      </QueryClientProvider>
+      <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+        <QueryClientProvider client={client}>
+          <ReactQueryDevtools initialIsOpen={true} />
+          <RouterProvider
+            router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter}
+          />
+        </QueryClientProvider>
+      </GoogleOAuthProvider>
     </RecoilRoot>
   </React.StrictMode>,
 );
