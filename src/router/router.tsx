@@ -53,7 +53,7 @@ export const unauthenticatedUserRouter = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path: '/singup',
+        path: '/signup',
         element: <SignUp />,
       },
 
