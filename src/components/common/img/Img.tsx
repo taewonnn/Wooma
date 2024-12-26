@@ -19,9 +19,11 @@ export default function Img({
   loading = 'lazy',
   style,
 }: IImg) {
+  const basePath = '/src/assets'; // 기본 경로 설정
+
   return (
     <img
-      src={src}
+      src={`${basePath}/${src}`}
       alt={alt}
       className={`${className}`}
       width={width}
