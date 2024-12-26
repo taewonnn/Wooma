@@ -1,7 +1,7 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { EventClickArg } from 'fullcalendar';
+import { EventClickArg } from '@fullcalendar/core';
 import { IDateSelectArg, ITransactions } from '../types/calendar';
 import { Outlet } from 'react-router-dom';
 import { idToColor } from '../utils/color-utils';
@@ -12,6 +12,11 @@ import { useTransactions } from '../hooks/TransactionsQuery';
 import { CalendarTop } from '../common/data';
 import { useState } from 'react';
 import { Modal } from '../components/common/modal/Modal';
+
+declare module '@fullcalendar/react';
+declare module '@fullcalendar/core';
+declare module '@fullcalendar/daygrid';
+declare module '@fullcalendar/interaction';
 
 /** 
   • 전체 데이터셋: financialTransactions
@@ -107,7 +112,7 @@ function Calendar() {
         <div>
           <label>목표 금액: </label>
           <input
-            className="border border-[2px]"
+            className="border-[2px]"
             type="number"
             value={targetAmount}
             onChange={handleTargetAmountChange}
