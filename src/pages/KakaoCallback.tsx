@@ -25,20 +25,15 @@ export default function KakaoCallbck() {
     }
   }, [navigate]);
 
-  // 디버깅용
-  useEffect(() => {
-    console.log('authCode 상태:', authCode);
-  }, [authCode]);
-
   const { data: tokenData, isLoading: isTokenLoading } = useGetKakaoAccessToken(authCode ?? '');
-  if (!isTokenLoading && tokenData) {
-    console.log('카카오 토큰 데이터:', tokenData);
-    // @todo 이 토큰 서버로 보내기
-    alert(tokenData.access_token);
-  } else if (!tokenData) {
-    console.log('토큰 못받아옴');
-    navigate('/signin');
-  }
+
+  // 토큰 데이터에 따라 동작 처리
+  useEffect(() => {
+    if (!isTokenLoading && tokenData) {
+      console.log('카카오 토큰 데이터:', tokenData);
+      alert(tokenData.access_token); // 디버깅 용도
+    }
+  }, [isTokenLoading, tokenData]);
 
   return <Loading />;
 }
