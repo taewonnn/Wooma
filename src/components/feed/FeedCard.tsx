@@ -8,7 +8,7 @@ function FeedCard({ isLoading, diaryList }: any) {
       {!isLoading &&
         diaryList &&
         diaryList.map((diary: IDiaryData) => (
-          <div className="card bg-white shadow-lg rounded-lg overflow-hidden w-full mx-auto mb-8">
+          <div className="card bg-white shadow-lg rounded-lg overflow-hidden w-full mx-auto mb-8" key={diary.id}>
             <div className="flex items-center space-x-4 p-4">
               <p>{diary.title}</p>
             </div>
