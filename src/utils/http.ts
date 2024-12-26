@@ -1,23 +1,68 @@
-/** HTTP */
+import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+
+const axios = Axios.create({
+  baseURL: import.meta.env.VITE_BASE_URL,
+});
+
+const campaignAxios = Axios.create({
+  baseURL: import.meta.env.VITE_CAMPAIGN_URL,
+});
+
 export const http = {
-  async get(url: string, config?: any) {
-    const res = await fetch(url, {
-      ...config,
-      method: 'GET',
-    });
-    const data = await res.json();
-    return data;
+  /** GET */
+  async get(url: string, config?: AxiosRequestConfig<any>) {
+    try {
+      const res = await axios.get(url, config);
+      return res;
+    } catch (e) {
+      return handleCommonError(e as Error);
+    }
   },
-  async post(url: string, data: any, config?: any) {
-    const res = await fetch(url, {
-      ...config,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    return result;
+
+  /** POST */
+  async post(url: string, data: any) {
+    try {
+      const res = await axios.post(url, data);
+      return res;
+    } catch (e) {
+      return handleCommonError(e as Error);
+    }
   },
 };
+
+/** SDK campaign */
+export const campaignHttp = {
+  /** GET */
+  async get(url: string, config?: AxiosRequestConfig<any>) {
+    try {
+      const res = await campaignAxios.get(url, config);
+      return res;
+    } catch (e) {
+      return handleCommonError(e as Error);
+    }
+  },
+
+  /** POST */
+  async post(url: string, data: any) {
+    try {
+      const res = await campaignAxios.post(url, data);
+      return res;
+    } catch (e) {
+      return handleCommonError(e as Error);
+    }
+  },
+};
+
+/** Axios 에러 핸들링 함수 */
+function handleAxiosError(e: AxiosError): AxiosResponse | undefined {
+  return e.response;
+}
+
+/** 에러 핸들링 함수 */
+function handleCommonError(e: Error) {
+  if (e instanceof AxiosError) {
+    return handleAxiosError(e);
+  } else {
+    console.error(e);
+  }
+}
