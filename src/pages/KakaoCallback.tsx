@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useGetAccessToken } from '../hooks/useKakaoLogin';
+import { useGetKakaoAccessToken } from '../hooks/useKakaoLogin';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/common/loading/Loading';
 
@@ -30,10 +30,10 @@ export default function KakaoCallbck() {
     console.log('authCode 상태:', authCode);
   }, [authCode]);
 
-  const { data: tokenData, isLoading: isTokenLoading } = useGetAccessToken(authCode ?? '');
+  const { data: tokenData, isLoading: isTokenLoading } = useGetKakaoAccessToken(authCode ?? '');
   if (!isTokenLoading && tokenData) {
     console.log('카카오 토큰 데이터:', tokenData);
-    alert(tokenData);
+    alert(tokenData.access_token);
   } else if (!tokenData) {
     console.log('토큰 못받아옴');
   }

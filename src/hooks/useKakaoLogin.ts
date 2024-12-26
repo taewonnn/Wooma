@@ -9,7 +9,7 @@ import axios from 'axios';
  * 서버에서 받은 데이터로 구분
  */
 
-const getAccessToken = async (authCode: string) => {
+const getKakaoAccessToken = async (authCode: string) => {
   const res = await axios.post('https://kauth.kakao.com/oauth/token', null, {
     params: {
       grant_type: 'authorization_code',
@@ -26,10 +26,10 @@ const getAccessToken = async (authCode: string) => {
   return res?.data; // access_token, refresh_token 등이 포함된 응답 데이터 반환
 };
 
-export const useGetAccessToken = (authCode: string) => {
+export const useGetKakaoAccessToken = (authCode: string) => {
   return useQuery({
     queryKey: ['getkakaoToken', authCode],
-    queryFn: () => getAccessToken(authCode),
+    queryFn: () => getKakaoAccessToken(authCode),
     enabled: !!authCode, // authCode가 있을 때만 실행되도록 설정
   });
 };
