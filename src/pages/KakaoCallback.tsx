@@ -9,7 +9,7 @@ export default function KakaoCallbck() {
   const [authCode, setAuthCode] = useState<string | null>(null);
 
   useEffect(() => {
-    /** 카카오 인가코드 가져오기 */
+    // 카카오 인가코드 url에서 가져오기
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code'); // 카카오에서 받은 인가 코드
     // console.log('url에서 가져오기', code);
@@ -19,9 +19,9 @@ export default function KakaoCallbck() {
       console.log('인가코드', code);
     } else {
       // 토큰 요청이 완료된 후에도 인증 코드가 없으면 이동
-      // setTimeout(() => {
-      //   navigate('/signin');
-      // }, 2000); // 코드가 도착할 시간을 충분히 주기 위해 2초 딜레이
+      setTimeout(() => {
+        navigate('/signin');
+      }, 2000); // 코드가 도착할 시간을 충분히 주기 위해 2초 딜레이
     }
   }, [navigate]);
 
@@ -33,9 +33,11 @@ export default function KakaoCallbck() {
   const { data: tokenData, isLoading: isTokenLoading } = useGetKakaoAccessToken(authCode ?? '');
   if (!isTokenLoading && tokenData) {
     console.log('카카오 토큰 데이터:', tokenData);
+    // @todo 이 토큰 서버로 보내기
     alert(tokenData.access_token);
   } else if (!tokenData) {
     console.log('토큰 못받아옴');
+    navigate('/signin');
   }
 
   return <Loading />;
