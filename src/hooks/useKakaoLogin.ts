@@ -28,7 +28,7 @@ const getKakaoAccessToken = async (authCode: string) => {
 
 export const useGetKakaoAccessToken = (authCode: string) => {
   return useQuery({
-    queryKey: ['getkakaoToken', authCode],
+    queryKey: ['getkakaoAccessToken', authCode],
     queryFn: () => getKakaoAccessToken(authCode),
     enabled: !!authCode, // authCode가 있을 때만 실행되도록 설정
   });
