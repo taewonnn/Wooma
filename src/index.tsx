@@ -31,8 +31,7 @@ export const isLoggedIn = () => {
   return false;
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RecoilRoot>
       <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
