@@ -108,7 +108,7 @@ function Calendar() {
   return (
     <>
       {/* 목표 금액 입력 필드 */}
-      <header>
+      <header className='mb-10'>
         <div>
           <label>목표 금액: </label>
           <input
@@ -118,21 +118,22 @@ function Calendar() {
             onChange={handleTargetAmountChange}
           />
         </div>
+        {/* 이번 달  지출 */}
+        {CalendarTop.map((text, index) => (
+          <p key={index}>{`${text} ${dynamicValues[index]}`}</p>
+        ))}
       </header>
 
-      {/* 이번 달  지출 */}
-      {CalendarTop.map((text, index) => (
-        <p key={index}>{`${text} ${dynamicValues[index]}`}</p>
-      ))}
       <hr />
 
       {/* FullCalendar */}
-      <div className="w-full h-1/2">
+      <div className="w-full min-h-screen">
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
           events={events}
           editable={true}
+          aspectRatio={1.1} // 화면 비율
           dateClick={handleDateClick}
           eventClick={handleEventTarget}
         />
