@@ -8,7 +8,8 @@ import Settings from '../pages/Settings';
 import PublicApp from '../PublicApp';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import LoginCallback from '../pages/LoginCallback';
+import KakaoCallbck from '../pages/KakaoCallback';
+import NaverCallback from '../pages/NaverCallbcak';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -55,15 +56,20 @@ export const unauthenticatedUserRouter = createBrowserRouter([
         path: '/singup',
         element: <SignUp />,
       },
-      {
-        path: '/callback',
-        element: <LoginCallback />,
-      },
+
       // 설정되지 않은 경로일 경우 /signin으로 리다이렉트
       {
         path: '*',
         element: <Navigate to="/signin" />,
       },
     ],
+  },
+  {
+    path: '/oauth/kakao/callback',
+    element: <KakaoCallbck />,
+  },
+  {
+    path: '/oauth/naver/callback',
+    element: <NaverCallback />,
   },
 ]);
