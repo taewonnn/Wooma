@@ -11,7 +11,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { useTransactions } from '../hooks/TransactionsQuery';
 import { CalendarTop } from '../common/data';
 import { useState } from 'react';
-import { Modal } from '../components/Modal';
+import { Modal } from '../components/common/modal/Modal';
 
 /** 
   • 전체 데이터셋: financialTransactions
