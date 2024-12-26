@@ -64,10 +64,12 @@ export const unauthenticatedUserRouter = createBrowserRouter([
       },
     ],
   },
+  // 카카오 콜백
   {
     path: '/oauth/kakao/callback',
     element: <KakaoCallbck />,
   },
+  // 네이버 콜백
   {
     path: '/oauth/naver/callback',
     element: <NaverCallback />,
