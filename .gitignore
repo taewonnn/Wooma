@@ -12,6 +12,8 @@ Icon
 
 #env
 .env
+.env.production
+.env.development
 
 
 # Thumbnails
