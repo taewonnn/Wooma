@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { ISignUpForm } from '../types/sign';
+import Button from '../components/common/button/Button';
 
 function SignUp() {
   /** useForm */
@@ -28,10 +29,11 @@ function SignUp() {
 
   return (
     <>
-      <p>SignUp Page</p>
-      <form onSubmit={handleSubmit(onValid)} className="flex flex-col">
-        <div className="flex justify-start mt-4 mb-4">
-          <label htmlFor="username">username :</label>
+      <form onSubmit={handleSubmit(onValid)} className="mt-10 w-full">
+        <div className="mb-4">
+          <label htmlFor="username" className="text-gray-700 block text-sm font-medium">
+            아이디
+          </label>
           <input
             {...register('username', {
               required: '필수: 이메일',
@@ -40,6 +42,7 @@ function SignUp() {
                 message: '이메일 형식에 맞춰 입력해주세요',
               },
             })}
+            className="border-gray-300 mt-1 w-full rounded-md border px-3 py-2 shadow-sm"
             type="text"
             placeholder="username"
             name="username"
@@ -48,8 +51,8 @@ function SignUp() {
         </div>
         {errors.username && <p className="text-red-500">{errors.username.message}</p>}
 
-        <div className="flex justify-start mb-4">
-          <label htmlFor="name">name :</label>
+        <div className="mb-4">
+          <label htmlFor="name">이름</label>
           <input
             {...register('name', {
               required: '필수: 이름',
@@ -58,6 +61,7 @@ function SignUp() {
                 message: '3 ~ 10 글자 이내로 입력해주세요',
               },
             })}
+            className="border-gray-300 mt-1 w-full rounded-md border px-3 py-2 shadow-sm"
             type="text"
             placeholder="name"
             name="name"
@@ -66,8 +70,8 @@ function SignUp() {
         </div>
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
 
-        <div className="flex justify-start mb-4">
-          <label htmlFor="password">password :</label>
+        <div className="mb-4">
+          <label htmlFor="password">비밀번호</label>
           <input
             {...register('password', {
               required: '필수: 비밀번호',
@@ -76,6 +80,7 @@ function SignUp() {
                 message: '3-10글자 이내로 입력해주세요',
               },
             })}
+            className="border-gray-300 mt-1 w-full rounded-md border px-3 py-2 shadow-sm"
             type="password"
             placeholder="password"
             name="password"
@@ -84,13 +89,14 @@ function SignUp() {
         </div>
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
 
-        <div className="flex justify-start mb-4">
-          <label htmlFor="passwordConfirm">passwordConfirm :</label>
+        <div className="mb-4">
+          <label htmlFor="passwordConfirm">비밀번호 확인</label>
           <input
             {...register('passwordConfirm', {
               required: '필수: 비밀번호 확인',
               validate: value => value === password || '불일치!',
             })}
+            className="border-gray-300 mt-1 w-full rounded-md border px-3 py-2 shadow-sm"
             type="password"
             placeholder="passwordConfirm"
             name="passwordConfirm"
@@ -99,7 +105,14 @@ function SignUp() {
         </div>
         {errors.passwordConfirm && <p className="text-red-500">{errors.passwordConfirm.message}</p>}
 
-        <button>가입</button>
+        <div className="flex flex-col gap-2">
+          <Button
+            type="submit"
+            className="rounded-md bg-main px-4 py-2 text-sm font-medium text-white shadow"
+          >
+            회원가입
+          </Button>
+        </div>
       </form>
     </>
   );
