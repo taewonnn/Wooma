@@ -1,20 +1,25 @@
-// components/GoogleLoginButton.tsx
 import React from 'react';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
+import Img from '../common/img/Img';
 
 const GoogleLoginButton = () => {
-  const handleLoginSuccess = (credentialResponse: any) => {
-    console.log('JWT Token:', credentialResponse.credential);
-  };
-
-  const handleLoginFailure = () => {
-    console.error('Login Failed');
-  };
+  const googleLogin = useGoogleLogin({
+    onSuccess: credentialResponse => {
+      console.log('JWT Token:', credentialResponse);
+    },
+    onError: () => {
+      console.error('Login Failed');
+    },
+  });
 
   return (
-    <div>
-      <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginFailure} />
-    </div>
+    <button
+      onClick={() => googleLogin()}
+      className="text-gray-700 flex w-full items-center justify-center rounded-md border bg-white p-2 text-sm shadow-md"
+    >
+      <Img src="guest/google_logo.svg" alt="Google" className="mr-2 h-5 w-5" />
+      Google로 시작하기
+    </button>
   );
 };
 
