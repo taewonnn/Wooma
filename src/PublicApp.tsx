@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { isLoggedIn } from '.';
 import { useEffect } from 'react';
-import Footer from './components/footer/Footer';
+import Footer from './components/common/footer/Footer';
 
 function PublicApp() {
   const navigate = useNavigate();
