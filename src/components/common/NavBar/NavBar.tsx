@@ -1,21 +1,32 @@
 import { useNavigate } from 'react-router-dom';
 import { navMenus } from '../../../constants';
 
-function NavBar() {
-  /** useNavigate */
+interface INavBarProps {
+  isMobile?: boolean;
+}
+
+function NavBar({ isMobile = false }: INavBarProps) {
   const navigate = useNavigate();
 
-  /** 클릭 시 페이지 이동 */
   const onClickPage = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // console.log('클릭한 nav버튼 value: ', event.currentTarget.textContent);
     const page = event.currentTarget.textContent?.toLowerCase();
     navigate(`/${page}`);
   };
 
   return (
-    <div className="fixed bottom-0 left-1/2 mx-auto flex h-14 w-full max-w-[768px] -translate-x-1/2 transform items-center justify-around bg-main p-2 text-white md:justify-between">
+    <div
+      className={`flex ${
+        isMobile ? 'flex-row justify-around' : 'flex-col items-start'
+      } gap-2 p-2 text-white`}
+    >
       {navMenus.map(navMenu => (
-        <button onClick={onClickPage} className="text-sm md:text-base" key={navMenu}>
+        <button
+          key={navMenu}
+          onClick={onClickPage}
+          className={`rounded-md px-3 py-2 text-sm hover:bg-purple-700 ${
+            isMobile ? 'flex flex-col items-center' : 'w-full text-left'
+          }`}
+        >
           {navMenu}
         </button>
       ))}
