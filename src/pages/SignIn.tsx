@@ -9,7 +9,7 @@ import {
 import Button from '../components/common/button/Button';
 import Img from '../components/common/img/Img';
 import { v4 as uuidv4 } from 'uuid';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoogleLoginButton from '../components/signin/GoogleLoginButton';
 
 export default function SignIn() {
@@ -39,7 +39,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="mx-auto w-full rounded-lg bg-white p-8">
+    <div className="mx-auto w-full max-w-lg rounded-lg bg-white p-8">
       <div className="mb-10 text-center">
         <Img src="logo.svg" className="mx-auto" alt="Logo" />
         <h1 className="mt-4 text-5xl font-semibold text-gray">Wooma</h1>
@@ -78,41 +78,43 @@ export default function SignIn() {
         <div className="flex flex-col gap-2">
           <Button
             type="submit"
-            className="w-full rounded-md bg-main px-4 py-2 text-sm font-medium text-white shadow"
+            className="rounded-md bg-main px-4 py-2 text-sm font-medium text-white shadow"
           >
             로그인
-          </Button>
-          <Button
-            type="button"
-            className="w-full rounded-md bg-gray px-4 py-2 text-sm font-medium text-white shadow"
-            onClick={() => {
-              navigate('/signup');
-            }}
-          >
-            회원가입
           </Button>
         </div>
       </form>
 
+      <div className="text-999 mt-5 flex w-full flex-row justify-between">
+        <Link to="/password/forgot" className="text-sm hover:underline">
+          비밀번호를 잊으셨나요?
+        </Link>
+        <Link to="/signup" className="text-sm hover:underline">
+          회원가입 하기
+        </Link>
+      </div>
       <hr className="my-6 border-gray" />
 
       <div className="flex flex-col items-center gap-2">
+        {/** 카카오 */}
         <Button
           onClick={handleKakaoLogin}
-          className="flex w-[192px] items-center justify-center gap-2 rounded-md bg-yellow-400 px-4 py-2 shadow"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-yellow-400 px-4 py-2 shadow"
         >
           <Img src="guest/kakao_logo.svg" alt="Kakao" className="h-5 w-5" />
           <span className="text-sm font-medium text-black">카카오로 시작하기</span>
         </Button>
 
+        {/** 네이버 */}
         <Button
           onClick={handleNaverLogin}
-          className="flex w-[192px] items-center justify-center gap-2 rounded-md bg-green-500 px-4 py-2 shadow"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-green-500 px-4 py-2 shadow"
         >
           <Img src="guest/naver_logo.svg" alt="Naver" className="h-5 w-5" />
           <span className="text-sm font-medium text-white">네이버로 시작하기</span>
         </Button>
 
+        {/** 구글 */}
         <GoogleLoginButton />
       </div>
     </div>
