@@ -7,11 +7,8 @@ function Feed() {
 
   return (
     <>
-      <div className="pb-20">
-        <p>diary</p>
-
-        <FeedCard isLoading={isLoading} diaryList={diaryList} />
-      </div>
+      <p>diary</p>
+      <FeedCard isLoading={isLoading} diaryList={diaryList} />
     </>
   );
 }
