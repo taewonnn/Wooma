@@ -31,6 +31,15 @@ export const isLoggedIn = () => {
   return false;
 };
 
+// 경고 무시 함수 - react router future flag
+const originalWarn = console.warn;
+console.warn = (message: any, ...args: any[]) => {
+  if (typeof message === 'string' && message.includes('React Router Future Flag Warning')) {
+    return;
+  }
+  originalWarn(message, ...args);
+};
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RecoilRoot>
