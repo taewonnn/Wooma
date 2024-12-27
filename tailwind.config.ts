@@ -1,6 +1,12 @@
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
+    screens: {
+      sm: '640px', // phones
+      md: '768px', // tablets
+      lg: '1024px', // desktops
+      xl: '1280px', // Extra large
+    },
     extend: {
       colors: {
         main: '#7241FB',
