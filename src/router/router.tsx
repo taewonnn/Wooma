@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
 import Feed from '../pages/Feed';
-import Calendar from '../pages/Calendar';
 import Assets from '../pages/Assets';
 import Settings from '../pages/Settings';
 
@@ -21,10 +20,7 @@ export const authenticatedUserRouter = createBrowserRouter([
         path: '/feed',
         element: <Feed />,
       },
-      {
-        path: '/calendar',
-        element: <Calendar />,
-      },
+
       {
         path: '/assets',
         element: <Assets />,
