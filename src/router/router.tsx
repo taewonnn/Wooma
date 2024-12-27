@@ -9,6 +9,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import KakaoCallbck from '../pages/KakaoCallback';
 import NaverCallback from '../pages/NaverCallbcak';
+import Calendar from '../pages/Calendar';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -20,7 +21,10 @@ export const authenticatedUserRouter = createBrowserRouter([
         path: '/feed',
         element: <Feed />,
       },
-
+      {
+        path: '/calendar',
+        element: <Calendar />,
+      },
       {
         path: '/assets',
         element: <Assets />,
