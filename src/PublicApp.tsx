@@ -20,7 +20,7 @@ function PublicApp() {
   return (
     <div className="bg-gray-100 mx-auto flex h-screen max-w-[1280px] flex-col">
       {/* Main Content */}
-      <main className="flex-grow overflow-y-auto p-4">
+      <main className="mx-auto w-full max-w-lg flex-grow overflow-y-auto p-4">
         <Outlet />
       </main>
 

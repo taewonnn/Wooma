@@ -39,7 +39,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-lg rounded-lg bg-white p-8">
+    <>
       <div className="mb-10 text-center">
         <Img src="logo.svg" className="mx-auto" alt="Logo" />
         <h1 className="mt-4 text-5xl font-semibold text-gray">Wooma</h1>
@@ -117,6 +117,6 @@ export default function SignIn() {
         {/** 구글 */}
         <GoogleLoginButton />
       </div>
-    </div>
+    </>
   );
 }
