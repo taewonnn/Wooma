@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { get } from '../utils/api';
+import { http } from '../utils/http';
 
 const fetchDiary = async () => {
-  const data = await get('/diaryData.json');
-  return data;
+  const res = await http.get('/diaryData.json');
+  return res?.data;
 };
 
 export const useDiary = () => {

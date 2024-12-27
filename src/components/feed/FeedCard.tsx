@@ -1,14 +1,17 @@
 import { IDiaryData } from '../../types/diary';
 
 function FeedCard({ isLoading, diaryList }: any) {
-  // console.log('props data : ', diaryList);
+  console.log('props data : ', diaryList);
 
   return (
     <>
       {!isLoading &&
         diaryList &&
         diaryList.map((diary: IDiaryData) => (
-          <div className="card bg-white shadow-lg rounded-lg overflow-hidden w-full mx-auto mb-8" key={diary.id}>
+          <div
+            className="card mx-auto mb-8 w-full overflow-hidden rounded-lg bg-white shadow-lg"
+            key={diary.id}
+          >
             <div className="flex items-center space-x-4 p-4">
               <p>{diary.title}</p>
             </div>
@@ -17,15 +20,15 @@ function FeedCard({ isLoading, diaryList }: any) {
               <img
                 src="/path/to/userImage.jpg"
                 alt="User"
-                className="w-12 h-12 object-cover rounded-full"
+                className="h-12 w-12 rounded-full object-cover"
               />
 
               {diary.imageURL && (
-                <img src={diary.imageURL} alt="" className="w-[300px] h-[300px]" />
+                <img src={diary.imageURL} alt="" className="h-[300px] w-[300px]" />
               )}
             </div>
 
-            <div className="flex items-center justify-start px-4 py-2 space-x-4">
+            <div className="flex items-center justify-start space-x-4 px-4 py-2">
               <button className="text-lg focus:outline-none">👍</button>
             </div>
 
