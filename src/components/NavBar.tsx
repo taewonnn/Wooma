@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function NavBar() {
+function NavBar() {
   /** useNavigate */
   const navigate = useNavigate();
 
@@ -11,7 +11,7 @@ export default function NavBar() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex justify-around p-4 bg-gray-200">
+    <div className="bg-gray-200 fixed bottom-0 left-0 right-0 flex justify-around p-4">
       <button onClick={onClickPage}>feed</button>
       <button onClick={onClickPage}>calendar</button>
       <button onClick={onClickPage}>assets</button>
@@ -19,3 +19,5 @@ export default function NavBar() {
     </div>
   );
 }
+
+export default NavBar;

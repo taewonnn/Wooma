@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
+function Footer() {
   const handleMapClick = () => {
     console.log('지도 클릭!');
     // 카카오맵 열기
@@ -24,3 +24,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;
