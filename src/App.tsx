@@ -2,17 +2,13 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import NavBar from './components/common/navBar/NavBar';
 import Header from './components/common/Header/Header';
 import { useEffect } from 'react';
+import { isLoggedIn } from '.';
 
 function App() {
   const navigate = useNavigate();
 
   // 로그인 여부 확인 후 리다이렉트
   useEffect(() => {
-    const isLoggedIn = () => {
-      // 로그인 여부를 반환하는 로직
-      return false; // 예제용으로 false 반환
-    };
-
     if (isLoggedIn()) {
       navigate('/feed'); // 로그인한 사용자는 /feed로 리다이렉트
     } else {
