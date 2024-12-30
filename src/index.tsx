@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GOOGLE_CLIENT_ID } from './constants/envConfig';
+import GlobalModal from './pages/modal/GlobalModal';
 
 /** react-query */
 const client = new QueryClient({
@@ -44,6 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <QueryClientProvider client={client}>
         <ReactQueryDevtools initialIsOpen={true} />
+        <GlobalModal />
         <RouterProvider
           router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter}
         />

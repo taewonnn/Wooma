@@ -20,7 +20,7 @@ function GlobalModal() {
 
   return (
     <Modal open={open} closeModal={closeModal}>
-      <div className="p-4">
+      <section className="min-w-[360px] select-none p-5 text-center xl:min-w-[400px]">
         {title && <h2 className="mb-4 text-lg font-bold">{title}</h2>}
 
         {/* 타입에 따라 다른 내용 렌더링 */}
@@ -51,7 +51,7 @@ function GlobalModal() {
             닫기
           </button>
         )}
-      </div>
+      </section>
     </Modal>
   );
 }
