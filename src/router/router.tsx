@@ -1,15 +1,15 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
-import Feed from '../pages/Feed';
-import Assets from '../pages/Assets';
-import Settings from '../pages/Settings';
+import Feed from '../pages/member/Feed';
+import Assets from '../pages/member/Assets';
+import Settings from '../pages/member/Settings';
 
 import PublicApp from '../PublicApp';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
-import KakaoCallbck from '../pages/KakaoCallback';
-import NaverCallback from '../pages/NaverCallbcak';
-import Calendar from '../pages/Calendar';
+import SignIn from '../pages/gusest/SignIn';
+import SignUp from '../pages/gusest/SignUp';
+import KakaoCallbck from '../pages/gusest/KakaoCallback';
+import NaverCallback from '../pages/gusest/NaverCallbcak';
+import Calendar from '../pages/member/Calendar';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([

@@ -1,5 +1,5 @@
-import FeedCard from '../components/feed/FeedCard';
-import { useDiary } from '../hooks/DiaryQuery';
+import FeedCard from '../../components/feed/FeedCard';
+import { useDiary } from '../../hooks/DiaryQuery';
 
 function Feed() {
   const { isLoading, data: diaryList } = useDiary();

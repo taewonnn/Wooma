@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useGetKakaoAccessToken } from '../hooks/useKakaoLogin';
+import { useGetKakaoAccessToken } from '../../hooks/useKakaoLogin';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../components/common/loading/Loading';
+import Loading from '../../components/common/loading/Loading';
 
 export default function KakaoCallbck() {
   const navigate = useNavigate();

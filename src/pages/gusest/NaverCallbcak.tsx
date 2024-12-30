@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Loading from '../components/common/loading/Loading';
+import Loading from '../../components/common/loading/Loading';
 import { useEffect, useState } from 'react';
-import { useGetNaverAccessToken } from '../hooks/useNaverLogin';
+import { useGetNaverAccessToken } from '../../hooks/useNaverLogin';
 
 export default function NaverCallback() {
   const navigate = useNavigate();

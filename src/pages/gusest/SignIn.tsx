@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form';
-import { ISignInForm } from '../types/sign';
+import { ISignInForm } from '../../types/sign';
 import {
   KAKAO_CLIENT_ID,
   KAKAO_REDIRECT_URI,
   NAVER_CLIENT_ID,
   NAVER_REDIRECT_URI,
-} from '../constants/envConfig';
-import Button from '../components/common/button/Button';
-import Img from '../components/common/img/Img';
+} from '../../constants/envConfig';
+import Button from '../../components/common/button/Button';
+import Img from '../../components/common/img/Img';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useNavigate } from 'react-router-dom';
-import GoogleLoginButton from '../components/signin/GoogleLoginButton';
+import GoogleLoginButton from '../../components/signin/GoogleLoginButton';
 
 export default function SignIn() {
   const navigate = useNavigate();

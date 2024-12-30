@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { ISignUpForm } from '../types/sign';
-import Button from '../components/common/button/Button';
+import { ISignUpForm } from '../../types/sign';
+import Button from '../../components/common/button/Button';
 
 function SignUp() {
   /** useForm */
