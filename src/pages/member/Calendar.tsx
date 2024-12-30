@@ -1,5 +1,5 @@
-import Card from '../../components/calendar/Card';
-import MainCalendar from '../../components/calendar/MainCalendar';
+import Card from '../../components/member/calendar/Card';
+import MainCalendar from '../../components/member/calendar/MainCalendar';
 
 function Calendar() {
   return (
