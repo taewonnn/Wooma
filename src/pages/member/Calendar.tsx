@@ -4,8 +4,8 @@ import MainCalendar from '../../components/member/calendar/MainCalendar';
 function Calendar() {
   return (
     <>
-      <Card />
       <MainCalendar />
+      <Card />
     </>
   );
 }
