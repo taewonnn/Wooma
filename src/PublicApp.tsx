@@ -14,6 +14,8 @@ function PublicApp() {
 
     if (isLoggedIn()) {
       navigate('/feed'); // 로그인한 사용자는 /feed로 리다이렉트
+    } else {
+      navigate('/signin');
     }
   }, [navigate]);
 
