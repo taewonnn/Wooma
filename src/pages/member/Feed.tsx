@@ -1,4 +1,4 @@
-import FeedCard from '../../components/feed/FeedCard';
+import FeedCard from '../../components/member/feed/FeedCard';
 import { useDiary } from '../../hooks/DiaryQuery';
 
 function Feed() {
