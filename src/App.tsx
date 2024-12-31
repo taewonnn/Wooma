@@ -9,10 +9,8 @@ function App() {
 
   // 로그인 여부 확인 후 리다이렉트
   useEffect(() => {
-    if (isLoggedIn()) {
-      navigate('/feed'); // 로그인한 사용자는 /feed로 리다이렉트
-    } else {
-      navigate('/signin');
+    if (!isLoggedIn()) {
+      navigate('/signin'); // 비로그인 사용자는 로그인 페이지로 이동
     }
   }, [navigate]);
 
