@@ -34,7 +34,7 @@ function Tabs({ tabs, onChange, children }: ITabs) {
       </Tab.List>
 
       {/* Tab Panels */}
-      <Tab.Panels className="mt-4 max-w-[400px] sm:w-[360px]">{children}</Tab.Panels>
+      <Tab.Panels className="mt-4 min-w-[307px] max-w-[400px] sm:w-[360px]">{children}</Tab.Panels>
     </Tab.Group>
   );
 }
