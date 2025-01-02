@@ -6,27 +6,59 @@ import { useState } from 'react';
 import Tabs from '../../common/Tabs/Tabs';
 import { Tab } from '@headlessui/react';
 
-// 폼 데이터 타입 정의
+// form 데이터 타입 정의
 interface IFormData {
   category: string;
   amount: string;
   detail?: string;
   method: string;
+  incomeDiary?: string;
+  incomeDiaryImg?: File;
+  expenseDiary?: string;
+  expenseDiaryImg?: File;
 }
 
 function ExpenseData() {
+  // 모달
   const { closeModal } = useModalStore();
-  const { register, handleSubmit, reset } = useForm<IFormData>();
 
   // tab 상태 관리
   const [selectedTab, setSelectedTab] = useState(0);
+  // file 상태 관리
+  const [imgFile, setImgFile] = useState<{
+    type: 'incomeDiaryImg' | 'expenseDiaryImg';
+    fileName: string;
+    file: string;
+  } | null>(null);
 
-  // 폼 제출 핸들러
+  // hook-form
+  const { register, handleSubmit, reset, setValue } = useForm<IFormData>();
+
+  // 이미지 처리
+  const handleImgChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    type: 'incomeDiaryImg' | 'expenseDiaryImg',
+  ) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      // console
+      console.log('file: ', file?.name, URL.createObjectURL(file));
+
+      setImgFile({ type: type, fileName: file?.name, file: URL.createObjectURL(file) }); // type / 파일명 / URL 저장
+      setValue(type, file, { shouldValidate: false }); // hook-form 등록
+    }
+  };
+
+  // 이미지 미리보기
+  const previewImg = () => {};
+
+  // form 제출
   const onSubmit: SubmitHandler<IFormData> = data => {
     const category = selectedTab === 0 ? '입금' : '지출';
     console.log('form data:', data, category);
 
-    // @todo: 서버 API 호출
+    // @todo: API 호출
     reset();
     closeModal();
   };
@@ -81,6 +113,65 @@ function ExpenseData() {
                   {option.label}
                 </label>
               ))}
+            </div>
+
+            {/** 다이어리 */}
+            <div>
+              <label
+                htmlFor="incomeDiary"
+                className="text-gray-700 block text-left text-sm font-medium"
+              >
+                다이어리
+              </label>
+              <textarea
+                id="incomeDiary"
+                placeholder="일기"
+                {...register('incomeDiary')}
+                className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              />
+            </div>
+
+            {/** 다이어리 - 이미지 */}
+            <div>
+              <label
+                htmlFor="incomeDiaryImg"
+                className="text-gray-700 block text-left text-sm font-medium"
+              >
+                이미지
+              </label>
+
+              <input
+                id="incomeDiaryImg"
+                type="file"
+                style={{ display: 'none' }}
+                {...register('incomeDiaryImg', {
+                  onChange: e => handleImgChange(e, 'incomeDiaryImg'), // 파일 선택 시 처리
+                })}
+                className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              />
+              <Button
+                onClick={() => document.getElementById('incomeDiaryImg')?.click()}
+                className="bg-gray-300 text-gray-700 hover:bg-gray-400 rounded-md px-4 py-2 text-sm font-medium shadow"
+              >
+                이미지 추가
+              </Button>
+              <div className="mt-2 h-[20px]">
+                {imgFile?.type === 'incomeDiaryImg' && (
+                  <div className="text-left text-sm underline">
+                    {imgFile.fileName}
+                    {imgFile.file && (
+                      <a
+                        href={imgFile.file}
+                        target="_blank" // 새 창에서 링크를 열기 위한 속성
+                        rel="noopener noreferrer" // 새 창을 열 때 보안 및 성능 향상을 위해 사용하는 속성
+                        className="text-main underline"
+                      >
+                        (이미지 보기)
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             <Button
@@ -142,6 +233,66 @@ function ExpenseData() {
                   {option.label}
                 </label>
               ))}
+            </div>
+
+            {/** 다이어리 */}
+            <div>
+              <label
+                htmlFor="expenseDiary"
+                className="text-gray-700 block text-left text-sm font-medium"
+              >
+                다이어리
+              </label>
+              <textarea
+                id="expenseDiary"
+                placeholder="일기"
+                {...register('expenseDiary')}
+                className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              />
+            </div>
+
+            {/** 다이어리 - 이미지 */}
+            <div>
+              <label
+                htmlFor="expenseDiaryImg"
+                className="text-gray-700 block text-left text-sm font-medium"
+              >
+                이미지
+              </label>
+
+              <input
+                id="expenseDiaryImg"
+                type="file"
+                style={{ display: 'none' }}
+                {...register('expenseDiaryImg', {
+                  onChange: e => handleImgChange(e, 'expenseDiaryImg'), // 파일 선택 시 처리
+                })}
+                className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              />
+              <Button
+                type="button"
+                onClick={() => document.getElementById('expenseDiaryImg')?.click()} // 숨겨진 input 클릭
+                className="bg-gray-300 text-gray-700 hover:bg-gray-400 rounded-md px-4 py-2 text-sm font-medium shadow"
+              >
+                이미지 첨부
+              </Button>
+              <div className="mt-2 h-[20px]">
+                {imgFile?.type === 'expenseDiaryImg' && (
+                  <div className="text-left text-sm underline">
+                    {imgFile.fileName}
+                    {imgFile.file && (
+                      <a
+                        href={imgFile.file}
+                        target="_blank" // 새 창에서 링크를 열기 위한 속성
+                        rel="noopener noreferrer" // 새 창을 열 때 보안 및 성능 향상을 위해 사용하는 속성
+                        className="text-main underline"
+                      >
+                        (이미지 보기)
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             <Button
