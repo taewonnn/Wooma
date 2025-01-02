@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fullcalendar-wrapper {
+  width: 100%;
+  border: 1px solid #2f95dc;
+  border-radius: 5%;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.fc-day-sun a {
+  color: red;
+  text-decoration: none;
+}
+
+.fc-day-sat a {
+  color: blue;
+  text-decoration: none;
+}
