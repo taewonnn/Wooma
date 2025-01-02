@@ -45,7 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <QueryClientProvider client={client}>
-        <ReactQueryDevtools initialIsOpen={true} />
+        {/* <ReactQueryDevtools initialIsOpen={true} /> */}
         <GlobalModal />
         <RouterProvider
           router={isLoggedIn() ? authenticatedUserRouter : unauthenticatedUserRouter}
