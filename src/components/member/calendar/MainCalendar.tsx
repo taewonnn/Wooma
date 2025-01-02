@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import useCalendarStore from '../../../stores/calendar/useCalendarStore';
 import Button from '../../common/button/Button';
 import { useModalStore } from '../../../stores/useModalStore';
-import ExpenseData from './ExpenseData';
+import Diary from './Diary';
 import { formatNumber, truncateText } from '../../../constants/common';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
 
@@ -30,7 +30,7 @@ function MainCalendar() {
   const modalOpen = () => {
     openModal('custom', {
       title: '내역',
-      customContent: <ExpenseData />,
+      customContent: <Diary />,
     });
   };
 
