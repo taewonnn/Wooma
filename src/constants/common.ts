@@ -4,11 +4,6 @@
  * @returns format한 문자열
  */
 export const formatNumber = (value: number | string): string => {
-  // 숫자 또는 숫자 형식의 문자열인지 확인
-  if (typeof value === 'string' && isNaN(Number(value))) {
-    throw new Error('Invalid input: value must be a number or numeric string');
-  }
-
   // 문자열을 숫자로 변환
   const numberValue = typeof value === 'string' ? parseFloat(value) : value;
 
