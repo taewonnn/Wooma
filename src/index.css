@@ -20,3 +20,15 @@
   color: blue;
   text-decoration: none;
 }
+
+.fc-daygrid-event {
+  display: flex !important;
+  justify-content: right !important;
+  align-items: center !important;
+}
+
+.fc-h-event {
+  background: none !important;
+  border: none !important;
+  white-space: nowrap;
+}

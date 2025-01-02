@@ -5,15 +5,16 @@ function Card() {
 
   // 예제 데이터 (날짜별 내역)
   const data: Record<string, string[]> = {
-    '2024-12-25': ['🎄 크리스마스 선물 구매', '🍽️ 저녁 식사'],
-    '2024-12-30': ['🏋️ 헬스장 결제', '📚 책 구매'],
+    '2025-01-01': ['💡 월급 10000000원', '🍽️ 저녁 식사  5000원'],
+    '2025-01-02': ['📚 책 구매 2000원'],
+    '2025-01-03': ['🎶 편의점 1000원'],
   };
 
   return (
     <div className="bg-gray-100 mt-5 rounded p-4 shadow">
       {selectedDate ? (
         <>
-          <h2 className="mb-2 text-lg font-bold">{selectedDate} 내역</h2>
+          <h2 className="mb-2 text-lg font-bold">{selectedDate}</h2>
           <ul>
             {data[selectedDate]?.length ? (
               data[selectedDate].map((item, index) => (
