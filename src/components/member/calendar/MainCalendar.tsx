@@ -7,6 +7,7 @@ import Button from '../../common/button/Button';
 import { useModalStore } from '../../../stores/useModalStore';
 import ExpenseData from './ExpenseData';
 import { formatNumber, truncateText } from '../../../constants/common';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
 
 // mockdata
 const events = [
@@ -16,6 +17,9 @@ const events = [
 ];
 
 function MainCalendar() {
+  // 모바일 사이즈 감지
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   // 캘린더 선택일자 상태
   const { setSelectedDate } = useCalendarStore();
 
@@ -47,10 +51,14 @@ function MainCalendar() {
     return (
       <div className="text-xs">
         {income ? (
-          <div style={{ color: 'green' }}>+{truncateText(formatNumber(income), 5)}</div>
+          <div style={{ color: 'green' }}>
+            +{isMobile ? truncateText(formatNumber(income), 5) : income}
+          </div>
         ) : null}
         {expense ? (
-          <div style={{ color: 'red' }}>-{truncateText(formatNumber(expense), 5)}</div>
+          <div style={{ color: 'red' }}>
+            -{isMobile ? truncateText(formatNumber(expense), 5) : expense}
+          </div>
         ) : null}
       </div>
     );
