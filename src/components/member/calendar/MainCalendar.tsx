@@ -6,10 +6,11 @@ import useCalendarStore from '../../../stores/calendar/useCalendarStore';
 import Button from '../../common/button/Button';
 import { useModalStore } from '../../../stores/useModalStore';
 import ExpenseData from './ExpenseData';
+import { formatNumber, truncateText } from '../../../constants/common';
 
 // mockdata
 const events = [
-  { date: '2025-01-01', income: 10000000, expense: 5000 },
+  { date: '2025-01-01', income: 100000, expense: 5000 },
   { date: '2025-01-02', income: 0, expense: 2000 },
   { date: '2025-01-03', income: 0, expense: 1000 },
 ];
@@ -44,9 +45,13 @@ function MainCalendar() {
     const { income, expense } = eventInfo.event.extendedProps;
 
     return (
-      <div>
-        {income ? <div style={{ color: 'green' }}>+{income}</div> : null}
-        {expense ? <div style={{ color: 'red' }}>-{expense}</div> : null}
+      <div className="text-xs">
+        {income ? (
+          <div style={{ color: 'green' }}>+{truncateText(formatNumber(income), 5)}</div>
+        ) : null}
+        {expense ? (
+          <div style={{ color: 'red' }}>-{truncateText(formatNumber(expense), 5)}</div>
+        ) : null}
       </div>
     );
   };
