@@ -18,6 +18,10 @@ export const authenticatedUserRouter = createBrowserRouter([
     element: <App />,
     children: [
       {
+        index: true, // "/"에 해당히면 true
+        element: <Navigate to="/feed" />,
+      },
+      {
         path: '/feed',
         element: <Feed />,
       },
@@ -48,6 +52,10 @@ export const unauthenticatedUserRouter = createBrowserRouter([
     path: '/',
     element: <PublicApp />,
     children: [
+      {
+        index: true, // "/"에 해당히면 true
+        element: <Navigate to="/signin" />,
+      },
       {
         path: '/signin',
         element: <SignIn />,
