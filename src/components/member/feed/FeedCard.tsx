@@ -1,4 +1,4 @@
-import { IDiaryData } from '../../types/diary';
+import { IDiaryData } from '../../../types/diary';
 
 function FeedCard({ isLoading, diaryList }: any) {
   console.log('props data : ', diaryList);
