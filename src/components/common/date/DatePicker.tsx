@@ -33,7 +33,7 @@ function DatePicker({
         <div
           className={`${
             disabled ? 'bg-eee text-999' : 'bg-white'
-          } flex h-[38px] w-[120px] items-center justify-between gap-[10px] rounded border border-line px-[10px]`}
+          } border-gray-300 flex h-[38px] w-full items-center justify-between gap-[10px] rounded-md px-3 py-2 shadow-sm`}
         >
           <span>
             {value ? dayjs(value).format(format) : <span className="text-999">{defaultValue}</span>}

@@ -47,7 +47,7 @@ function DateCalendar({
   };
 
   return (
-    <section className="border-e3e text-222 z-40 flex flex-col items-center rounded border bg-white px-[20px] pb-[15px] pt-[12px] text-[12px] shadow-[0px_3px_10px_0px_rgba(0,0,0,0.10)]">
+    <section className="text-222 z-40 flex flex-col items-center rounded border border-gray bg-white px-[20px] pb-[15px] pt-[12px] text-[12px] shadow-[0px_3px_10px_0px_rgba(0,0,0,0.10)]">
       {label && <div className="text-999">{label}</div>}
 
       <div className="flex items-center gap-[19px] text-[18px] font-bold">
