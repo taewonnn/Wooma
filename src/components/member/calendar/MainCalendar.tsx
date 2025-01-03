@@ -11,7 +11,7 @@ import { useMediaQuery } from '../../../hooks/useMediaQuery';
 
 // mockdata
 const events = [
-  { date: '2025-01-01', income: 100000, expense: 5000 },
+  { date: '2025-01-01', income: 1000000, expense: 5000 },
   { date: '2025-01-02', income: 0, expense: 2000 },
   { date: '2025-01-03', income: 0, expense: 1000 },
 ];
@@ -52,12 +52,12 @@ function MainCalendar() {
       <div className="text-xs">
         {income ? (
           <div style={{ color: 'green' }}>
-            +{isMobile ? truncateText(formatNumber(income), 5) : income}
+            {isMobile ? truncateText(formatNumber(income), 7) : income}
           </div>
         ) : null}
         {expense ? (
           <div style={{ color: 'red' }}>
-            -{isMobile ? truncateText(formatNumber(expense), 5) : expense}
+            {isMobile ? truncateText(formatNumber(expense), 7) : expense}
           </div>
         ) : null}
       </div>
