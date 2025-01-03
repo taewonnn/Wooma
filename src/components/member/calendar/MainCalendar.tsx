@@ -69,9 +69,7 @@ function MainCalendar() {
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
         initialView="dayGridMonth"
-        aspectRatio={1.0}
-        height="auto"
-        contentHeight="auto"
+        aspectRatio={1.5}
         dateClick={handleDateClick} // 날짜 클릭 이벤트
         eventClick={handleEventClick} // 이벤트 클릭 이벤트
         customButtons={{

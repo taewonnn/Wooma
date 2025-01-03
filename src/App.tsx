@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="bg-gray-100 mx-auto flex h-screen max-w-[1280px] flex-col md:flex-row">
       {/* Sidebar: Header + NavBar */}
-      <aside className="hidden flex-col bg-purple-500 md:flex md:h-full md:w-[160px]">
+      <aside className="hidden flex-col bg-purple-500 md:flex md:h-full md:w-[200px]">
         {/* Header */}
         <header className="flex h-14 w-full items-center justify-center bg-purple-600 text-white">
           <Header />
