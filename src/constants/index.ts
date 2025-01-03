@@ -15,3 +15,6 @@ export const expenseMethods = [
   { value: 'cash', label: '현금' },
   { value: 'other', label: '기타' },
 ];
+
+// DateCalendar.tsx
+export const days = ['일', '월', '화', '수', '목', '금', '토'];

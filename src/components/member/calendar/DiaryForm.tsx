@@ -1,7 +1,10 @@
+import dayjs from 'dayjs';
 import { UseFormRegister } from 'react-hook-form';
 import { expenseMethods, incomeMethods } from '../../../constants';
 import Button from '../../common/button/Button';
 import { IFormData } from './Diary';
+import DatePicker from '../../common/date/DatePicker';
+import { useState } from 'react';
 
 interface IDiaryForm {
   type: 'income' | 'expense';
@@ -10,14 +13,17 @@ interface IDiaryForm {
     event: React.ChangeEvent<HTMLInputElement>,
     type: 'incomeDiaryImg' | 'expenseDiaryImg',
   ) => void;
+  date: Date | null;
+  setDate: (date: Date | null) => void;
   imgFile: { type: string; fileName: string; file: string } | null;
 }
 
-function DiaryForm({ type, register, handleImgChange, imgFile }: IDiaryForm) {
+function DiaryForm({ type, register, handleImgChange, date, setDate, imgFile }: IDiaryForm) {
   const isIncome = type === 'income';
   const diaryImgType = isIncome ? 'incomeDiaryImg' : 'expenseDiaryImg';
   const diaryType = isIncome ? 'incomeDiary' : 'expenseDiary';
   const methods = isIncome ? incomeMethods : expenseMethods;
+  const today = dayjs().format('YYYY-MM-DD');
 
   return (
     <>
@@ -27,14 +33,14 @@ function DiaryForm({ type, register, handleImgChange, imgFile }: IDiaryForm) {
           htmlFor={`${type}Date`}
           className="text-gray-700 block text-left text-sm font-medium"
         >
-          금액
+          일자
         </label>
-        <input
-          id={`${type}Date`}
-          type="text"
-          placeholder="일자"
-          {...register(`${type}Date`, { required: '일자를 선택하세요.' })}
-          className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+
+        <DatePicker
+          value={date}
+          format="YYYY-MM-DD"
+          onChange={date => setDate(date)}
+          defaultValue={today}
         />
       </div>
 

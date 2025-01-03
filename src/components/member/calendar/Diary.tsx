@@ -29,6 +29,10 @@ function Diary() {
 
   // tab 상태 관리
   const [selectedTab, setSelectedTab] = useState(0);
+
+  // 일자 상태 관리
+  const [date, setDate] = useState<Date | null>(null);
+
   // file 상태 관리
   const [imgFile, setImgFile] = useState<{
     type: 'incomeDiaryImg' | 'expenseDiaryImg';
@@ -77,6 +81,8 @@ function Diary() {
               register={register}
               handleImgChange={handleImgChange}
               imgFile={imgFile}
+              date={date}
+              setDate={setDate}
             />
             <Button
               type="submit"
@@ -95,6 +101,8 @@ function Diary() {
               register={register}
               handleImgChange={handleImgChange}
               imgFile={imgFile}
+              date={date}
+              setDate={setDate}
             />
             <Button
               type="submit"
