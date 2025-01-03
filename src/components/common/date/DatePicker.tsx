@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import DateCalendar from './DateCalendar';
 
 type IDatePicker = {
-  value: Date | null;
+  value: string | null;
   format: string;
   defaultValue?: string;
   minDate?: Date | null;

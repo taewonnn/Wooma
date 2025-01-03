@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Tabs from '../../common/Tabs/Tabs';
 import { Tab } from '@headlessui/react';
 import DiaryForm from './DiaryForm';
+import dayjs from 'dayjs';
 
 // form 데이터 타입 정의
 export interface IFormData {
@@ -23,15 +24,15 @@ export interface IFormData {
   expenseDiaryImg?: File; // 이미지(지출)
 }
 
+// today
+const today = dayjs().format('YYYY-MM-DD');
+
 function Diary() {
   // 모달
   const { closeModal } = useModalStore();
 
   // tab 상태 관리
   const [selectedTab, setSelectedTab] = useState(0);
-
-  // 일자 상태 관리
-  const [date, setDate] = useState<Date | null>(null);
 
   // file 상태 관리
   const [imgFile, setImgFile] = useState<{
@@ -41,7 +42,12 @@ function Diary() {
   } | null>(null);
 
   // hook-form
-  const { register, handleSubmit, reset, setValue } = useForm<IFormData>();
+  const { register, control, handleSubmit, reset, setValue } = useForm<IFormData>({
+    defaultValues: {
+      incomeDate: today,
+      expenseDate: today,
+    },
+  });
 
   // 이미지 처리
   const handleImgChange = (
@@ -51,10 +57,6 @@ function Diary() {
     const file = event.target.files?.[0];
 
     if (file) {
-      // console
-      console.log('file: ', file?.name, URL.createObjectURL(file));
-      console.log('type: ', type);
-
       setImgFile({ type: type, fileName: file?.name, file: URL.createObjectURL(file) }); // type / 파일명 / URL 저장
       setValue(type, file, { shouldValidate: false }); // hook-form 등록
     }
@@ -81,15 +83,22 @@ function Diary() {
               register={register}
               handleImgChange={handleImgChange}
               imgFile={imgFile}
-              date={date}
-              setDate={setDate}
+              control={control}
             />
-            <Button
-              type="submit"
-              className="rounded-md bg-main px-6 py-2 text-sm font-medium text-white shadow hover:bg-blue-600"
-            >
-              확인
-            </Button>
+
+            <div className="mt-6 flex justify-end gap-4">
+              <Button
+                title="닫기"
+                className="bg-red-500 hover:bg-red-600 rounded-md px-6 py-2 text-sm font-medium text-black shadow"
+                onClick={closeModal}
+              />
+              <Button
+                type="submit"
+                className="rounded-md bg-main px-6 py-2 text-sm font-medium text-white shadow hover:bg-blue-600"
+              >
+                확인
+              </Button>
+            </div>
           </form>
         </Tab.Panel>
 
@@ -101,26 +110,33 @@ function Diary() {
               register={register}
               handleImgChange={handleImgChange}
               imgFile={imgFile}
-              date={date}
-              setDate={setDate}
+              control={control}
             />
-            <Button
-              type="submit"
-              className="rounded-md bg-main px-6 py-2 text-sm font-medium text-white shadow hover:bg-blue-600"
-            >
-              확인
-            </Button>
+
+            <div className="mt-6 flex justify-end gap-4">
+              <Button
+                title="닫기"
+                className="bg-red-500 hover:bg-red-600 rounded-md px-6 py-2 text-sm font-medium text-black shadow"
+                onClick={closeModal}
+              />
+              <Button
+                type="submit"
+                className="rounded-md bg-main px-6 py-2 text-sm font-medium text-white shadow hover:bg-blue-600"
+              >
+                확인
+              </Button>
+            </div>
           </form>
         </Tab.Panel>
       </Tabs>
 
-      <div className="mt-6 flex justify-end gap-4">
+      {/* <div className="mt-6 flex justify-end gap-4">
         <Button
           title="닫기"
           className="bg-red-500 hover:bg-red-600 rounded-md px-6 py-2 text-sm font-medium text-black shadow"
           onClick={closeModal}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

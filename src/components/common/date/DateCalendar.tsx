@@ -6,7 +6,7 @@ import DatePicker from './DatePicker';
 
 type CalendarProps = {
   label?: string;
-  value: Date | null;
+  value: string | null;
   minDate?: Date | null;
   maxDate?: Date | null;
   onChange: (value: Date | null) => void;

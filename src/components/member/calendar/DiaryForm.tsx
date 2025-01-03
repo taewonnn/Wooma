@@ -4,7 +4,7 @@ import { expenseMethods, incomeMethods } from '../../../constants';
 import Button from '../../common/button/Button';
 import { IFormData } from './Diary';
 import DatePicker from '../../common/date/DatePicker';
-import { useState } from 'react';
+import { Controller } from 'react-hook-form';
 
 interface IDiaryForm {
   type: 'income' | 'expense';
@@ -13,12 +13,12 @@ interface IDiaryForm {
     event: React.ChangeEvent<HTMLInputElement>,
     type: 'incomeDiaryImg' | 'expenseDiaryImg',
   ) => void;
-  date: Date | null;
-  setDate: (date: Date | null) => void;
+
   imgFile: { type: string; fileName: string; file: string } | null;
+  control: any;
 }
 
-function DiaryForm({ type, register, handleImgChange, date, setDate, imgFile }: IDiaryForm) {
+function DiaryForm({ type, register, handleImgChange, imgFile, control }: IDiaryForm) {
   const isIncome = type === 'income';
   const diaryImgType = isIncome ? 'incomeDiaryImg' : 'expenseDiaryImg';
   const diaryType = isIncome ? 'incomeDiary' : 'expenseDiary';
@@ -36,11 +36,19 @@ function DiaryForm({ type, register, handleImgChange, date, setDate, imgFile }: 
           일자
         </label>
 
-        <DatePicker
-          value={date}
-          format="YYYY-MM-DD"
-          onChange={date => setDate(date)}
-          defaultValue={today}
+        <Controller
+          name={`${type}Date`}
+          control={control}
+          render={({ field }) => {
+            return (
+              <DatePicker
+                value={field.value ? dayjs(field.value).format('YYYY-MM-DD') : null} // Controller가 관리하는 value
+                format="YYYY-MM-DD"
+                onChange={field.onChange} // Controller가 제공하는 onChange
+                defaultValue={today}
+              />
+            );
+          }}
         />
       </div>
 
