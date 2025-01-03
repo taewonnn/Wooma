@@ -7,64 +7,56 @@ import DatePicker from '../../common/date/DatePicker';
 import { Controller } from 'react-hook-form';
 
 interface IDiaryForm {
-  type: 'income' | 'expense';
-  register: UseFormRegister<IFormData>;
-  handleImgChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    type: 'incomeDiaryImg' | 'expenseDiaryImg',
-  ) => void;
-
-  imgFile: { type: string; fileName: string; file: string } | null;
-  control: any;
+  type: 'income' | 'expense'; // 타입 - 수입/지출
+  register: UseFormRegister<IFormData>; // react hook form - register
+  handleImgChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // 이미지 변경 처리 핸들러
+  imgFile: { type: string; fileName: string; file: string } | null; // 이미지 파일 상태
+  control: any; // react hook form - control
 }
 
 function DiaryForm({ type, register, handleImgChange, imgFile, control }: IDiaryForm) {
-  const isIncome = type === 'income';
-  const diaryImgType = isIncome ? 'incomeDiaryImg' : 'expenseDiaryImg';
-  const diaryType = isIncome ? 'incomeDiary' : 'expenseDiary';
-  const methods = isIncome ? incomeMethods : expenseMethods;
-  const today = dayjs().format('YYYY-MM-DD');
+  const fieldName = type === 'income' ? 'incomeTransaction' : 'expenseTransaction'; // 수입/지출에 따라 사용할 필드네임
+  const methods = type === 'income' ? incomeMethods : expenseMethods; // 수입/지출에 따라 사용할 수단(methods) 생성
+  const today = dayjs().format('YYYY-MM-DD'); // 오늘 날짜
 
   return (
     <>
       {/** 일자 */}
       <div>
         <label
-          htmlFor={`${type}Date`}
+          htmlFor={`${fieldName}Date`}
           className="text-gray-700 block text-left text-sm font-medium"
         >
           일자
         </label>
 
         <Controller
-          name={`${type}Date`}
+          name={`${fieldName}.date`}
           control={control}
-          render={({ field }) => {
-            return (
-              <DatePicker
-                value={field.value ? dayjs(field.value).format('YYYY-MM-DD') : null} // Controller가 관리하는 value
-                format="YYYY-MM-DD"
-                onChange={field.onChange} // Controller가 제공하는 onChange
-                defaultValue={today}
-              />
-            );
-          }}
+          render={({ field }) => (
+            <DatePicker
+              value={field.value ? dayjs(field.value).format('YYYY-MM-DD') : null}
+              format="YYYY-MM-DD"
+              onChange={field.onChange}
+              defaultValue={today}
+            />
+          )}
         />
       </div>
 
       {/** 금액 */}
       <div>
         <label
-          htmlFor={`${type}Amount`}
+          htmlFor={`${fieldName}Amount`}
           className="text-gray-700 block text-left text-sm font-medium"
         >
           금액
         </label>
         <input
-          id={`${type}Amount`}
+          id={`${fieldName}Amount`}
           type="text"
           placeholder="금액"
-          {...register(`${type}Amount`, { required: '금액을 입력하세요.' })}
+          {...register(`${fieldName}.amount`, { required: '금액을 입력하세요.' })}
           className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
         />
       </div>
@@ -72,16 +64,16 @@ function DiaryForm({ type, register, handleImgChange, imgFile, control }: IDiary
       {/** 상세내용 */}
       <div>
         <label
-          htmlFor={`${type}Detail`}
+          htmlFor={`${fieldName}Detail`}
           className="text-gray-700 block text-left text-sm font-medium"
         >
           상세내용
         </label>
         <input
-          id={`${type}Detail`}
+          id={`${fieldName}Detail`}
           type="text"
           placeholder="메모"
-          {...register(`${type}Detail`)}
+          {...register(`${fieldName}.detail`)}
           className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
         />
       </div>
@@ -89,18 +81,23 @@ function DiaryForm({ type, register, handleImgChange, imgFile, control }: IDiary
       {/** 수단 */}
       <div>
         <label
-          htmlFor={isIncome ? 'incomeMethod' : 'expenseMethod'}
-          className="text-gray-700 mb-2 block text-left text-sm font-medium"
+          className="text-gray-700 block text-left text-sm font-medium"
+          htmlFor={`${fieldName}Method`}
         >
-          내용
+          수단
         </label>
         <div className="flex items-center gap-4">
           {methods.map(option => (
-            <label key={option.value} className="flex items-center">
+            <label
+              key={option.value}
+              htmlFor={`${fieldName}Method${option.value}`}
+              className="flex items-center"
+            >
               <input
+                id={`${fieldName}Method${option.value}`}
                 type="radio"
                 value={option.value}
-                {...register(isIncome ? 'incomeMethod' : 'expenseMethod')}
+                {...register(`${fieldName}.method`)}
                 className="mr-2"
               />
               {option.label}
@@ -111,47 +108,50 @@ function DiaryForm({ type, register, handleImgChange, imgFile, control }: IDiary
 
       {/** 다이어리 */}
       <div>
-        <label htmlFor={diaryType} className="text-gray-700 block text-left text-sm font-medium">
+        <label
+          htmlFor={`${fieldName}Diary`}
+          className="text-gray-700 block text-left text-sm font-medium"
+        >
           다이어리
         </label>
         <textarea
-          id={diaryType}
+          id={`${fieldName}Diary`}
           placeholder="일기"
-          {...register(diaryType)}
+          {...register(`${fieldName}.diary`)}
           className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
         />
       </div>
 
       {/** 다이어리 - 이미지 */}
       <div>
-        <label htmlFor={diaryImgType} className="text-gray-700 block text-left text-sm font-medium">
+        <label
+          htmlFor={`${fieldName}DiaryImg`}
+          className="text-gray-700 block text-left text-sm font-medium"
+        >
           이미지
         </label>
-
         <input
-          id={diaryImgType}
+          id={`${fieldName}DiaryImg`}
           type="file"
           style={{ display: 'none' }}
-          {...register(diaryImgType, {
-            onChange: e => handleImgChange(e, diaryImgType), // 파일 선택 시 처리
-          })}
+          onChange={handleImgChange}
           className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
         />
         <Button
-          onClick={() => document.getElementById(diaryImgType)?.click()}
+          onClick={() => document.getElementById(`${fieldName}DiaryImg`)?.click()}
           className="bg-gray-300 text-gray-700 hover:bg-gray-400 rounded-md px-4 py-2 text-sm font-medium shadow"
         >
           이미지 추가
         </Button>
         <div className="mt-2 h-[20px]">
-          {imgFile?.type === diaryImgType && (
+          {imgFile?.type === fieldName && (
             <div className="text-left text-sm underline">
               {imgFile.fileName}
               {imgFile.file && (
                 <a
-                  href={imgFile.file}
-                  target="_blank" // 새 창에서 링크를 열기 위한 속성
-                  rel="noopener noreferrer" // 새 창을 열 때 보안 및 성능 향상을 위해 사용하는 속성
+                  href={imgFile.file} // 업로드된 이미지의 URL
+                  target="_blank" // 새 창에서 열기
+                  rel="noopener noreferrer" // 보안 향상
                   className="text-main underline"
                 >
                   (이미지 보기)
