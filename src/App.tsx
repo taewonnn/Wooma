@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import NavBar from './components/common/navBar/NavBar';
-import Header from './components/common/Header/Header';
+import Header from './components/common/header/Header';
 import { useEffect } from 'react';
 import { isLoggedIn } from '.';
 
