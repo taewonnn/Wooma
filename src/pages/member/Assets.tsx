@@ -1,4 +1,19 @@
+import { ApexOptions } from 'apexcharts';
 import AssetCard from '../../components/member/asset/AssetCard';
+import ReactApexChart from 'react-apexcharts';
+
+// 차트의 옵션을 설정하는 객체 - ApexOptions interface를 할당
+const options: ApexOptions = {
+  theme: {
+    mode: 'dark',
+  },
+  chart: {
+    type: 'donut',
+    height: 350,
+  },
+};
+
+const series = [44, 55, 41, 17, 15];
 
 function Assets() {
   const assets = [
@@ -11,7 +26,7 @@ function Assets() {
 
   return (
     <>
-      <AssetCard title="우리 계좌" value="10000" />
+      <ReactApexChart type="donut" options={options} series={series} />
 
       <div className="mb-20"></div>
 
