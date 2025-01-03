@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import Img from '../../common/img/Img';
 
