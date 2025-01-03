@@ -35,7 +35,7 @@ function Assets() {
           type="donut"
           options={options}
           series={series}
-          width={isMobile ? 400 : 700}
+          width={isMobile ? 400 : 500}
         />
       </div>
 
