@@ -9,6 +9,8 @@ import DiaryForm from './DiaryForm';
 // form 데이터 타입 정의
 export interface IFormData {
   category: 'income' | 'expense'; // 탭 구분
+  incomeDate: string; // 일자(수입)
+  expenseDate: string; // 일자(지출)
   incomeAmount: string; // 금액(수입)
   expenseAmount: string; // 금액(지출)
   incomeDetail?: string; // 상세 내용(수입)

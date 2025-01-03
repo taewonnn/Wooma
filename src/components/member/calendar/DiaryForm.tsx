@@ -21,6 +21,23 @@ function DiaryForm({ type, register, handleImgChange, imgFile }: IDiaryForm) {
 
   return (
     <>
+      {/** 일자 */}
+      <div>
+        <label
+          htmlFor={`${type}Date`}
+          className="text-gray-700 block text-left text-sm font-medium"
+        >
+          금액
+        </label>
+        <input
+          id={`${type}Date`}
+          type="text"
+          placeholder="일자"
+          {...register(`${type}Date`, { required: '일자를 선택하세요.' })}
+          className="border-gray-300 w-full rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+        />
+      </div>
+
       {/** 금액 */}
       <div>
         <label
