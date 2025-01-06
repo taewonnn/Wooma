@@ -5,12 +5,12 @@ import { assetTypes } from '../../constants';
 import { formatNumber } from '../../constants/common';
 
 // @todo mock
-const assets = [
-  { title: '예금', value: '50000', icon: '' },
-  { title: '적금', value: '10000', icon: '' },
-  { title: '펀드', value: '100000000', icon: '' },
-  { title: '투자', value: '9555000', icon: '' },
-  { title: '기타', value: '999999999', icon: '' },
+const rawAssets = [
+  { title: '예금', value: '50000' },
+  { title: '적금', value: '10000' },
+  { title: '펀드', value: '100000000' },
+  { title: '투자', value: '9555000' },
+  { title: '기타', value: '999999999' },
 ];
 
 // 차트 옵션 설정 객체
@@ -36,8 +36,14 @@ const AssetData: ApexOptions = {
       },
     },
   },
-  colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+  colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'], // 색상 배열
 };
+
+// assets 배열에 icon 추가
+const assets = rawAssets.map((asset, index) => ({
+  ...asset,
+  icon: AssetData.colors ? AssetData.colors[index] : '#000000', // colors 배열에서 색상을 매칭
+}));
 
 function Assets() {
   return (
@@ -48,8 +54,16 @@ function Assets() {
 
       <div className="mb-20"></div>
 
+      {/* AssetCard에 icon 추가 */}
       {assets.map((asset, index) => {
-        return <AssetCard title={asset.title} value={formatNumber(asset.value)} key={index} />;
+        return (
+          <AssetCard
+            title={asset.title}
+            value={formatNumber(asset.value)}
+            key={index}
+            icon={asset.icon} // AssetCard에 icon 전달
+          />
+        );
       })}
     </>
   );
