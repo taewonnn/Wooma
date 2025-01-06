@@ -1,7 +1,7 @@
 import { IDiaryData } from '../../../types/diary';
 
 function FeedCard({ isLoading, diaryList }: any) {
-  console.log('props data : ', diaryList);
+  // console.log('props data : ', diaryList);
 
   return (
     <>
