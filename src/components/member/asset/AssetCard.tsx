@@ -1,7 +1,7 @@
 interface IAssetCard {
-  title: string;
-  value: string;
-  icon?: string; // string 타입으로 수정 (색상 코드 전달)
+  title: string; // 타입
+  value: string; // 금액
+  icon?: string; // 아이콘 색상
 }
 
 function AssetCard({ title, value, icon }: IAssetCard) {
