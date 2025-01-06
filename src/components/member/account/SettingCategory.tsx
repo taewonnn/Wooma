@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom';
 import Img from '../../common/img/Img';
-import { BsPersonGear, BsReception4 } from 'react-icons/bs';
 
-const menuItems = [
-  { icon: <BsPersonGear />, label: '개인정보', to: '/info' },
-  { icon: <BsReception4 />, label: '예산설정', to: '/goal' },
-];
+interface ISettingCategory {
+  title: string; // 타이틀
+  menuItems: {
+    icon: React.ReactNode; // 아이콘
+    label: string; // 내용
+    to: string; // 링크
+  }[];
+}
 
-function AccountInfo() {
+function SettingCateogry({ title, menuItems }: ISettingCategory) {
   return (
     <section className="py-[10px]">
-      <p className="text-999 mb-2 text-sm">개인정보</p>
+      <p className="text-999 mb-2 text-sm">{title}</p>
       {menuItems.map((item, index) => (
         <Link to={item.to} key={index}>
           <div className="card mb-2 flex items-center rounded-lg bg-white px-3 py-[15px] shadow-lg">
@@ -23,4 +26,4 @@ function AccountInfo() {
   );
 }
 
-export default AccountInfo;
+export default SettingCateogry;
