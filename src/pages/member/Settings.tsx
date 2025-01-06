@@ -1,5 +1,5 @@
-import MenuCategories from '../../components/member/account/MenuItems';
-import SettingCateogry from '../../components/member/account/SettingCategory';
+import MenuCategories from '../../components/member/setting/MenuItems';
+import SettingCateogry from '../../components/member/setting/SettingCategory';
 
 function Settings() {
   return (
