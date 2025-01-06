@@ -6,16 +6,16 @@ import { formatNumber } from '../../constants/common';
 
 // @todo mock
 const rawAssets = [
-  { title: '예금', value: '50000' },
-  { title: '적금', value: '10000' },
-  { title: '펀드', value: '100000000' },
-  { title: '투자', value: '9555000' },
-  { title: '기타', value: '999999999' },
+  { title: '예금', value: 50000 },
+  { title: '적금', value: 100000000 },
+  { title: '펀드', value: 100000000 },
+  { title: '투자', value: 9555000 },
+  { title: '기타', value: 999999999 },
 ];
 
 // 차트 옵션 설정 객체
 const AssetData: ApexOptions = {
-  series: [999999999, 100000000, 9555000, 50000, 10000], // 실 데이터
+  series: rawAssets.map(asset => asset.value), // 실 데이터
   title: { text: '내 자산', align: 'center', style: { fontSize: '20' } },
   chart: {
     type: 'donut',
