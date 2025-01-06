@@ -18,3 +18,6 @@ export const expenseMethods = [
 
 // DateCalendar.tsx
 export const days = ['일', '월', '화', '수', '목', '금', '토'];
+
+// Assets.tsx
+export const assetTypes = ['예금', '적금', '펀드', '투자', '기타'];
