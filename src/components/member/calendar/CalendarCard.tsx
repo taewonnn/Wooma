@@ -1,6 +1,6 @@
 import useCalendarStore from '../../../stores/calendar/useCalendarStore';
 
-function Card() {
+function CalendarCard() {
   const { selectedDate } = useCalendarStore();
 
   // 예제 데이터 (날짜별 내역)
@@ -34,4 +34,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CalendarCard;

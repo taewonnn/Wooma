@@ -1,4 +1,4 @@
-import Card from '../../components/member/calendar/Card';
+import Card from '../../components/member/calendar/CalendarCard';
 import MainCalendar from '../../components/member/calendar/MainCalendar';
 
 function Calendar() {
