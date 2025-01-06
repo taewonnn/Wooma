@@ -10,6 +10,7 @@ import SignUp from '../pages/gusest/SignUp';
 import KakaoCallbck from '../pages/gusest/KakaoCallback';
 import NaverCallback from '../pages/gusest/NaverCallbcak';
 import Calendar from '../pages/member/Calendar';
+import Charts from '../pages/member/Charts';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -28,6 +29,10 @@ export const authenticatedUserRouter = createBrowserRouter([
       {
         path: '/calendar',
         element: <Calendar />,
+      },
+      {
+        path: '/charts',
+        element: <Charts />,
       },
       {
         path: '/assets',

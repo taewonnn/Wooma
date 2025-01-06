@@ -1,5 +1,5 @@
 // navBar
-export const navMenus = ['Feed', 'Calendar', 'Assets', 'Settings'];
+export const navMenus = ['Feed', 'Calendar', 'Assets', 'Charts', 'Settings'];
 
 // ExpenseData.tsx
 export const incomeMethods = [
