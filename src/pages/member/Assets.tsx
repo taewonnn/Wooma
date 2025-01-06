@@ -48,20 +48,21 @@ const assets = rawAssets.map((asset, index) => ({
 function Assets() {
   return (
     <>
+      {/** 도넛 그래프  */}
       <div className="flex justify-center">
         <ReactApexChart type="donut" options={AssetData} series={AssetData.series} width={400} />
       </div>
 
       <div className="mb-20"></div>
 
-      {/* AssetCard에 icon 추가 */}
+      {/** 자산 목록  */}
       {assets.map((asset, index) => {
         return (
           <AssetCard
             title={asset.title}
             value={formatNumber(asset.value)}
             key={index}
-            icon={asset.icon} // AssetCard에 icon 전달
+            icon={asset.icon}
           />
         );
       })}
