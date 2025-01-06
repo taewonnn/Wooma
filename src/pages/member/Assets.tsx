@@ -36,7 +36,7 @@ const AssetData: ApexOptions = {
       },
     },
   },
-  colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'], // 색상 배열
+  colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
 };
 
 // assets 배열에 icon 추가
