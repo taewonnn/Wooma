@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GOOGLE_CLIENT_ID } from './constants/envConfig';
 import GlobalModal from './pages/modal/GlobalModal';
+import { isLoggedIn } from './utils/isLogin';
 
 /** react-query */
 const client = new QueryClient({
@@ -18,19 +19,6 @@ const client = new QueryClient({
     },
   },
 });
-
-/** 로그인 상태 확인 함수 */
-export const isLoggedIn = () => {
-  // 테스트 위해 user 지정
-  const user = 1;
-
-  // 비로그인 시
-  // const user = false;
-  if (user) {
-    return true;
-  }
-  return false;
-};
 
 // 경고 무시 함수 - react router future flag
 const originalWarn = console.warn;

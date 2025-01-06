@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import NavBar from './components/common/navBar/NavBar';
 import Header from './components/common/header/Header';
 import { useEffect } from 'react';
-import { isLoggedIn } from '.';
+import { isLoggedIn } from './utils/isLogin';
 
 function App() {
   const navigate = useNavigate();
