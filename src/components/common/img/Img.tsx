@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface IImg {
-  src: string;
+  src: string | React.ReactNode;
   alt?: string;
   className?: string;
   width?: string | number;
@@ -20,6 +20,15 @@ export default function Img({
   style,
 }: IImg) {
   const basePath = '/src/assets'; // 기본 경로 설정
+
+  // 아이콘 컴포넌트용 처리
+  if (typeof src !== 'string') {
+    return (
+      <div className={`${className}`} style={{ width, height, ...style }}>
+        {src}
+      </div>
+    );
+  }
 
   return (
     <img
