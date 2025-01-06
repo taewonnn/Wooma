@@ -13,7 +13,7 @@ function AccountInfo() {
       <p className="text-999 mb-2 text-sm">개인정보</p>
       {menuItems.map((item, index) => (
         <Link to={item.to} key={index}>
-          <div className="flex items-center py-[15px]">
+          <div className="card mb-2 flex items-center rounded-lg bg-white px-3 py-[15px] shadow-lg">
             <Img src={item.icon} alt={item.label} className="mr-3 h-[15px] w-[15px]" />
             <p>{item.label}</p>
           </div>
