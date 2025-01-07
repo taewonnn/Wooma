@@ -7,37 +7,53 @@ interface IAssetCard {
 }
 
 function AssetCard({ title, value, icon }: IAssetCard) {
-  // 넓이 확장
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleCard = () => {
-    setIsExpanded(prev => !prev); // 클릭 시 상태 토글
+    console.log('!!', isExpanded);
+    setIsExpanded(prev => !prev);
   };
 
   return (
     <div
-      className="mb-3 flex items-center justify-between rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg"
+      className={`mb-3 overflow-hidden rounded-lg bg-white p-4 shadow-md transition-all duration-300 ${
+        isExpanded ? 'max-h-40' : 'max-h-20'
+      }`}
       onClick={toggleCard}
     >
-      {/* 아이콘 */}
-      <div className="mr-4 flex items-center">
-        <div className="h-4 w-4 rounded-full" style={{ backgroundColor: icon || '#ddd' }}></div>
-      </div>
+      <div className="flex items-center justify-between">
+        <div className="mr-4 flex items-center">
+          {/** 아이콘 */}
+          <div
+            className="mr-2 h-4 w-4 rounded-full"
+            style={{ backgroundColor: icon || '#ddd' }}
+          ></div>
 
-      <div className="flex w-full items-center justify-between">
-        {/* 타이틀 */}
-        <p className="text-gray-500 text-sm">{title}</p>
+          {/** 타이틀 */}
+          <p className="text-gray-500 text-sm">{title}</p>
+        </div>
 
-        {/* 금액 */}
+        {/** 금액 */}
         <p className="text-gray-800 text-lg font-bold">{value}원</p>
       </div>
 
-      {/* 확장된 내용 */}
-      {isExpanded && (
-        <div className="text-gray-600 mt-4 text-sm">
-          <p>여기에 추가적으로 보여질 내용을 넣을 수 있습니다.</p>
-        </div>
-      )}
+      {/** 확장 ui */}
+      <div
+        className={`mt-4 text-right text-sm transition-opacity duration-300 ${
+          isExpanded ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        onClick={e => e.stopPropagation()} // 이벤트 전파 차단
+      >
+        <label htmlFor="amount" className="hidden">
+          금액
+        </label>
+        <input
+          id="amount"
+          type="number"
+          placeholder="금액을 입력해주세요."
+          className="border-gray-300 rounded-md px-3 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+        />
+      </div>
     </div>
   );
 }
