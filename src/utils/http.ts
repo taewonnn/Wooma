@@ -30,29 +30,6 @@ export const http = {
   },
 };
 
-/** SDK campaign */
-export const campaignHttp = {
-  /** GET */
-  async get(url: string, config?: AxiosRequestConfig<any>) {
-    try {
-      const res = await campaignAxios.get(url, config);
-      return res;
-    } catch (e) {
-      return handleCommonError(e as Error);
-    }
-  },
-
-  /** POST */
-  async post(url: string, data: any) {
-    try {
-      const res = await campaignAxios.post(url, data);
-      return res;
-    } catch (e) {
-      return handleCommonError(e as Error);
-    }
-  },
-};
-
 /** Axios 에러 핸들링 함수 */
 function handleAxiosError(e: AxiosError): AxiosResponse | undefined {
   return e.response;
