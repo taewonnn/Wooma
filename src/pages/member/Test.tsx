@@ -1,4 +1,4 @@
-import LocalList, { LocalData } from './\bLocalList';
+import LocalList, { LocalData } from './LocalList';
 import depthData from '../../assets/local_depth.json';
 
 import { useEffect, useState } from 'react';
