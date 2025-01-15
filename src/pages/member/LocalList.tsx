@@ -1,7 +1,10 @@
 export interface LocalData {
   code: string;
   name: string;
-  parent_code?: string;
+  depth: number;
+  is_whole: boolean;
+  parent_code: string | null; // 기존 boolean | null을 string | null로 수정
+  children?: LocalData[];
 }
 
 interface ILocalList {
