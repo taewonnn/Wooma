@@ -46,16 +46,20 @@ function Test() {
     setSelectedList(prev => {
       // 체크된 상태
       if (isChecked) {
-        return [...prev, item];
+        const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
+        console.log('체크된 상태의 item', itemWithoutChildren);
+        return [...prev, itemWithoutChildren];
       } else {
         // 체크 해제 시
-        return prev.filter(prevItem => prevItem.code !== item.code);
+        const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
+        console.log('체크 해제 Item', itemWithoutChildren);
+        return prev.filter(prevItem => prevItem.code !== itemWithoutChildren.code);
       }
     });
   };
 
   useEffect(() => {
-    console.log('체크된 items list', selectedList);
+    console.log('담긴 List:', selectedList);
   }, [setSelectedList, selectedList]);
 
   return (
