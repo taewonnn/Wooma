@@ -73,13 +73,22 @@ function Test() {
           setSelectedData(prev => [...prev, item?.children?.find(data => data.is_whole)]);
         }
       }
-      /* 나와 같은 뎁스, 같은부모에 선택된 is_whole이 있으면 제외 */
-      const isWhole = selectedData.some(
-        data => data.depth === item.depth && data.parent_code === item.parent_code && data.is_whole,
-      );
-      if (!item.is_whole && selectedData.some(() => isWhole)) {
-        setSelectedData(prev => prev.filter(data => !isWhole || !data.is_whole));
+
+      if (item.is_whole) {
+        /**
+         * @TODO is_whloe인 아이가 선택되면 is_whole이아닌 형제와 그 자녀 제거
+         * */
+      } else {
+        /* 나와 같은 뎁스, 같은부모에 선택된 is_whole이 있으면 제외 */
+        const isWhole = selectedData.some(
+          data =>
+            data.depth === item.depth && data.parent_code === item.parent_code && data.is_whole,
+        );
+        if (selectedData.some(() => isWhole)) {
+          setSelectedData(prev => prev.filter(data => !isWhole));
+        }
       }
+
       setSelectedData(prev => [...prev, item]);
     } else {
       /**
