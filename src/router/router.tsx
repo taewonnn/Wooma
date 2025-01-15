@@ -11,6 +11,7 @@ import KakaoCallbck from '../pages/gusest/KakaoCallback';
 import NaverCallback from '../pages/gusest/NaverCallbcak';
 import Calendar from '../pages/member/Calendar';
 import Charts from '../pages/member/Charts';
+import Test from '../pages/member/Test';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -35,11 +36,19 @@ export const authenticatedUserRouter = createBrowserRouter([
         element: <Charts />,
       },
       {
+        path: '/test',
+        element: <Test />,
+      },
+      {
         path: '/assets',
         element: <Assets />,
       },
       {
         path: '/settings',
+        element: <Settings />,
+      },
+      {
+        path: '/test',
         element: <Settings />,
       },
       // 설정되지 않은 경로일 경우 /feed로 리다이렉트
