@@ -15,7 +15,7 @@ function Test() {
    */
   const handleFirstClick = (item: LocalData) => {
     setSelectedFirstCode(item);
-    setSelectedSecondCode(null);
+    setSelectedSecondCode(null); // 2Depth 초기화
   };
 
   const handleSecondClick = (item: LocalData) => {
@@ -29,6 +29,10 @@ function Test() {
   const filteredThird = selectedSecondCode?.children || [];
 
   /**
+   * 1depth 클릭 시 -> 2depth 전체
+   */
+
+  /**
    * 체크박스 선택 시 함수
    * 선택한 리스트에 담기 + 하위뎁스 전체도 체크
    */
@@ -38,12 +42,12 @@ function Test() {
       // 체크된 상태
       if (isChecked) {
         const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
-        console.log('체크된 상태의 item', itemWithoutChildren);
+        // console.log('체크된 상태의 item', itemWithoutChildren);
         return [...prev, itemWithoutChildren];
       } else {
         // 체크 해제 시
         const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
-        console.log('체크 해제 Item', itemWithoutChildren);
+        // console.log('체크 해제 Item', itemWithoutChildren);
         return prev.filter(prevItem => prevItem.code !== itemWithoutChildren.code);
       }
     });
@@ -89,7 +93,25 @@ function Test() {
               <dl className="border-e3e text-666 h-[223px] w-[233px] overflow-hidden rounded border bg-white">
                 <dt className="boredr-b-e3e bg-f5f border-b p-[10px] text-[12px]">선택 지역</dt>
                 <dd className="relative h-[185px] overflow-y-auto p-[10px]">
-                  <div className="w-full">{}</div>
+                  <div className="w-full">
+                    {selectedList.length === 0 ? (
+                      <div
+                        id="loc_target_plus_result_none"
+                        className="loc_target_plus_result_area absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-[10px] whitespace-nowrap"
+                      >
+                        {/* 기본 문구 */}
+                        선택한 시/군/구가 노출됩니다.
+                      </div>
+                    ) : (
+                      <ul id="loc_target_plus_result">
+                        {selectedList.map(item => (
+                          <li key={`${item.code}`} className="flex justify-between">
+                            <span>{item.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </dd>
               </dl>
             </td>
