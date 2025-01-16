@@ -8,6 +8,7 @@ function Test() {
   const [selectedList, setSelectedList] = useState<LocalData[]>([]); // 선택한 지역 배열에 추가
   const [selectedFirstCode, setSelectedFirstCode] = useState<LocalData | null>(null); // 시/도 클릭한 code 저장
   const [selectedSecondCode, setSelectedSecondCode] = useState<LocalData | null>(null); // 구/군 클릭한 code 저장
+  const [checkedStates, setCheckedStates] = useState<{ [key: string]: boolean }>({}); // 체크 상태용
 
   /**
    * 상세설정 선택 함수 -  2가지 필요(시/도 - first, 구/군 - second)
@@ -28,28 +29,86 @@ function Test() {
   // 동/읍/면 필터 data
   const filteredThird = selectedSecondCode?.children || [];
 
-  /**
-   * 1depth 클릭 시 -> 2depth 전체
-   */
+  const updateParentState = (item: LocalData, updatedList: LocalData[]) => {
+    // 상위 "전체" 항목 해제
+    const parent = depthData.find(parent => parent.code === item.parent_code);
+    if (parent) {
+      const wholeItem = parent.children?.find(child => child.is_whole);
+      if (wholeItem) {
+        const index = updatedList.findIndex(i => i.code === wholeItem.code);
+        if (index > -1) {
+          updatedList.splice(index, 1); // 리스트에서 "전체" 항목 제거
+        }
+      }
+    }
+  };
+
+  const updateChildState = (item: LocalData, updatedList: LocalData[]) => {
+    // 하위 항목 모두 해제
+    if (item.children) {
+      item.children.forEach(child => {
+        const index = updatedList.findIndex(i => i.code === child.code);
+        if (index > -1) {
+          updatedList.splice(index, 1); // 리스트에서 하위 항목 제거
+        }
+      });
+    }
+  };
 
   /**
    * 체크박스 선택 시 함수
    * 선택한 리스트에 담기 + 하위뎁스 전체도 체크
    */
   const handleCheck = (item: LocalData, isChecked: boolean) => {
-    // 값 저장
     setSelectedList(prev => {
-      // 체크된 상태
+      const updatedList = [...prev];
+
       if (isChecked) {
-        const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
-        // console.log('체크된 상태의 item', itemWithoutChildren);
-        return [...prev, itemWithoutChildren];
+        // "전체" 선택 시 하위 항목 제거
+        if (item.is_whole) {
+          updateChildState(item, updatedList);
+        } else {
+          // 세부 항목 선택 시 상위 "전체" 제거
+          updateParentState(item, updatedList);
+        }
+        // 현재 항목 추가
+        if (!updatedList.some(i => i.code === item.code)) {
+          updatedList.push({ ...item, children: undefined });
+        }
       } else {
-        // 체크 해제 시
-        const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
-        // console.log('체크 해제 Item', itemWithoutChildren);
-        return prev.filter(prevItem => prevItem.code !== itemWithoutChildren.code);
+        // 현재 항목 제거
+        const index = updatedList.findIndex(i => i.code === item.code);
+        if (index > -1) {
+          updatedList.splice(index, 1);
+        }
       }
+
+      return updatedList;
+    });
+
+    // 체크 상태 업데이트
+    setCheckedStates(prev => {
+      const newState = { ...prev, [item.code]: isChecked };
+
+      // "전체" 체크 시 하위 항목 체크 해제
+      if (item.is_whole && item.children) {
+        item.children.forEach(child => {
+          newState[child.code] = false;
+        });
+      }
+
+      // 세부 항목 체크 시 상위 "전체" 해제
+      if (!item.is_whole) {
+        const parent = depthData.find(parent => parent.code === item.parent_code);
+        if (parent) {
+          const wholeItem = parent.children?.find(child => child.is_whole);
+          if (wholeItem) {
+            newState[wholeItem.code] = false;
+          }
+        }
+      }
+
+      return newState;
     });
   };
 
@@ -70,6 +129,7 @@ function Test() {
                 type="1st"
                 onDetailClick={handleFirstClick}
                 onCheckChange={handleCheck}
+                checkedStates={checkedStates}
               />
             </td>
             <td>
@@ -79,6 +139,7 @@ function Test() {
                 type="2nd"
                 onDetailClick={handleSecondClick}
                 onCheckChange={handleCheck}
+                checkedStates={checkedStates}
               />
             </td>
             <td>
@@ -87,6 +148,7 @@ function Test() {
                 type="3rd"
                 data={filteredThird}
                 onCheckChange={handleCheck}
+                checkedStates={checkedStates}
               />
             </td>
             <td>
