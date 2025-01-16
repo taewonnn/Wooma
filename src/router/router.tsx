@@ -12,6 +12,7 @@ import NaverCallback from '../pages/gusest/NaverCallbcak';
 import Calendar from '../pages/member/Calendar';
 import Charts from '../pages/member/Charts';
 import Test from '../pages/member/Test';
+import LocalPlus from '../pages/test/LocalPlus';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -38,6 +39,10 @@ export const authenticatedUserRouter = createBrowserRouter([
       {
         path: '/test',
         element: <Test />,
+      },
+      {
+        path: '/local',
+        element: <LocalPlus />,
       },
       {
         path: '/assets',
