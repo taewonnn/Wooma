@@ -14,16 +14,8 @@ interface ILocalList {
   parentCode?: string; // 선택된 상위 지역 코드 (구/군에서 필요)
   onDetailClick?: (item: LocalData) => void;
   onCheckChange?: (item: LocalData, isChecked: boolean) => void; // 체크박스 상태 변경 핸들러
-  checkedStates: { [key: string]: boolean }; // 체크여부
 }
-export default function LocalList({
-  title,
-  type,
-  data,
-  onDetailClick,
-  onCheckChange,
-  checkedStates,
-}: ILocalList) {
+export default function LocalList({ title, type, data, onDetailClick, onCheckChange }: ILocalList) {
   return (
     <dl className="border-e3e text-666 h-[223px] w-[233px] overflow-hidden rounded border bg-white">
       <dt className="boredr-b-e3e bg-f5f border-b p-[10px] text-[12px]">{title}</dt>
@@ -43,7 +35,7 @@ export default function LocalList({
                     data-name={type === '1st' ? item.name + ' 전체' : item.name}
                     value={item.code}
                     onChange={e => onCheckChange?.(item, e.target.checked)} // 체크박스 상태 전달
-                    checked={!!checkedStates[item.code]} // 체크여부
+                    // checked={!!checkedStates[item.code]} // 체크여부
                   />
                   <label htmlFor={`loc_target_plus_${type}_${item.code}`}>{item.name}</label>
                   {(type === '1st' || (type === '2nd' && !item.name.includes('전체'))) && (
