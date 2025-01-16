@@ -24,22 +24,15 @@ function Test() {
 
   // 구/군 필터 data
   const filteredSecond = selectedFirstCode?.children || [];
-
   // 동/읍/면 필터 data
   const filteredThird = selectedSecondCode?.children || [];
-
-  /**
-   * 1depth 클릭 시 -> 2depth 전체
-   */
 
   /**
    * 체크박스 선택 시 함수
    * 선택한 리스트에 담기 + 하위뎁스 전체도 체크
    */
   const handleCheck = (item: LocalData, isChecked: boolean) => {
-    // 값 저장
     setSelectedList(prev => {
-      // 체크된 상태
       if (isChecked) {
         const { children, ...itemWithoutChildren } = item; // 불필요 - children 제거
         // console.log('체크된 상태의 item', itemWithoutChildren);
@@ -53,15 +46,61 @@ function Test() {
     });
   };
 
-  useEffect(() => {
-    console.log('담긴 List:', selectedList);
-  }, [setSelectedList, selectedList]);
+  /**
+   * filter - 하위 항목이 있는지
+   */
+  const filterLowestDepth = (selectedList: LocalData[]): LocalData[] => {
+    return selectedList.filter(item => {
+      // 현재 item의 code가 다른 item의 parent_code와 일치하면 상위 주소이므로 false
+      const isParent = selectedList.some(other => other.parent_code === item.code);
+      return !isParent;
+    });
+  };
+
+  /**
+   * 부모 데이터 가져오기
+   */
+  const getParent = (item: LocalData, data: LocalData[] = depthData): LocalData | null => {
+    for (const entry of data) {
+      if (entry.code === item.parent_code) {
+        return entry; // 부모를 찾으면 반환
+      }
+      if (entry.children) {
+        const parent = getParent(item, entry.children); // children 탐색
+        if (parent) {
+          return parent;
+        }
+      }
+    }
+    return null;
+  };
+
+  /**
+   * 부모의 시/도와 구/군 이름 가져오기
+   */
+  const getFullLocationName = (item: LocalData): string => {
+    const parent = getParent(item); // 현재 항목의 부모 가져오기
+    const grandParent = parent ? getParent(parent) : null; // 부모의 부모 가져오기
+
+    const district = item.depth === 3 ? parent?.name || '없음' : ''; // 구/군 이름
+    const city = item.depth === 3 ? grandParent?.name || '없음' : parent?.name || '없음'; // 시/도 이름
+
+    switch (item.depth) {
+      case 1:
+        return `${item.name} 전체`; // 시/도만 선택된 경우
+      case 2:
+        return `(${city}) ${item.name} 전체`; // 구/군만 선택된 경우
+      case 3:
+        return `(${city}) ${district} ${item.name}`; // 동/읍/면 선택된 경우
+      default:
+        return '';
+    }
+  };
 
   return (
     <div className="flex flex-wrap gap-[20px]">
       <table>
         <tbody>
-          {/** @todo 장소 설정 리스트 */}
           <tr className="flex flex-wrap gap-[20px]">
             <td>
               <LocalList
@@ -104,9 +143,9 @@ function Test() {
                       </div>
                     ) : (
                       <ul id="loc_target_plus_result">
-                        {selectedList.map(item => (
-                          <li key={`${item.code}`} className="flex justify-between">
-                            <span>{item.name}</span>
+                        {filterLowestDepth(selectedList).map(item => (
+                          <li key={item.code} className="flex justify-between">
+                            <span>{getFullLocationName(item)}</span>
                           </li>
                         ))}
                       </ul>
