@@ -35,7 +35,6 @@ export default function LocalList({ title, type, data, onDetailClick, onCheckCha
                     data-name={type === '1st' ? item.name + ' 전체' : item.name}
                     value={item.code}
                     onChange={e => onCheckChange?.(item, e.target.checked)} // 체크박스 상태 전달
-                    // checked={!!checkedStates[item.code]} // 체크여부
                   />
                   <label htmlFor={`loc_target_plus_${type}_${item.code}`}>{item.name}</label>
                   {(type === '1st' || (type === '2nd' && !item.name.includes('전체'))) && (
