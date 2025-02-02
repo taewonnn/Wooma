@@ -13,7 +13,6 @@ interface TabItem {
   type: 'incomeTransaction' | 'expenseTransaction';
 }
 
-// form 데이터 타입 정의
 export interface ITransaction {
   date: string; // 일자
   amount: string; // 금액
