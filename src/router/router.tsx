@@ -1,17 +1,17 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
-import Feed from '../pages/member/Feed';
-import Assets from '../pages/member/Assets';
-import Settings from '../pages/member/Settings';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import PublicApp from '../PublicApp';
 import SignIn from '../pages/gusest/SignIn';
 import SignUp from '../pages/gusest/SignUp';
 import KakaoCallbck from '../pages/gusest/KakaoCallback';
 import NaverCallback from '../pages/gusest/NaverCallbcak';
+
+import Feed from '../pages/member/Feed';
+import Assets from '../pages/member/Assets';
 import Calendar from '../pages/member/Calendar';
 import Charts from '../pages/member/Charts';
-import LocalPlusTemp from '../pages/member/localplusTemp';
+import Settings from '../pages/member/Settings';
 
 /** 로그인 유저 전용 라우터 */
 export const authenticatedUserRouter = createBrowserRouter([
@@ -34,10 +34,6 @@ export const authenticatedUserRouter = createBrowserRouter([
       {
         path: '/charts',
         element: <Charts />,
-      },
-      {
-        path: '/local',
-        element: <LocalPlusTemp />,
       },
       {
         path: '/assets',
