@@ -6,6 +6,8 @@ import { Tab } from '@headlessui/react';
 import { useModalStore } from '../../../stores/useModalStore';
 import Button from '../../common/button/Button';
 import DiaryForm from './DiaryForm';
+import { useCreateTransactions } from '../../../hooks/TransactionsQuery';
+import { v4 as uuidv4 } from 'uuid';
 
 interface TabItem {
   key: 'income' | 'expense';
@@ -91,16 +93,31 @@ function Diary() {
     }
   };
 
+  const { mutate: createTransactions } = useCreateTransactions();
+
   // form 제출
   const onSubmit: SubmitHandler<IFormData> = data => {
+    console.log('data', data);
+
     const formData = {
+      date: dayjs(data[transactionType]?.date).format('YYYY-MM-DD'), // 날짜 형태 변경
       type: selectedTab === 0 ? 'income' : 'expense',
       ...data[transactionType],
-      date: dayjs(data[transactionType]?.date).format('YYYY-MM-DD'), // 날짜 형태 변경
+      memberGroupId: 'test',
+      memberId: 'daram',
+      UUID: uuidv4(), // UUID 생성
+      id: uuidv4(),
+      amount: Number(data[transactionType]?.amount) || 0,
     };
 
-    console.log('최종 form', formData);
-
+    createTransactions(formData, {
+      onSuccess: res => {
+        console.log(res);
+      },
+      onError: res => {
+        console.error(res);
+      },
+    });
     // @todo: API 호출
 
     reset(); // 폼 리셋
