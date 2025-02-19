@@ -28,6 +28,7 @@ const fetchTransactions = async () => {
 // cli : npx json-server --watch public/expenseData.json --port 3000
 const fetchTransactionsJsonData = async (): Promise<ITransaction[]> => {
   const res = await http.get('http://localhost:3000/transactions');
+
   return res?.data;
 };
 

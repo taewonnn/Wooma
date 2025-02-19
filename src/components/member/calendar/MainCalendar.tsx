@@ -8,12 +8,14 @@ import { useModalStore } from '../../../stores/useModalStore';
 import Diary from './Diary';
 import { formatNumber, truncateText } from '../../../constants/common';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import { useTransactions } from '../../../hooks/TransactionsQuery';
 
 // mockdata
 const events = [
   { date: '2025-01-01', income: 1000000, expense: 5000 },
   { date: '2025-01-02', income: 0, expense: 2000 },
   { date: '2025-01-03', income: 0, expense: 1000 },
+  { date: '2025-02-04', income: 0, expense: 1000 },
 ];
 
 function MainCalendar() {
@@ -33,6 +35,10 @@ function MainCalendar() {
       customContent: <Diary />,
     });
   };
+
+  // data
+  const { data } = useTransactions();
+  console.log(data);
 
   // 특정 일자 클릭 시
   const handleDateClick = (info: any) => {
