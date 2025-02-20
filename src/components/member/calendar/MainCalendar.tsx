@@ -37,8 +37,8 @@ function MainCalendar() {
   };
 
   // data
-  const { data } = useTransactions();
-  console.log(data);
+  const { data: transactions } = useTransactions();
+  console.log(transactions);
 
   // 특정 일자 클릭 시
   const handleDateClick = (info: any) => {
@@ -88,10 +88,13 @@ function MainCalendar() {
           left: 'title',
           right: 'addButton prev,next',
         }}
-        events={events.map(event => ({
+        events={transactions?.map(event => ({
           title: '',
           start: event.date,
-          extendedProps: { income: event.income, expense: event.expense }, // 수입/지출 데이터
+          extendedProps: {
+            income: event.type === 'income' && event.amount,
+            expense: event.type === 'expense' && event.amount,
+          }, // 수입/지출 데이터
         }))}
         eventContent={renderEventContent} // 커스터마이징된 이벤트 렌더링
       />

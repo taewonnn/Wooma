@@ -1,274 +1,256 @@
 {
   "transactions": [
     {
-      "date": "2024-03-01",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 220000,
-      "description": "Anniversary Celebration",
-      "UUID": "8c5da3b1-b7a0-4ced-84bf-d91a5f4495a3",
-      "id": "2171"
-    },
-    {
-      "date": "2024-03-02",
+      "id": "b503ca5a-dc37-4c8c-8dca-c90406761581",
+      "date": "2025-02-03",
+      "type": "income",
+      "amount": 24100,
+      "detail": "급여 관련 수입",
+      "method": "carryOver",
+      "diary": "이 날은 저금에 신경을 썼다.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 386000,
-      "description": "Anniversary Celebration",
-      "UUID": "4b560d91-3e07-42e1-8fef-dd80737ada46",
-      "id": "130e"
+      "UUID": "126fbbb4-bc53-4d6a-916a-6e23262d6a91"
     },
     {
-      "date": "2024-03-02",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 3400,
-      "description": "Grocery Shopping",
-      "UUID": "2b4529a0-9c57-4800-b335-369b37a0a85c",
-      "id": "97b6"
-    },
-    {
-      "date": "2024-03-02",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 54150,
-      "description": "Movie Night",
-      "UUID": "6f818ab4-55d2-466a-b3c2-36c03550072e",
-      "id": "a795"
-    },
-    {
-      "date": "2024-03-05",
+      "id": "1c967c16-52bd-454c-9b16-1f76cba524e4",
+      "date": "2025-02-12",
+      "type": "expense",
+      "amount": 8900,
+      "detail": "식료품 구매",
+      "method": "cash",
+      "diary": "장 볼 때 할인 쿠폰을 사용했다.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 250500,
-      "description": "Grocery Shopping",
-      "UUID": "19bb54dd-5fc7-483c-96bf-5a8f8d669f63",
-      "id": "afc7"
+      "UUID": "c6705f28-521c-42b2-9251-9f8d4e6a5b31"
     },
     {
-      "date": "2024-03-05",
+      "id": "556db6a4-a494-46ab-a9e2-4a694ff35751",
+      "date": "2025-02-20",
+      "type": "income",
+      "amount": 31500,
+      "detail": "부수입 발생",
+      "method": "salary",
+      "diary": "새로운 프로젝트로부터 수익이 발생.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 184100,
-      "description": "Book Shopping",
-      "UUID": "3145471b-ec05-48e8-a965-4049c6b3fa0e",
-      "id": "968e"
+      "UUID": "0447d56f-3c14-4635-a96c-8ce87ab63eb7"
     },
     {
-      "date": "2024-03-05",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 498400,
-      "description": "Weekend Getaway",
-      "UUID": "201f4cfb-508d-42cb-a24d-4f9f0c9a06c2",
-      "id": "bd34"
-    },
-    {
-      "date": "2024-03-05",
+      "id": "3bb7e6fe-2a63-49c3-820c-4ffb2f5cd3e7",
+      "date": "2025-02-11",
+      "type": "expense",
+      "amount": 21000,
+      "detail": "카페 지출",
+      "method": "other",
+      "diary": "친구들과 만남.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 2600,
-      "description": "Coffee Break",
-      "UUID": "c2138bf4-60b2-446f-993b-3d86b0b0b10e",
-      "id": "72e4"
+      "UUID": "11984764-c4b9-49c3-b1e6-3fe3fae88c46"
     },
     {
-      "date": "2024-03-09",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 16700,
-      "description": "Street Food Adventure",
-      "UUID": "55d214af-fbe5-4f62-a6d0-73f68c99526e",
-      "id": "22b1"
-    },
-    {
-      "date": "2024-03-10",
+      "id": "2a85cffa-15c9-4da5-a17a-dac05c3c07f7",
+      "date": "2025-02-02",
+      "type": "income",
+      "amount": 45000,
+      "detail": "용돈 받음",
+      "method": "allowance",
+      "diary": "부모님께 받은 용돈.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 3700,
-      "description": "Concert Night",
-      "UUID": "76c6f8e1-ec4f-4b55-90e8-4a3e4fec3e02",
-      "id": "3c72"
+      "UUID": "ae7bb8c3-9d40-488c-9a21-723a7f7f78df"
     },
     {
-      "date": "2024-03-11",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 28700,
-      "description": "Home Cooking",
-      "UUID": "65c4f102-a64a-4518-aa5a-8f6512e3b60e",
-      "id": "b1e2"
-    },
-    {
-      "date": "2024-03-12",
+      "id": "39a4a387-279d-4bc9-88f6-45bd19711b41",
+      "date": "2025-02-05",
+      "type": "expense",
+      "amount": 12700,
+      "detail": "택시비",
+      "method": "card",
+      "diary": "날이 추워서 택시 이용.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 195700,
-      "description": "Dinner Date",
-      "UUID": "9e8072e4-2893-4f1e-ba5e-68fef0e8b883",
-      "id": "5e3f"
+      "UUID": "b0714230-7307-4f5b-9bf6-98c6ce5d1bf3"
     },
     {
-      "date": "2024-03-13",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 135900,
-      "description": "Movie Night",
-      "UUID": "fbf7b814-661f-40af-99f2-3c8c2e8a84df",
-      "id": "d4e8"
-    },
-    {
-      "date": "2024-03-14",
+      "id": "fa540b2e-762a-4aa0-9b78-0f67c69d5a15",
+      "date": "2025-02-22",
+      "type": "expense",
+      "amount": 32000,
+      "detail": "의류 구매",
+      "method": "cash",
+      "diary": "봄맞이 쇼핑.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 46300,
-      "description": "Grocery Shopping",
-      "UUID": "1dc3a7f1-d5da-4d91-9ab3-df4b3c8b15a5",
-      "id": "0a4f"
+      "UUID": "45b88824-0f81-474d-9a6e-a1e2a84ca640"
     },
     {
-      "date": "2024-03-15",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 174000,
-      "description": "Anniversary Celebration",
-      "UUID": "223f4b5d-43b2-4d7f-9c31-8e5b3d279f3f",
-      "id": "5f3b"
-    },
-    {
-      "date": "2024-03-16",
+      "id": "46c61e90-91c2-47b1-94b3-66f63efaa269",
+      "date": "2025-02-14",
+      "type": "income",
+      "amount": 5200,
+      "detail": "작은 수익",
+      "method": "other",
+      "diary": "온라인 중고 거래로 이익 발생.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 314000,
-      "description": "Coffee Break",
-      "UUID": "07fa5bdc-77e1-4a5b-8d8a-2d576d1f3b45",
-      "id": "b4f6"
+      "UUID": "664bd063-c2d8-4162-9f16-b10bc06a9297"
     },
     {
-      "date": "2024-03-17",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 233100,
-      "description": "Weekend Getaway",
-      "UUID": "01f5f8f1-45ff-498c-9225-3d4f8b6a8d1e",
-      "id": "a1b2"
-    },
-    {
-      "date": "2024-03-18",
+      "id": "df280e33-5644-41aa-b0ab-511efb795b55",
+      "date": "2025-02-10",
+      "type": "income",
+      "amount": 17800,
+      "detail": "월급 일부",
+      "method": "salary",
+      "diary": "프로젝트 성과금 일부 수령.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 192700,
-      "description": "Concert Night",
-      "UUID": "b670d3f5-0a5e-41d4-92c5-ac510e9c34ab",
-      "id": "2f76"
+      "UUID": "b31f76da-17f7-4a5c-a746-41f89304b693"
     },
     {
-      "date": "2024-03-20",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 19800,
-      "description": "Street Food Adventure",
-      "UUID": "db09cfb3-1b76-4627-87f5-19c5a3e3e6bf",
-      "id": "c8a4"
-    },
-    {
-      "date": "2024-03-20",
+      "id": "1e50547b-2ef9-4976-8e0e-b7ca0cc8de2f",
+      "date": "2025-02-08",
+      "type": "expense",
+      "amount": 6500,
+      "detail": "점심 식사",
+      "method": "other",
+      "diary": "회사 근처 식당 이용.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 131000,
-      "description": "Book Shopping",
-      "UUID": "603d214c-540e-4f12-9c1f-8cb5d7f3ad1a",
-      "id": "7df2"
+      "UUID": "55f2dc4d-10e8-4518-9280-a0695f705a16"
     },
     {
-      "date": "2024-03-20",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 477400,
-      "description": "Home Cooking",
-      "UUID": "2d6f0e65-9c31-4b5a-985f-ac48c4d5c9e2",
-      "id": "e3b4"
-    },
-    {
-      "date": "2024-03-22",
+      "id": "620bc374-0ef1-49a8-9e3a-015f29042bb8",
+      "date": "2025-02-28",
+      "type": "income",
+      "amount": 29900,
+      "detail": "월말 보너스",
+      "method": "salary",
+      "diary": "성과급 수령.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 448700,
-      "description": "Dinner Date",
-      "UUID": "f8cc344e-1e00-4d83-a8f3-ec2e9223742c",
-      "id": "9bd2"
+      "UUID": "ef6c1a9f-febc-45c7-a9f1-635c61319601"
     },
     {
-      "date": "2024-03-23",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 11500,
-      "description": "Movie Night",
-      "UUID": "a17f1e24-ff47-4d2c-9f2e-aa7e6c1c5d83",
-      "id": "e836"
-    },
-    {
-      "date": "2024-03-24",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 172000,
-      "description": "Dinner Date",
-      "UUID": "e8a878e8-4c19-4ea0-bdea-e3361dba2f72",
-      "id": "df11"
-    },
-    {
-      "date": "2024-03-25",
+      "id": "b6409ba5-c4c5-4fd9-a12b-b48cce4dd78e",
+      "date": "2025-02-16",
+      "type": "expense",
+      "amount": 30000,
+      "detail": "회식 비용",
+      "method": "card",
+      "diary": "동료들과 함께 식사.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 28800,
-      "description": "Anniversary Celebration",
-      "UUID": "dfedf727-00a7-4d34-bc72-d46dba4b4db6",
-      "id": "914a"
+      "UUID": "07d5fcec-aacf-4c1e-8b12-ff389b6a3b95"
     },
     {
-      "date": "2024-03-26",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 78300,
-      "description": "Movie Night",
-      "UUID": "f94a107b-208d-43a3-b3f3-14f79c24f30f",
-      "id": "1ca2"
-    },
-    {
-      "date": "2024-03-27",
+      "id": "f74e9a79-7846-4eab-8896-a83ac95151b2",
+      "date": "2025-02-21",
+      "type": "expense",
+      "amount": 8700,
+      "detail": "영화 관람",
+      "method": "cash",
+      "diary": "개봉 첫날 관람.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 29000,
-      "description": "Coffee Break",
-      "UUID": "4bf86822-a285-47e2-8e7e-4c6020c101e9",
-      "id": "7530"
+      "UUID": "b6ad80b2-03f4-4391-8a11-90842374bff2"
     },
     {
-      "date": "2024-03-28",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 16000,
-      "description": "Grocery Shopping",
-      "UUID": "e3477993-101f-410e-8896-7d48de9312c5",
-      "id": "1f1c"
-    },
-    {
-      "date": "2024-03-30",
-      "memberGroupId": "test",
-      "memberId": "taewon",
-      "amount": 144000,
-      "description": "Anniversary Celebration",
-      "UUID": "3c85b469-3802-4242-8344-c1c3def33506",
-      "id": "0db5"
-    },
-    {
-      "date": "2024-03-30",
+      "id": "cfb374b1-9861-41bf-a39c-6359f08f7162",
+      "date": "2025-02-07",
+      "type": "income",
+      "amount": 4600,
+      "detail": "잔돈 수입",
+      "method": "other",
+      "diary": "오랜만에 서랍 정리 중 발견.",
       "memberGroupId": "test",
       "memberId": "daram",
-      "amount": 171000,
-      "description": "Dinner Date",
-      "UUID": "17b98028-65af-4f2f-a659-afa7a9ffb65d",
-      "id": "65e2"
+      "UUID": "fce7aa01-4c6a-4689-bd7f-c3595d853f2d"
+    },
+    {
+      "id": "ab14b73a-a0bd-44d5-a0b2-73c503bb35af",
+      "date": "2025-02-04",
+      "type": "expense",
+      "amount": 4500,
+      "detail": "간식비",
+      "method": "other",
+      "diary": "동네 빵집에서 간단히 구매.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "c8da62d9-dc5d-470a-b51f-17090a870b3b"
+    },
+    {
+      "id": "cd771712-9b53-4f92-8b63-92571954a885",
+      "date": "2025-02-26",
+      "type": "income",
+      "amount": 39000,
+      "detail": "이월금",
+      "method": "carryOver",
+      "diary": "지난 달 남은 금액 이월.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "e5c3b958-7f59-4f26-9009-6247199baf2c"
+    },
+    {
+      "id": "56d3d44d-51b3-4762-a37d-502cf1491bdf",
+      "date": "2025-02-09",
+      "type": "expense",
+      "amount": 15800,
+      "detail": "편의점",
+      "method": "card",
+      "diary": "음료와 간식 구매.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "ef25399f-46c8-42a5-91c4-f2b6771b0a24"
+    },
+    {
+      "id": "f678e794-c7b6-46a1-b268-8ce5e4c6b46f",
+      "date": "2025-02-25",
+      "type": "income",
+      "amount": 8700,
+      "detail": "추가 수익",
+      "method": "allowance",
+      "diary": "지인에게 도움 주고 받은 돈.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "39b2ef5f-a066-4ad3-b354-cdb8d6b66a86"
+    },
+    {
+      "id": "a127a3d1-a92e-4d36-b39f-2407dc142d82",
+      "date": "2025-02-27",
+      "type": "expense",
+      "amount": 22000,
+      "detail": "가전제품 수리",
+      "method": "card",
+      "diary": "집안 에어컨 점검.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "bc6dd14a-bbc3-455d-8c57-6209e8966fb4"
+    },
+    {
+      "id": "6bf74aaf-8990-42fc-a224-9a6dd5c73ca4",
+      "date": "2025-02-15",
+      "type": "income",
+      "amount": 10200,
+      "detail": "잔여금",
+      "method": "other",
+      "diary": "오랜만에 계좌 정리.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "c38c9c4b-3f62-437f-9d4c-05c7d4ec82a0"
+    },
+    {
+      "id": "10bc90a1-5b7e-40c4-9666-5b2141caa59f",
+      "date": "2025-02-06",
+      "type": "expense",
+      "amount": 34000,
+      "detail": "생활용품 구매",
+      "method": "cash",
+      "diary": "마트에서 필요한 물건들 구입.",
+      "memberGroupId": "test",
+      "memberId": "daram",
+      "UUID": "31561688-6232-4a57-8c7b-c2bc0447c1f2"
     }
   ]
 }

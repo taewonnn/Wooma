@@ -1,18 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { http } from '../utils/http';
 import { Axios } from 'axios';
-
-interface ITransaction {
-  date: string;
-  memberGroupId: string;
-  memberId: string;
-  amount: number;
-  description?: string;
-  UUID: string;
-  id: string;
-  diary?: string;
-  File?: File;
-}
+import { ITransaction } from '../components/member/calendar/Diary';
 
 const fetchTransactions = async () => {
   const res = await http.get('/expenseData.json');

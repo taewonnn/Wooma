@@ -16,12 +16,17 @@ interface TabItem {
 }
 
 export interface ITransaction {
-  date: string; // 일자
-  amount: string; // 금액
-  detail?: string; // 상세 내용
-  method: 'salary' | 'allowance' | 'carryOver' | 'other' | 'card' | 'cash' | ''; // 수단
-  diary?: string; // 다이어리
-  diaryImg?: File; // 이미지
+  id: string;
+  date: string;
+  type: string;
+  amount: number;
+  description?: string;
+  method?: string;
+  diary?: string;
+  diaryImg?: File | string;
+  memberGroupId: string;
+  memberId: string;
+  UUID: string;
 }
 
 export interface IFormData {
@@ -53,16 +58,16 @@ function Diary() {
     defaultValues: {
       incomeTransaction: {
         date: today,
-        amount: '',
-        detail: '',
+        amount: 0,
+        description: '',
         method: '',
         diary: '',
         diaryImg: undefined,
       },
       expenseTransaction: {
         date: today,
-        amount: '',
-        detail: '',
+        amount: 0,
+        description: '',
         method: '',
         diary: '',
         diaryImg: undefined,
@@ -97,8 +102,6 @@ function Diary() {
 
   // form 제출
   const onSubmit: SubmitHandler<IFormData> = data => {
-    console.log('data', data);
-
     const formData = {
       date: dayjs(data[transactionType]?.date).format('YYYY-MM-DD'), // 날짜 형태 변경
       type: selectedTab === 0 ? 'income' : 'expense',
